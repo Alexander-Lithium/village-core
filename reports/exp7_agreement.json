@@ -1,0 +1,222 @@
+{
+ "agreement": {
+  "table vs rules": {
+   "all": [
+    32,
+    40
+   ],
+   "room": [
+    11,
+    12
+   ],
+   "act": [
+    9,
+    14
+   ],
+   "reaction": [
+    12,
+    14
+   ],
+   "reactionMeaningOnly": [
+    12,
+    14
+   ]
+  },
+  "opus55 vs table": {
+   "all": [
+    38,
+    40
+   ],
+   "room": [
+    11,
+    12
+   ],
+   "act": [
+    14,
+    14
+   ],
+   "reaction": [
+    13,
+    14
+   ],
+   "reactionMeaningOnly": [
+    13,
+    14
+   ]
+  },
+  "opus55 vs rules": {
+   "all": [
+    30,
+    40
+   ],
+   "room": [
+    10,
+    12
+   ],
+   "act": [
+    9,
+    14
+   ],
+   "reaction": [
+    11,
+    14
+   ],
+   "reactionMeaningOnly": [
+    11,
+    14
+   ]
+  },
+  "gpt6 vs table": {
+   "all": [
+    29,
+    40
+   ],
+   "room": [
+    11,
+    12
+   ],
+   "act": [
+    9,
+    14
+   ],
+   "reaction": [
+    9,
+    14
+   ],
+   "reactionMeaningOnly": [
+    10,
+    14
+   ]
+  },
+  "gpt6 vs rules": {
+   "all": [
+    26,
+    40
+   ],
+   "room": [
+    10,
+    12
+   ],
+   "act": [
+    9,
+    14
+   ],
+   "reaction": [
+    7,
+    14
+   ],
+   "reactionMeaningOnly": [
+    8,
+    14
+   ]
+  },
+  "opus55 vs gpt6": {
+   "all": [
+    27,
+    40
+   ],
+   "room": [
+    10,
+    12
+   ],
+   "act": [
+    9,
+    14
+   ],
+   "reaction": [
+    8,
+    14
+   ],
+   "reactionMeaningOnly": [
+    9,
+    14
+   ]
+  }
+ },
+ "live": {
+  "opus55": {
+   "Q01": "field",
+   "Q02": "square",
+   "Q03": "field",
+   "Q04": "square",
+   "Q05": "home",
+   "Q06": "home",
+   "Q07": "field",
+   "Q08": "home",
+   "Q09": "home",
+   "Q10": "field",
+   "Q11": "home",
+   "Q12": "home",
+   "Q13": "help",
+   "Q14": "chat",
+   "Q15": "chat",
+   "Q16": "chat",
+   "Q17": "help",
+   "Q18": "help",
+   "Q19": "help",
+   "Q20": "chat",
+   "Q21": "take credit",
+   "Q22": "chat",
+   "Q23": "chat",
+   "Q24": "chat",
+   "Q25": "chat",
+   "Q26": "take credit",
+   "Q27": "good sign/up",
+   "Q28": "good sign/up",
+   "Q29": "good sign/up",
+   "Q30": "good sign/up",
+   "Q31": "good sign/up",
+   "Q32": "slight/down",
+   "Q33": "good sign/up",
+   "Q34": "insult/down",
+   "Q35": "good sign/up",
+   "Q36": "slight/down",
+   "Q37": "slight/down",
+   "Q38": "slight/down",
+   "Q39": "good sign/up",
+   "Q40": "good sign/up"
+  },
+  "gpt6": {
+   "Q01": "square",
+   "Q02": "home",
+   "Q03": "field",
+   "Q04": "square",
+   "Q05": "home",
+   "Q06": "home",
+   "Q07": "field",
+   "Q08": "home",
+   "Q09": "home",
+   "Q10": "field",
+   "Q11": "home",
+   "Q12": "home",
+   "Q13": "help",
+   "Q14": "chat",
+   "Q15": "praise",
+   "Q16": "chat",
+   "Q17": "help",
+   "Q18": "chat",
+   "Q19": "help",
+   "Q20": "help",
+   "Q21": "help",
+   "Q22": "argue",
+   "Q23": "chat",
+   "Q24": "chat",
+   "Q25": "chat",
+   "Q26": "take credit",
+   "Q27": "good sign/up",
+   "Q28": "good sign/up",
+   "Q29": "good sign/up",
+   "Q30": "good sign/up",
+   "Q31": "good sign/same",
+   "Q32": "insult/down",
+   "Q33": "slight/same",
+   "Q34": "insult/down",
+   "Q35": "good sign/up",
+   "Q36": "insult/down",
+   "Q37": "insult/down",
+   "Q38": "insult/down",
+   "Q39": "good sign/up",
+   "Q40": "good sign/up"
+  }
+ }
+}

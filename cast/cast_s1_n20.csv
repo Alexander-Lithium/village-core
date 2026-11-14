@@ -1,0 +1,21 @@
+id,warmth,sociability,diligence,honesty,pride,flexibility,trust_pole,trust_tier,worth_pole,worth_tier,effort_pole,effort_tier
+n0001,high,low,low,mid,mid,low,people mean well,faint,i am overlooked,faint,hard work pays off,held
+n0002,high,high,high,mid,mid,high,people mean well,faint,i am overlooked,faint,nothing i do matters,held
+n0003,high,mid,low,low,high,low,people mean well,faint,i am overlooked,held,nothing i do matters,faint
+n0004,mid,high,mid,high,low,mid,people mean well,faint,i am respected,faint,nothing i do matters,held
+n0005,high,mid,low,high,low,high,people are against me,faint,i am overlooked,faint,hard work pays off,held
+n0006,mid,high,high,low,mid,mid,people are against me,faint,i am overlooked,held,hard work pays off,faint
+n0007,high,high,mid,high,high,mid,people are against me,faint,i am respected,held,nothing i do matters,faint
+n0008,low,low,high,low,high,high,people are against me,faint,i am overlooked,held,hard work pays off,faint
+n0009,low,mid,low,high,mid,mid,people are against me,faint,i am overlooked,held,hard work pays off,faint
+n0010,mid,low,low,mid,high,low,people are against me,faint,i am overlooked,faint,hard work pays off,faint
+n0011,high,low,mid,mid,mid,low,people are against me,faint,i am respected,faint,nothing i do matters,held
+n0012,low,low,high,low,mid,mid,people mean well,held,i am respected,faint,hard work pays off,faint
+n0013,low,mid,low,mid,mid,low,people are against me,held,i am overlooked,faint,nothing i do matters,faint
+n0014,mid,high,low,high,high,high,people mean well,faint,i am overlooked,held,hard work pays off,faint
+n0015,mid,high,mid,high,low,low,people are against me,faint,i am respected,faint,hard work pays off,faint
+n0016,low,mid,high,low,low,low,people mean well,held,i am respected,faint,hard work pays off,held
+n0017,high,mid,high,low,high,high,people mean well,held,i am overlooked,faint,nothing i do matters,core
+n0018,mid,mid,high,low,high,high,people are against me,held,i am respected,faint,hard work pays off,held
+n0019,mid,high,low,high,high,high,people are against me,faint,i am respected,core,nothing i do matters,faint
+n0020,mid,high,high,high,high,high,people are against me,faint,i am respected,core,nothing i do matters,held

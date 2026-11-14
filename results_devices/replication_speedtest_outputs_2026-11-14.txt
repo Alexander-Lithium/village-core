@@ -1,0 +1,92 @@
+(Claude Web)
+
+Village speed test (R8 Part A)
+Started: 2026-11-14T01:54:38.637Z
+User agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0
+Logical cores: 12
+deviceMemory: 8 GB
+Memory limit: 1,600.0 MB (at 4.8 KB per villager)
+Screen: 1920 × 1080 @ 1.25x
+Viewport: 0 × 0
+Engine check: pass (consensus seed 101, n 20, 30 days: cf14cf19ee6c6c71…)
+villagers	ms_per_hour	us_per_villager_hour	pct_budget	setup_ms	repeats	hours_timed
+10	0.033	3.3333	0.000	2.4	3	48/48/48
+30	0.081	2.7083	0.000	2.9	3	48/48/48
+100	0.190	1.8958	0.001	2.9	3	48/48/48
+300	0.848	2.8264	0.005	7.8	3	48/48/48
+1000	1.731	1.7312	0.009	10.5	3	48/48/48
+3000	4.890	1.6299	0.026	35.6	3	48/48/48
+10000	15.133	1.5133	0.081	106.5	3	48/48/48
+30000	44.459	1.4820	0.237	380.7	1	34
+100000	112.150	1.1215	0.598	1545.1	1	14
+300000	426.850	1.4228	2.277	5922.5	1	4
+Stop reason: Skipped 1,000,000 villagers: estimated memory 4,688 MB is over the 1,600 MB limit.
+
+(Claude App)
+Village speed test (R8 Part A)
+Started: 2026-11-14T01:55:28.088Z
+User agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Claude/5.11492.5 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36 MSIX
+Logical cores: 12
+deviceMemory: 8 GB
+Memory limit: 1,600.0 MB (at 4.8 KB per villager)
+Screen: 1080 × 1920 @ 1x
+Viewport: 363 × 1799
+Engine check: pass (consensus seed 101, n 20, 30 days: cf14cf19ee6c6c71…)
+villagers	ms_per_hour	us_per_villager_hour	pct_budget	setup_ms	repeats	hours_timed
+10	0.027	2.7083	0.000	2.5	3	48/48/48
+30	0.048	1.5972	0.000	1.7	3	48/48/48
+100	0.121	1.2083	0.001	2.3	3	48/48/48
+300	0.340	1.1319	0.002	3.4	3	48/48/48
+1000	1.094	1.0937	0.006	7.3	3	48/48/48
+3000	3.265	1.0882	0.017	18.7	3	48/48/48
+10000	10.673	1.0673	0.057	59.6	3	48/48/48
+30000	32.385	1.0795	0.173	216.4	1	47
+100000	115.581	1.1558	0.616	830.6	1	16
+300000	300.250	1.0008	1.601	2467.0	1	6
+Stop reason: Skipped 1,000,000 villagers: estimated memory 4,688 MB is over the 1,600 MB limit.
+
+(Google Pixel 10 Pro XL)
+
+Village speed test (R8 Part A)
+Started: 2026-11-14T01:56:29.270Z
+User agent: Mozilla/5.0 (Linux; Android 10; K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/157.0.0.0 Mobile Safari/537.36 Claude/1.261111.19
+Logical cores: 8
+deviceMemory: 8 GB
+Memory limit: 1,600.0 MB (at 4.8 KB per villager)
+Screen: 444 × 987 @ 2.4375x
+Viewport: 443 × 796
+Engine check: pass (consensus seed 101, n 20, 30 days: cf14cf19ee6c6c71…)
+villagers	ms_per_hour	us_per_villager_hour	pct_budget	setup_ms	repeats	hours_timed
+10	0.069	6.8750	0.000	3.9	3	48/48/48
+30	0.106	3.5417	0.001	3.3	3	48/48/48
+100	0.219	2.1875	0.001	4.3	3	48/48/48
+300	0.488	1.6250	0.003	5.5	3	48/48/48
+1000	1.167	1.1667	0.006	8.8	3	48/48/48
+3000	2.456	0.8187	0.013	12.4	3	48/48/48
+10000	8.815	0.8815	0.047	44.0	3	48/48/48
+30000	27.163	0.9054	0.145	157.5	1	48
+100000	96.737	0.9674	0.516	479.4	1	16
+300000	292.583	0.9753	1.560	1728.0	1	6
+Stop reason: Skipped 1,000,000 villagers: estimated memory 4,688 MB is over the 1,600 MB limit.
+
+(Samsung A54)
+Village speed test (R8 Part A)
+Started: 2026-11-14T01:56:46.538Z
+User agent: Mozilla/5.0 (Linux; Android 16; SM-A546E Build/BP2A.250605.031.A3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/157.0.8103.38 Mobile Safari/537.36 Claude/1.261111.19
+Logical cores: 8
+deviceMemory: 4 GB
+Memory limit: 819.2 MB (at 4.8 KB per villager)
+Screen: 384 × 832 @ 2.8125x
+Viewport: 384 × 679
+Engine check: pass (consensus seed 101, n 20, 30 days: cf14cf19ee6c6c71…)
+villagers	ms_per_hour	us_per_villager_hour	pct_budget	setup_ms	repeats	hours_timed
+10	0.058	5.8333	0.000	5.0	3	48/48/48
+30	0.108	3.6111	0.001	3.5	3	48/48/48
+100	0.256	2.5625	0.001	4.9	3	48/48/48
+300	0.652	2.1736	0.003	5.8	3	48/48/48
+1000	2.350	2.3500	0.013	10.9	3	48/48/48
+3000	5.375	1.7917	0.029	32.2	3	48/48/48
+10000	17.794	1.7794	0.095	94.4	3	48/48/48
+30000	48.800	1.6267	0.260	264.8	1	31
+100000	152.180	1.5218	0.812	951.7	1	10
+Stop reason: Skipped 300,000 villagers: estimated memory 1,406 MB is over the 819 MB limit.

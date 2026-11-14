@@ -1,0 +1,10 @@
+fill_id,date,service,plan,logged_in,mode,model_label_shown,effort_or_thinking_setting,memory_or_custom_instructions_empty,continues_sent,fixup_sent,notes,screenshot_file
+dev_r1,2026-11-13,Claude,pro,y,working session,Opus 5.5,,n (full project context),0,n,sealed 2026-11-13T08:56:47Z sha256 b7501d3b…0162,
+opusnormal_r1,2026-11-13,Claude,pro,y,normal (outside Project),Opus 5.5,medium,n,0,n,run 1 prompt (no model line),
+opusnormal_r2,2026-11-13,Claude,pro,y,normal (outside Project),Opus 5.5,medium,n,0,n,run 2 prompt (model line),
+opusblind_r1,2026-11-13,Claude,pro,y,incognito,Opus 5.5,medium,y,0,n,run 1 prompt (no model line),
+opusblind_r2,2026-11-13,Claude,pro,y,incognito,Opus 5.5,medium,y,0,n,run 2 prompt (model line),
+gemini_r1,2026-11-13,Gemini,free,y,temporary,Auto,low,y,0,n,run 1 prompt (no model line); "1" written for "+1" (normalised on import),
+gemini_r2,2026-11-13,Gemini,free,y,temporary,self-reported Gemini 2.5 Pro (unverified),Auto/low,y,0,n,run 2 prompt (first upload empty; re-uploaded); "1" written for "+1" (normalised on import),
+chatgpt_r1,2026-11-13,ChatGPT,free,y,temporary,,,y,0,n,run 1 prompt (no model line),
+chatgpt_r2,2026-11-13,ChatGPT,free,y,temporary,self-reported GPT-6 (unverified),,y,0,n,run 2 prompt (model line),

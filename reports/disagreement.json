@@ -1,0 +1,324 @@
+{
+ "totalLookups": 709562,
+ "tables": {
+  "T2": {
+   "name": "where to go",
+   "rows": 27,
+   "lookups": 191945,
+   "cols": {
+    "first": {
+     "cells": 27,
+     "noisy": 1,
+     "temperament": 0,
+     "stable": 26,
+     "wNoise": 712.75,
+     "wTemp": 0,
+     "wAll": 712.75,
+     "lookups": 144304
+    },
+    "second": {
+     "cells": 27,
+     "noisy": 9,
+     "temperament": 5,
+     "stable": 13,
+     "wNoise": 2608.75,
+     "wTemp": 17808,
+     "wAll": 7212.875,
+     "lookups": 47641
+    }
+   },
+   "rowsUnanimous": 13,
+   "usedLookupsContested": 113052
+  },
+  "T3": {
+   "name": "stance toward someone",
+   "rows": 36,
+   "lookups": 56126,
+   "cols": {
+    "stance": {
+     "cells": 36,
+     "noisy": 8,
+     "temperament": 4,
+     "stable": 24,
+     "wNoise": 1831.5,
+     "wTemp": 2515,
+     "wAll": 2460.25,
+     "lookups": 56126
+    }
+   },
+   "rowsUnanimous": 24,
+   "usedLookupsContested": 16698
+  },
+  "T4": {
+   "name": "what to do",
+   "rows": 24,
+   "lookups": 56367,
+   "cols": {
+    "first": {
+     "cells": 24,
+     "noisy": 2,
+     "temperament": 8,
+     "stable": 14,
+     "wNoise": 6513.875,
+     "wTemp": 27095,
+     "wAll": 13289.375,
+     "lookups": 42309
+    },
+    "second": {
+     "cells": 24,
+     "noisy": 14,
+     "temperament": 7,
+     "stable": 3,
+     "wNoise": 3011.5,
+     "wTemp": 3531,
+     "wAll": 4594.125,
+     "lookups": 14058
+    }
+   },
+   "rowsUnanimous": 3,
+   "usedLookupsContested": 48753
+  },
+  "T5": {
+   "name": "apologise?",
+   "rows": 9,
+   "lookups": 9069,
+   "cols": {
+    "decision": {
+     "cells": 9,
+     "noisy": 3,
+     "temperament": 0,
+     "stable": 6,
+     "wNoise": 202.5,
+     "wTemp": 0,
+     "wAll": 202.5,
+     "lookups": 9069
+    }
+   },
+   "rowsUnanimous": 6,
+   "usedLookupsContested": 1616
+  },
+  "T6": {
+   "name": "reaction: trust events",
+   "rows": 36,
+   "lookups": 47226,
+   "cols": {
+    "meaning": {
+     "cells": 36,
+     "noisy": 7,
+     "temperament": 11,
+     "stable": 18,
+     "wNoise": 3595.375,
+     "wTemp": 740,
+     "wAll": 3787.625,
+     "lookups": 47226
+    },
+    "pressure": {
+     "cells": 36,
+     "noisy": 6,
+     "temperament": 5,
+     "stable": 25,
+     "wNoise": 1518.75,
+     "wTemp": 3028,
+     "wAll": 2308.75,
+     "lookups": 47226
+    },
+    "liking_change": {
+     "cells": 36,
+     "noisy": 7,
+     "temperament": 8,
+     "stable": 21,
+     "wNoise": 3289.125,
+     "wTemp": 23313,
+     "wAll": 9117.375,
+     "lookups": 47226
+    }
+   },
+   "rowsUnanimous": 15,
+   "usedLookupsContested": 29257
+  },
+  "T7": {
+   "name": "reaction: status events",
+   "rows": 54,
+   "lookups": 9195,
+   "cols": {
+    "meaning": {
+     "cells": 54,
+     "noisy": 17,
+     "temperament": 18,
+     "stable": 19,
+     "wNoise": 571.375,
+     "wTemp": 2771,
+     "wAll": 1270.125,
+     "lookups": 9195
+    },
+    "pressure": {
+     "cells": 54,
+     "noisy": 11,
+     "temperament": 12,
+     "stable": 31,
+     "wNoise": 225.125,
+     "wTemp": 748,
+     "wAll": 421.625,
+     "lookups": 9195
+    },
+    "liking_change": {
+     "cells": 54,
+     "noisy": 3,
+     "temperament": 13,
+     "stable": 38,
+     "wNoise": 287.625,
+     "wTemp": 1690,
+     "wAll": 714.875,
+     "lookups": 9195
+    }
+   },
+   "rowsUnanimous": 16,
+   "usedLookupsContested": 5602
+  },
+  "T8": {
+   "name": "reaction: work outcome",
+   "rows": 12,
+   "lookups": 7253,
+   "cols": {
+    "meaning": {
+     "cells": 12,
+     "noisy": 6,
+     "temperament": 1,
+     "stable": 5,
+     "wNoise": 659.75,
+     "wTemp": 108,
+     "wAll": 811.625,
+     "lookups": 7253
+    },
+    "pressure": {
+     "cells": 12,
+     "noisy": 0,
+     "temperament": 3,
+     "stable": 9,
+     "wNoise": 0,
+     "wTemp": 1244,
+     "wAll": 622,
+     "lookups": 7253
+    }
+   },
+   "rowsUnanimous": 5,
+   "usedLookupsContested": 3232
+  },
+  "T9": {
+   "name": "mood change",
+   "rows": 12,
+   "lookups": 63674,
+   "cols": {
+    "new_mood": {
+     "cells": 12,
+     "noisy": 0,
+     "temperament": 1,
+     "stable": 11,
+     "wNoise": 441.875,
+     "wTemp": 3535,
+     "wAll": 1325.625,
+     "lookups": 63674
+    }
+   },
+   "rowsUnanimous": 11,
+   "usedLookupsContested": 3535
+  },
+  "T10": {
+   "name": "grudge",
+   "rows": 12,
+   "lookups": 3507,
+   "cols": {
+    "response": {
+     "cells": 12,
+     "noisy": 3,
+     "temperament": 2,
+     "stable": 7,
+     "wNoise": 250.75,
+     "wTemp": 47,
+     "wAll": 274,
+     "lookups": 3507
+    }
+   },
+   "rowsUnanimous": 7,
+   "usedLookupsContested": 2048
+  },
+  "T12": {
+   "name": "belief → behaviour",
+   "rows": 18,
+   "lookups": 37200,
+   "cols": {
+    "warmth": {
+     "cells": 18,
+     "noisy": 1,
+     "temperament": 3,
+     "stable": 14,
+     "wNoise": 307.5,
+     "wTemp": 4580,
+     "wAll": 1452.5,
+     "lookups": 37200
+    },
+    "sociability": {
+     "cells": 18,
+     "noisy": 2,
+     "temperament": 2,
+     "stable": 14,
+     "wNoise": 1461.375,
+     "wTemp": 4701,
+     "wAll": 3388.875,
+     "lookups": 37200
+    },
+    "diligence": {
+     "cells": 18,
+     "noisy": 0,
+     "temperament": 4,
+     "stable": 14,
+     "wNoise": 1796.75,
+     "wTemp": 7986,
+     "wAll": 3793.25,
+     "lookups": 37200
+    },
+    "pride": {
+     "cells": 18,
+     "noisy": 4,
+     "temperament": 3,
+     "stable": 11,
+     "wNoise": 715.375,
+     "wTemp": 3646,
+     "wAll": 1626.875,
+     "lookups": 37200
+    }
+   },
+   "rowsUnanimous": 4,
+   "usedLookupsContested": 27951
+  }
+ },
+ "perFill": {
+  "opusnormal_r1": {
+   "decisionsDiffering": 0.09180702047088217
+  },
+  "opusnormal_r2": {
+   "decisionsDiffering": 0.06881951386386674
+  },
+  "opusblind_r1": {
+   "decisionsDiffering": 0.0604480572921121
+  },
+  "opusblind_r2": {
+   "decisionsDiffering": 0.022908993532485485
+  },
+  "gemini_r1": {
+   "decisionsDiffering": 0.09500783027716517
+  },
+  "gemini_r2": {
+   "decisionsDiffering": 0.10150759123289362
+  },
+  "chatgpt_r1": {
+   "decisionsDiffering": 0.13310349565444152
+  },
+  "chatgpt_r2": {
+   "decisionsDiffering": 0.09249120583464306
+  },
+  "dev_r1": {
+   "decisionsDiffering": 0.10195343333468862
+  }
+ }
+}

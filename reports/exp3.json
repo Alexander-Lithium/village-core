@@ -1,0 +1,3132 @@
+{
+ "seeds": [
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109,
+  110,
+  111,
+  112,
+  113,
+  114,
+  115,
+  116,
+  117,
+  118,
+  119,
+  120,
+  121,
+  122,
+  123,
+  124,
+  125,
+  126,
+  127,
+  128,
+  129,
+  130,
+  131,
+  132,
+  133,
+  134,
+  135,
+  136,
+  137,
+  138,
+  139,
+  140,
+  141,
+  142,
+  143,
+  144,
+  145,
+  146,
+  147,
+  148,
+  149,
+  150
+ ],
+ "days": 60,
+ "results": {
+  "consensus": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.743795918367347,
+     "ci": [
+      1.6213469387755102,
+      1.792734693877551
+     ]
+    },
+    "distinctProfiles": {
+     "value": 10.2,
+     "ci": [
+      7.6,
+      9
+     ]
+    },
+    "friendsSD": {
+     "value": 1.68649283704564,
+     "ci": [
+      1.5835342179640537,
+      1.7329694853900512
+     ]
+    },
+    "negShareSD": {
+     "value": 0.017798339799428874,
+     "ci": [
+      0.01566049247156269,
+      0.01895158733346302
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 96.18,
+     "ci": 1.648617554195029,
+     "sd": 5.947697204869825,
+     "min": 84,
+     "max": 110
+    },
+    "feuds": {
+     "mean": 3.8,
+     "ci": 0.4913980056939588,
+     "sd": 1.7728105208558367,
+     "min": 1,
+     "max": 8
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 52.86,
+     "ci": 1.9130455718565618,
+     "sd": 6.901670900911589,
+     "min": 38,
+     "max": 68
+    },
+    "breaks": {
+     "mean": 25.76,
+     "ci": 0.7628342939328304,
+     "sd": 2.7520678681712063,
+     "min": 20,
+     "max": 32
+    },
+    "beliefMoves": {
+     "mean": 210.48,
+     "ci": 3.2029062802398696,
+     "sd": 11.555085460523431,
+     "min": 182,
+     "max": 236
+    },
+    "negShare": {
+     "mean": 0.07151275845811692,
+     "ci": 0.0019591888480323606,
+     "sd": 0.0070681414289221565,
+     "min": 0.05627337640258415,
+     "max": 0.0928884986830553
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 1.2742857142857142,
+     "distinctProfiles": 6,
+     "friendsSD": 1.5327712664001891,
+     "negShareSD": 0.0014108426801792801
+    },
+    {
+     "beliefDist": 4.706122448979592,
+     "distinctProfiles": 24,
+     "friendsSD": 1.2918899302327327,
+     "negShareSD": 0.0016135965284622997
+    },
+    {
+     "beliefDist": 0.3706122448979592,
+     "distinctProfiles": 4,
+     "friendsSD": 1.6783130500230132,
+     "negShareSD": 0.07614598315125866
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.8561899465012401,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.1355102040816327,
+     "distinctProfiles": 4,
+     "friendsSD": 1.7468338705866022,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.817142857142857,
+     "distinctProfiles": 22,
+     "friendsSD": 1.2783918469255486,
+     "negShareSD": 0.02297278624978474
+    },
+    {
+     "beliefDist": 1.9575510204081632,
+     "distinctProfiles": 7,
+     "friendsSD": 1.4348433747988258,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.8359183673469386,
+     "distinctProfiles": 13,
+     "friendsSD": 1.3261883388885918,
+     "negShareSD": 0.05042598110584619
+    },
+    {
+     "beliefDist": 0.7036734693877551,
+     "distinctProfiles": 4,
+     "friendsSD": 1.6162440712835378,
+     "negShareSD": 0.0028085759011070056
+    },
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 1.5696093365508994,
+     "negShareSD": 0.012155729718455995
+    },
+    {
+     "beliefDist": 0.4579591836734694,
+     "distinctProfiles": 2,
+     "friendsSD": 1.2610329423265092,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.5093877551020407,
+     "distinctProfiles": 17,
+     "friendsSD": 1.9713250490417842,
+     "negShareSD": 0.04569598311589308
+    },
+    {
+     "beliefDist": 0.68,
+     "distinctProfiles": 4,
+     "friendsSD": 1.3606721028332176,
+     "negShareSD": 0.028046573520755683
+    },
+    {
+     "beliefDist": 0.21551020408163266,
+     "distinctProfiles": 2,
+     "friendsSD": 2.758363904304766,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.8236734693877551,
+     "distinctProfiles": 4,
+     "friendsSD": 1.8701740615269382,
+     "negShareSD": 0.007283996256040505
+    },
+    {
+     "beliefDist": 0.11836734693877551,
+     "distinctProfiles": 3,
+     "friendsSD": 1.889174314836176,
+     "negShareSD": 0.04199823664154741
+    },
+    {
+     "beliefDist": 4.946938775510204,
+     "distinctProfiles": 34,
+     "friendsSD": 1.6319513798279803,
+     "negShareSD": 0.02519387934823923
+    },
+    {
+     "beliefDist": 4.650612244897959,
+     "distinctProfiles": 27,
+     "friendsSD": 1.7048550120889752,
+     "negShareSD": 0.03623220368052467
+    },
+    {
+     "beliefDist": 0.36653061224489797,
+     "distinctProfiles": 3,
+     "friendsSD": 3.1638906557643005,
+     "negShareSD": 0.0006365198715159192
+    },
+    {
+     "beliefDist": 4.2661224489795915,
+     "distinctProfiles": 21,
+     "friendsSD": 1.7871422861709718,
+     "negShareSD": 0.003345908218966757
+    }
+   ]
+  },
+  "consensus, loop off": {
+   "spread": {
+    "beliefDist": {
+     "value": 0,
+     "ci": [
+      0,
+      0
+     ]
+    },
+    "distinctProfiles": {
+     "value": 1,
+     "ci": [
+      1,
+      1
+     ]
+    },
+    "friendsSD": {
+     "value": 1.112587568158274,
+     "ci": [
+      1.028243586730021,
+      1.1592978796105493
+     ]
+    },
+    "negShareSD": {
+     "value": 0.01804632144427111,
+     "ci": [
+      0.016625559366569526,
+      0.019145930911462633
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 81.68,
+     "ci": 1.1564237285701116,
+     "sd": 4.172015614270191,
+     "min": 71,
+     "max": 89
+    },
+    "feuds": {
+     "mean": 5.78,
+     "ci": 0.45594455803310124,
+     "sd": 1.6449055552566798,
+     "min": 2,
+     "max": 10
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "breaks": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "beliefMoves": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "negShare": {
+     "mean": 0.09715986515326305,
+     "ci": 0.003038243918548915,
+     "sd": 0.010961035090330237,
+     "min": 0.07219095672423831,
+     "max": 0.12159533073929961
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.7761758689832073,
+     "negShareSD": 0.00051425947722658
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.7708992893275457,
+     "negShareSD": 0.0008110831508331295
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.6572660052764303,
+     "negShareSD": 0.04253837980587915
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.1952286093343936,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.2121830534626528,
+     "negShareSD": 0.04341158011739279
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.3932783245984692,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.174734012447073,
+     "negShareSD": 0.0649704182767468
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.6591121303951977,
+     "negShareSD": 0.006399067760377474
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.2975644374703539,
+     "negShareSD": 0.007366294208856992
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.8956448474740994,
+     "negShareSD": 0.0014002114478941518
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.1993195349608778,
+     "negShareSD": 0.04273475939548025
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.5451041837932842,
+     "negShareSD": 0.01730974584647207
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0,
+     "negShareSD": 0.00047777485215307264
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.3468027142163062,
+     "negShareSD": 0.0055997683981480716
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.0544366906997684,
+     "negShareSD": 0.027950160589938138
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.2163847404233143,
+     "negShareSD": 0.025979536595977154
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.334166406412633,
+     "negShareSD": 0.05834517033287545
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.303045763365663,
+     "negShareSD": 0.0039346283307650845
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.2204047505242022,
+     "negShareSD": 0.011183590298405795
+    }
+   ]
+  },
+  "consensus, traits off": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.6079183673469388,
+     "ci": [
+      1.5001632653061223,
+      1.6556326530612246
+     ]
+    },
+    "distinctProfiles": {
+     "value": 5.55,
+     "ci": [
+      4.85,
+      5.4
+     ]
+    },
+    "friendsSD": {
+     "value": 1.3446280219378175,
+     "ci": [
+      1.2584287488439947,
+      1.3735909962703738
+     ]
+    },
+    "negShareSD": {
+     "value": 0.0023445110586528127,
+     "ci": [
+      0.0020230482337329344,
+      0.002551831452296395
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 155.38,
+     "ci": 1.7804917972290677,
+     "sd": 6.423458284018864,
+     "min": 141,
+     "max": 168
+    },
+    "feuds": {
+     "mean": 0.08,
+     "ci": 0.07596209581100301,
+     "sd": 0.2740475156178697,
+     "min": 0,
+     "max": 1
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 55.94,
+     "ci": 2.266035692569735,
+     "sd": 8.175149003198031,
+     "min": 35,
+     "max": 70
+    },
+    "breaks": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "beliefMoves": {
+     "mean": 128.3,
+     "ci": 2.156727150104992,
+     "sd": 7.780797923512127,
+     "min": 114,
+     "max": 145
+    },
+    "negShare": {
+     "mean": 0.0028702261003992024,
+     "ci": 0.00026405332652638545,
+     "sd": 0.0009526219274575144,
+     "min": 0.0016030779095864058,
+     "max": 0.0058017727639000805
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 1.4081632653061225,
+     "distinctProfiles": 4,
+     "friendsSD": 1.0063066437346466,
+     "negShareSD": 0.0028820961357643943
+    },
+    {
+     "beliefDist": 1.043265306122449,
+     "distinctProfiles": 4,
+     "friendsSD": 2.290708828894565,
+     "negShareSD": 0.0004135127375359927
+    },
+    {
+     "beliefDist": 1.9755102040816326,
+     "distinctProfiles": 6,
+     "friendsSD": 1.1953993440841153,
+     "negShareSD": 0.0004667371492980518
+    },
+    {
+     "beliefDist": 1.2530612244897958,
+     "distinctProfiles": 6,
+     "friendsSD": 2.2407178150161187,
+     "negShareSD": 0.001758355907178177
+    },
+    {
+     "beliefDist": 1.3322448979591837,
+     "distinctProfiles": 4,
+     "friendsSD": 0.8191583535332255,
+     "negShareSD": 0.0026630655492616193
+    },
+    {
+     "beliefDist": 1.9175510204081632,
+     "distinctProfiles": 6,
+     "friendsSD": 1.5811388300841895,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.526530612244898,
+     "distinctProfiles": 5,
+     "friendsSD": 0.9216223495022465,
+     "negShareSD": 0.007051434362244901
+    },
+    {
+     "beliefDist": 2.012244897959184,
+     "distinctProfiles": 6,
+     "friendsSD": 1.309930672725446,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.7910204081632652,
+     "distinctProfiles": 5,
+     "friendsSD": 1.3893178475901957,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.302857142857143,
+     "distinctProfiles": 4,
+     "friendsSD": 1.0063066437346466,
+     "negShareSD": 0.002475505527118428
+    },
+    {
+     "beliefDist": 1.2489795918367348,
+     "distinctProfiles": 4,
+     "friendsSD": 2.3018182697465015,
+     "negShareSD": 0.001683010579183488
+    },
+    {
+     "beliefDist": 2.2685714285714287,
+     "distinctProfiles": 8,
+     "friendsSD": 0.9249379460707803,
+     "negShareSD": 0.00042985214661796163
+    },
+    {
+     "beliefDist": 1.386938775510204,
+     "distinctProfiles": 4,
+     "friendsSD": 1.2929952570268293,
+     "negShareSD": 0.0032733184870256974
+    },
+    {
+     "beliefDist": 1.9755102040816326,
+     "distinctProfiles": 6,
+     "friendsSD": 1.2783918469255486,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.0644897959183672,
+     "distinctProfiles": 6,
+     "friendsSD": 0.8329931278350434,
+     "negShareSD": 0.002805360646244908
+    },
+    {
+     "beliefDist": 2.3951020408163264,
+     "distinctProfiles": 8,
+     "friendsSD": 1.0151907431108502,
+     "negShareSD": 0.0004159451654038521
+    },
+    {
+     "beliefDist": 0.6653061224489796,
+     "distinctProfiles": 4,
+     "friendsSD": 1.6432918679483892,
+     "negShareSD": 0.0004810250212153385
+    },
+    {
+     "beliefDist": 1.5142857142857142,
+     "distinctProfiles": 6,
+     "friendsSD": 0.9997958975384392,
+     "negShareSD": 0.0027792449338305365
+    },
+    {
+     "beliefDist": 1.9355102040816325,
+     "distinctProfiles": 8,
+     "friendsSD": 1.1967643452071854,
+     "negShareSD": 0.0072833625833632785
+    },
+    {
+     "beliefDist": 1.1412244897959183,
+     "distinctProfiles": 7,
+     "friendsSD": 1.6457738084473907,
+     "negShareSD": 0.01002839424176963
+    }
+   ]
+  },
+  "consensus, shuffled tables": {
+   "spread": {
+    "beliefDist": {
+     "value": 4.452367346938775,
+     "ci": [
+      4.173755102040817,
+      4.544734693877551
+     ]
+    },
+    "distinctProfiles": {
+     "value": 29,
+     "ci": [
+      18.1,
+      22.9
+     ]
+    },
+    "friendsSD": {
+     "value": 3.5114256871551506,
+     "ci": [
+      3.1574279947843573,
+      3.743409195756265
+     ]
+    },
+    "negShareSD": {
+     "value": 0.28310938341566144,
+     "ci": [
+      0.2638191563750302,
+      0.29599142582637555
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 13.28,
+     "ci": 3.079002020135744,
+     "sd": 11.108077590433998,
+     "min": 0,
+     "max": 46
+    },
+    "feuds": {
+     "mean": 10.84,
+     "ci": 2.7754540097072398,
+     "sd": 10.012971179262161,
+     "min": 0,
+     "max": 44
+    },
+    "isolates": {
+     "mean": 2.06,
+     "ci": 0.6345815629215837,
+     "sd": 2.289372073254131,
+     "min": 0,
+     "max": 9
+    },
+    "flips": {
+     "mean": 63.9,
+     "ci": 12.399954193463781,
+     "sd": 44.735161717351055,
+     "min": 6,
+     "max": 187
+    },
+    "breaks": {
+     "mean": 13.02,
+     "ci": 2.8320114124063838,
+     "sd": 10.21701262301146,
+     "min": 0,
+     "max": 44
+    },
+    "beliefMoves": {
+     "mean": 188.38,
+     "ci": 22.749092092652845,
+     "sd": 82.07161879873517,
+     "min": 35,
+     "max": 398
+    },
+    "negShare": {
+     "mean": 0.41538650762982676,
+     "ci": 0.02610062229810199,
+     "sd": 0.09416289296008536,
+     "min": 0.2001182382500739,
+     "max": 0.6379551820728291
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 1.4073469387755102,
+     "distinctProfiles": 11,
+     "friendsSD": 3.823931089806906,
+     "negShareSD": 0.2708782656022001
+    },
+    {
+     "beliefDist": 6.273469387755102,
+     "distinctProfiles": 38,
+     "friendsSD": 3.148306963225454,
+     "negShareSD": 0.28960155875934557
+    },
+    {
+     "beliefDist": 1.7510204081632652,
+     "distinctProfiles": 12,
+     "friendsSD": 3.622435757377422,
+     "negShareSD": 0.3110557786133181
+    },
+    {
+     "beliefDist": 5.479183673469388,
+     "distinctProfiles": 38,
+     "friendsSD": 3.447862396042049,
+     "negShareSD": 0.2653423726744018
+    },
+    {
+     "beliefDist": 6.320816326530612,
+     "distinctProfiles": 41,
+     "friendsSD": 2.990051531874543,
+     "negShareSD": 0.29078762491247506
+    },
+    {
+     "beliefDist": 4.758367346938775,
+     "distinctProfiles": 34,
+     "friendsSD": 3.2312883637638894,
+     "negShareSD": 0.28894510405736973
+    },
+    {
+     "beliefDist": 4.975510204081632,
+     "distinctProfiles": 37,
+     "friendsSD": 3.1693043078755263,
+     "negShareSD": 0.24813622063262755
+    },
+    {
+     "beliefDist": 6.462857142857143,
+     "distinctProfiles": 42,
+     "friendsSD": 3.4829614422446977,
+     "negShareSD": 0.29589531339347414
+    },
+    {
+     "beliefDist": 4.860408163265306,
+     "distinctProfiles": 33,
+     "friendsSD": 3.265403059785598,
+     "negShareSD": 0.2888243239083395
+    },
+    {
+     "beliefDist": 1.833469387755102,
+     "distinctProfiles": 16,
+     "friendsSD": 4.086263699323401,
+     "negShareSD": 0.2690133119608828
+    },
+    {
+     "beliefDist": 1.6661224489795918,
+     "distinctProfiles": 13,
+     "friendsSD": 4.191390592874973,
+     "negShareSD": 0.27725765380594675
+    },
+    {
+     "beliefDist": 4.714285714285714,
+     "distinctProfiles": 31,
+     "friendsSD": 3.8525899054521537,
+     "negShareSD": 0.3132180204449034
+    },
+    {
+     "beliefDist": 1.6938775510204083,
+     "distinctProfiles": 12,
+     "friendsSD": 4.012683971241845,
+     "negShareSD": 0.2359417645089777
+    },
+    {
+     "beliefDist": 6.873469387755102,
+     "distinctProfiles": 43,
+     "friendsSD": 3.2701494692170274,
+     "negShareSD": 0.28443112164591106
+    },
+    {
+     "beliefDist": 1.973877551020408,
+     "distinctProfiles": 16,
+     "friendsSD": 4.111953704178358,
+     "negShareSD": 0.28592896168536996
+    },
+    {
+     "beliefDist": 1.4751020408163265,
+     "distinctProfiles": 11,
+     "friendsSD": 4.23127326810592,
+     "negShareSD": 0.32681333826053865
+    },
+    {
+     "beliefDist": 6.8277551020408165,
+     "distinctProfiles": 36,
+     "friendsSD": 2.9255384991833697,
+     "negShareSD": 0.29856642184854676
+    },
+    {
+     "beliefDist": 6.163265306122449,
+     "distinctProfiles": 38,
+     "friendsSD": 3.900235471698328,
+     "negShareSD": 0.2876136599141381
+    },
+    {
+     "beliefDist": 7.0987755102040815,
+     "distinctProfiles": 39,
+     "friendsSD": 2.6911798489866556,
+     "negShareSD": 0.2786972528217187
+    },
+    {
+     "beliefDist": 6.438367346938776,
+     "distinctProfiles": 39,
+     "friendsSD": 2.7737104008448865,
+     "negShareSD": 0.2552395988627435
+    }
+   ]
+  },
+  "consensus, random tables": {
+   "spread": {
+    "beliefDist": {
+     "value": 4.064326530612245,
+     "ci": [
+      3.8019999999999996,
+      4.167469387755103
+     ]
+    },
+    "distinctProfiles": {
+     "value": 28.25,
+     "ci": [
+      17.95,
+      22.65
+     ]
+    },
+    "friendsSD": {
+     "value": 3.4436028543594426,
+     "ci": [
+      2.9007634173301815,
+      3.772558735494008
+     ]
+    },
+    "negShareSD": {
+     "value": 0.2306973693243315,
+     "ci": [
+      0.2081149098577701,
+      0.24564395257564842
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 7.96,
+     "ci": 2.816170903904804,
+     "sd": 10.159865015976205,
+     "min": 0,
+     "max": 42
+    },
+    "feuds": {
+     "mean": 36.08,
+     "ci": 7.347925573929011,
+     "sd": 26.509020413159483,
+     "min": 4,
+     "max": 109
+    },
+    "isolates": {
+     "mean": 2.9,
+     "ci": 1.0450416259652053,
+     "sd": 3.7701837772561855,
+     "min": 0,
+     "max": 15
+    },
+    "flips": {
+     "mean": 101.14,
+     "ci": 19.197140603746174,
+     "sd": 69.25728724643129,
+     "min": 23,
+     "max": 253
+    },
+    "breaks": {
+     "mean": 22.34,
+     "ci": 4.8142447964348465,
+     "sd": 17.368291540056784,
+     "min": 3,
+     "max": 87
+    },
+    "beliefMoves": {
+     "mean": 290.6,
+     "ci": 29.718593775614615,
+     "sd": 107.21540401053785,
+     "min": 90,
+     "max": 562
+    },
+    "negShare": {
+     "mean": 0.48742684598653946,
+     "ci": 0.02661495221841859,
+     "sd": 0.09601843466632516,
+     "min": 0.24141221374045801,
+     "max": 0.7437658113480303
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 1.7444897959183674,
+     "distinctProfiles": 14,
+     "friendsSD": 3.3524891757423148,
+     "negShareSD": 0.23536793919552373
+    },
+    {
+     "beliefDist": 5.843265306122449,
+     "distinctProfiles": 41,
+     "friendsSD": 2.6115129714401193,
+     "negShareSD": 0.22080292515728653
+    },
+    {
+     "beliefDist": 1.9853061224489796,
+     "distinctProfiles": 14,
+     "friendsSD": 3.4433609589872436,
+     "negShareSD": 0.24401348692673935
+    },
+    {
+     "beliefDist": 4.713469387755102,
+     "distinctProfiles": 37,
+     "friendsSD": 2.9615908576579693,
+     "negShareSD": 0.20447358463593518
+    },
+    {
+     "beliefDist": 5.656326530612245,
+     "distinctProfiles": 40,
+     "friendsSD": 3.927350459616898,
+     "negShareSD": 0.2337548833254123
+    },
+    {
+     "beliefDist": 5.026938775510204,
+     "distinctProfiles": 33,
+     "friendsSD": 3.003671223074611,
+     "negShareSD": 0.2275452941473879
+    },
+    {
+     "beliefDist": 5.00734693877551,
+     "distinctProfiles": 37,
+     "friendsSD": 2.991211617183831,
+     "negShareSD": 0.24412926182237
+    },
+    {
+     "beliefDist": 5.486530612244898,
+     "distinctProfiles": 38,
+     "friendsSD": 2.7953313848308587,
+     "negShareSD": 0.20833323940552517
+    },
+    {
+     "beliefDist": 4.640816326530612,
+     "distinctProfiles": 36,
+     "friendsSD": 3.8046158861068133,
+     "negShareSD": 0.2258954422966936
+    },
+    {
+     "beliefDist": 1.8391836734693878,
+     "distinctProfiles": 14,
+     "friendsSD": 4.806500700051112,
+     "negShareSD": 0.251000820427828
+    },
+    {
+     "beliefDist": 1.7322448979591836,
+     "distinctProfiles": 12,
+     "friendsSD": 3.60634361725478,
+     "negShareSD": 0.2189057828555648
+    },
+    {
+     "beliefDist": 4.020408163265306,
+     "distinctProfiles": 28,
+     "friendsSD": 3.4676934638436063,
+     "negShareSD": 0.24158546172453185
+    },
+    {
+     "beliefDist": 1.7485714285714287,
+     "distinctProfiles": 13,
+     "friendsSD": 3.84091825755567,
+     "negShareSD": 0.2099187641930662
+    },
+    {
+     "beliefDist": 5.292244897959184,
+     "distinctProfiles": 38,
+     "friendsSD": 3.0626785662227114,
+     "negShareSD": 0.20156546912118525
+    },
+    {
+     "beliefDist": 1.6881632653061225,
+     "distinctProfiles": 13,
+     "friendsSD": 4.214455202402943,
+     "negShareSD": 0.23686790485188636
+    },
+    {
+     "beliefDist": 1.4840816326530613,
+     "distinctProfiles": 10,
+     "friendsSD": 3.648930511471961,
+     "negShareSD": 0.24527299782633705
+    },
+    {
+     "beliefDist": 6.006530612244898,
+     "distinctProfiles": 37,
+     "friendsSD": 3.6977654587270816,
+     "negShareSD": 0.2565217452251255
+    },
+    {
+     "beliefDist": 5.611428571428571,
+     "distinctProfiles": 36,
+     "friendsSD": 3.4725747666830844,
+     "negShareSD": 0.23536386140233376
+    },
+    {
+     "beliefDist": 5.551020408163265,
+     "distinctProfiles": 35,
+     "friendsSD": 3.0185819078987857,
+     "negShareSD": 0.23301966464292845
+    },
+    {
+     "beliefDist": 6.208163265306123,
+     "distinctProfiles": 39,
+     "friendsSD": 3.1444801004364487,
+     "negShareSD": 0.23960885730296852
+    }
+   ]
+  },
+  "rule tables (hand-written)": {
+   "spread": {
+    "beliefDist": {
+     "value": 2.418408163265306,
+     "ci": [
+      2.2521632653061223,
+      2.4954285714285716
+     ]
+    },
+    "distinctProfiles": {
+     "value": 13.55,
+     "ci": [
+      9.6,
+      11.8
+     ]
+    },
+    "friendsSD": {
+     "value": 1.8655362309992565,
+     "ci": [
+      1.752273741169527,
+      1.930519832875896
+     ]
+    },
+    "negShareSD": {
+     "value": 0.020487475455950418,
+     "ci": [
+      0.017950741559590998,
+      0.021864207095893602
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 84.04,
+     "ci": 1.73053591699219,
+     "sd": 6.24323307138805,
+     "min": 71,
+     "max": 104
+    },
+    "feuds": {
+     "mean": 3.34,
+     "ci": 0.4933406125589094,
+     "sd": 1.779818839669031,
+     "min": 0,
+     "max": 7
+    },
+    "isolates": {
+     "mean": 0.06,
+     "ci": 0.06649631568741235,
+     "sd": 0.2398979374820953,
+     "min": 0,
+     "max": 1
+    },
+    "flips": {
+     "mean": 58.32,
+     "ci": 1.8711375791213216,
+     "sd": 6.75047995270238,
+     "min": 44,
+     "max": 74
+    },
+    "breaks": {
+     "mean": 30.1,
+     "ci": 0.9524116756949169,
+     "sd": 3.4360038488016262,
+     "min": 23,
+     "max": 38
+    },
+    "beliefMoves": {
+     "mean": 229.6,
+     "ci": 3.836715261783182,
+     "sd": 13.841670301473512,
+     "min": 203,
+     "max": 262
+    },
+    "negShare": {
+     "mean": 0.04901677778287507,
+     "ci": 0.002096213128343998,
+     "sd": 0.007562482234001571,
+     "min": 0.025184738350173427,
+     "max": 0.06904470300061237
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.36653061224489797,
+     "distinctProfiles": 3,
+     "friendsSD": 1.7756861278080078,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 3.6277551020408163,
+     "distinctProfiles": 18,
+     "friendsSD": 1.9794866372215743,
+     "negShareSD": 0.0010229482363966912
+    },
+    {
+     "beliefDist": 0.8946938775510204,
+     "distinctProfiles": 4,
+     "friendsSD": 2.5765029297361135,
+     "negShareSD": 0.04488307389557599
+    },
+    {
+     "beliefDist": 2.382857142857143,
+     "distinctProfiles": 13,
+     "friendsSD": 2.0796389011517538,
+     "negShareSD": 0.004146085039536293
+    },
+    {
+     "beliefDist": 3.3191836734693876,
+     "distinctProfiles": 17,
+     "friendsSD": 1.9955051531696253,
+     "negShareSD": 0.0011358896647799507
+    },
+    {
+     "beliefDist": 1.6742857142857144,
+     "distinctProfiles": 11,
+     "friendsSD": 1.765427623517189,
+     "negShareSD": 0.012697254516972284
+    },
+    {
+     "beliefDist": 2.4873469387755103,
+     "distinctProfiles": 14,
+     "friendsSD": 1.9175877703883224,
+     "negShareSD": 0.0027350264059814327
+    },
+    {
+     "beliefDist": 5.231836734693878,
+     "distinctProfiles": 31,
+     "friendsSD": 1.5654431464917402,
+     "negShareSD": 0.03987265589991348
+    },
+    {
+     "beliefDist": 2.7779591836734694,
+     "distinctProfiles": 18,
+     "friendsSD": 2.2072237618089106,
+     "negShareSD": 0.01864657178503776
+    },
+    {
+     "beliefDist": 0.6661224489795918,
+     "distinctProfiles": 4,
+     "friendsSD": 1.4405214475377752,
+     "negShareSD": 0.004185044842821043
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.4961174241812627,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.9224489795918367,
+     "distinctProfiles": 12,
+     "friendsSD": 1.411469056677894,
+     "negShareSD": 0.015351606601116789
+    },
+    {
+     "beliefDist": 1.2808163265306123,
+     "distinctProfiles": 5,
+     "friendsSD": 1.392252616064619,
+     "negShareSD": 0.16375144326027882
+    },
+    {
+     "beliefDist": 5.139591836734694,
+     "distinctProfiles": 29,
+     "friendsSD": 2.153402623092778,
+     "negShareSD": 0.008483856452450783
+    },
+    {
+     "beliefDist": 0.7689795918367347,
+     "distinctProfiles": 4,
+     "friendsSD": 2.2131333406899527,
+     "negShareSD": 0.009580294861112249
+    },
+    {
+     "beliefDist": 0.25551020408163266,
+     "distinctProfiles": 3,
+     "friendsSD": 1.5565529682144268,
+     "negShareSD": 0.011740840031147379
+    },
+    {
+     "beliefDist": 3.2285714285714286,
+     "distinctProfiles": 16,
+     "friendsSD": 1.9273541131694036,
+     "negShareSD": 0.015211887548874536
+    },
+    {
+     "beliefDist": 3.9526530612244897,
+     "distinctProfiles": 24,
+     "friendsSD": 1.8423587365889722,
+     "negShareSD": 0.025343913472295632
+    },
+    {
+     "beliefDist": 4.847346938775511,
+     "distinctProfiles": 25,
+     "friendsSD": 1.9923322401401935,
+     "negShareSD": 0.0179904559555149
+    },
+    {
+     "beliefDist": 3.543673469387755,
+     "distinctProfiles": 19,
+     "friendsSD": 2.022728002334613,
+     "negShareSD": 0.012970660649202362
+    }
+   ]
+  },
+  "fill: opusnormal_r1": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.2937551020408162,
+     "ci": [
+      1.1782448979591837,
+      1.3488163265306121
+     ]
+    },
+    "distinctProfiles": {
+     "value": 4.6,
+     "ci": [
+      3.8,
+      4.35
+     ]
+    },
+    "friendsSD": {
+     "value": 1.154563303309612,
+     "ci": [
+      1.0701873991249757,
+      1.2102072489260345
+     ]
+    },
+    "negShareSD": {
+     "value": 0.01697593828113736,
+     "ci": [
+      0.014891200179382561,
+      0.018765781656042226
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 139.68,
+     "ci": 1.288535540836961,
+     "sd": 4.648633769008626,
+     "min": 132,
+     "max": 150
+    },
+    "feuds": {
+     "mean": 2.38,
+     "ci": 0.38346713027324775,
+     "sd": 1.3834296335630547,
+     "min": 0,
+     "max": 6
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 22.8,
+     "ci": 1.0873233189810654,
+     "sd": 3.9227229193559943,
+     "min": 16,
+     "max": 31
+    },
+    "breaks": {
+     "mean": 1.08,
+     "ci": 0.21572723518369197,
+     "sd": 0.7782764841072131,
+     "min": 0,
+     "max": 3
+    },
+    "beliefMoves": {
+     "mean": 83.46,
+     "ci": 1.6481609630130183,
+     "sd": 5.946049966497223,
+     "min": 72,
+     "max": 97
+    },
+    "negShare": {
+     "mean": 0.02984053864206577,
+     "ci": 0.0034466720129652803,
+     "sd": 0.01243451608619203,
+     "min": 0.007816482582837724,
+     "max": 0.06412894375857339
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.1836734693877551,
+     "distinctProfiles": 2,
+     "friendsSD": 1.358871080067899,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 4.546938775510204,
+     "distinctProfiles": 10,
+     "friendsSD": 1.009344099008897,
+     "negShareSD": 0.000607760906017537
+    },
+    {
+     "beliefDist": 0.1836734693877551,
+     "distinctProfiles": 2,
+     "friendsSD": 0.9035079029052514,
+     "negShareSD": 0.0005843857695756591
+    },
+    {
+     "beliefDist": 0.6644897959183673,
+     "distinctProfiles": 3,
+     "friendsSD": 0.6223720260226274,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.1485714285714286,
+     "distinctProfiles": 5,
+     "friendsSD": 1.0022423838165935,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.9363265306122449,
+     "distinctProfiles": 7,
+     "friendsSD": 0.8351951989853408,
+     "negShareSD": 0.04208651329863719
+    },
+    {
+     "beliefDist": 1.8,
+     "distinctProfiles": 7,
+     "friendsSD": 1.0583005244258368,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.3902040816326531,
+     "distinctProfiles": 3,
+     "friendsSD": 1.245563555756417,
+     "negShareSD": 0.09633399295537745
+    },
+    {
+     "beliefDist": 1.2710204081632652,
+     "distinctProfiles": 6,
+     "friendsSD": 1.129204162592544,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.11836734693877551,
+     "distinctProfiles": 3,
+     "friendsSD": 1.700420116156173,
+     "negShareSD": 0.006132573417011157
+    },
+    {
+     "beliefDist": 0.47020408163265304,
+     "distinctProfiles": 2,
+     "friendsSD": 1.3997084244475302,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.9412244897959183,
+     "distinctProfiles": 8,
+     "friendsSD": 1.636447122174581,
+     "negShareSD": 0.06691336679065567
+    },
+    {
+     "beliefDist": 0.6448979591836734,
+     "distinctProfiles": 4,
+     "friendsSD": 1.461897006338975,
+     "negShareSD": 0.021831452601732238
+    },
+    {
+     "beliefDist": 2.1583673469387756,
+     "distinctProfiles": 3,
+     "friendsSD": 0.6391959234627743,
+     "negShareSD": 0.0016987550298775932
+    },
+    {
+     "beliefDist": 0.7836734693877551,
+     "distinctProfiles": 3,
+     "friendsSD": 1.2163847404233143,
+     "negShareSD": 0.00275165975266412
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.8797031039051801,
+     "negShareSD": 0.03776655522797038
+    },
+    {
+     "beliefDist": 1.1444897959183673,
+     "distinctProfiles": 5,
+     "friendsSD": 1.770045543055262,
+     "negShareSD": 0.004862899242090928
+    },
+    {
+     "beliefDist": 1.143673469387755,
+     "distinctProfiles": 4,
+     "friendsSD": 1.2695813225996504,
+     "negShareSD": 0.05794885063113728
+    },
+    {
+     "beliefDist": 0.42857142857142855,
+     "distinctProfiles": 2,
+     "friendsSD": 0.7969328960560776,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 4.916734693877551,
+     "distinctProfiles": 12,
+     "friendsSD": 1.156348933991317,
+     "negShareSD": 0
+    }
+   ]
+  },
+  "fill: opusnormal_r2": {
+   "spread": {
+    "beliefDist": {
+     "value": 0.839387755102041,
+     "ci": [
+      0.772,
+      0.8671020408163266
+     ]
+    },
+    "distinctProfiles": {
+     "value": 3.15,
+     "ci": [
+      2.7,
+      3.1
+     ]
+    },
+    "friendsSD": {
+     "value": 1.0553781656492114,
+     "ci": [
+      0.9793947805612679,
+      1.0951690928162694
+     ]
+    },
+    "negShareSD": {
+     "value": 0.024787281282776685,
+     "ci": [
+      0.020826445667901542,
+      0.027256153311510916
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 101.94,
+     "ci": 1.1871603766972685,
+     "sd": 4.2829038404010955,
+     "min": 92,
+     "max": 112
+    },
+    "feuds": {
+     "mean": 14.24,
+     "ci": 0.39423363631227604,
+     "sd": 1.4222718245318446,
+     "min": 11,
+     "max": 19
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 20.32,
+     "ci": 1.0661199932465386,
+     "sd": 3.8462279427713457,
+     "min": 14,
+     "max": 31
+    },
+    "breaks": {
+     "mean": 1.44,
+     "ci": 0.17849862744570336,
+     "sd": 0.6439672954048369,
+     "min": 1,
+     "max": 3
+    },
+    "beliefMoves": {
+     "mean": 91.14,
+     "ci": 1.537717581352311,
+     "sd": 5.547604741448958,
+     "min": 81,
+     "max": 108
+    },
+    "negShare": {
+     "mean": 0.196146960506847,
+     "ci": 0.002887183496450629,
+     "sd": 0.010416056269745542,
+     "min": 0.1633493479752917,
+     "max": 0.2249410911727388
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 1.0103545548621091,
+     "negShareSD": 0.0017123002378420502
+    },
+    {
+     "beliefDist": 3.7281632653061223,
+     "distinctProfiles": 6,
+     "friendsSD": 0.8040712731125877,
+     "negShareSD": 0.0015289303399328065
+    },
+    {
+     "beliefDist": 0.8310204081632653,
+     "distinctProfiles": 5,
+     "friendsSD": 1.5311726865113446,
+     "negShareSD": 0.098995845136526
+    },
+    {
+     "beliefDist": 0.5485714285714286,
+     "distinctProfiles": 3,
+     "friendsSD": 0.3187987657774485,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.7866228513106401,
+     "negShareSD": 0.0005870806703343324
+    },
+    {
+     "beliefDist": 0.38693877551020406,
+     "distinctProfiles": 5,
+     "friendsSD": 0.9178501945262288,
+     "negShareSD": 0.05589650538099924
+    },
+    {
+     "beliefDist": 0.9012244897959184,
+     "distinctProfiles": 3,
+     "friendsSD": 1.1337134216586566,
+     "negShareSD": 0.0006700275586442378
+    },
+    {
+     "beliefDist": 0.47020408163265304,
+     "distinctProfiles": 2,
+     "friendsSD": 0.7354021529276427,
+     "negShareSD": 0.03321323269224134
+    },
+    {
+     "beliefDist": 3.1648979591836737,
+     "distinctProfiles": 10,
+     "friendsSD": 1.4525136551397184,
+     "negShareSD": 0.011399888740581867
+    },
+    {
+     "beliefDist": 0.8506122448979592,
+     "distinctProfiles": 3,
+     "friendsSD": 1.4713592216667124,
+     "negShareSD": 0.0387578009254803
+    },
+    {
+     "beliefDist": 0.49714285714285716,
+     "distinctProfiles": 2,
+     "friendsSD": 1.4321384039831018,
+     "negShareSD": 0.0036315600420038707
+    },
+    {
+     "beliefDist": 0.2620408163265306,
+     "distinctProfiles": 3,
+     "friendsSD": 0.9116032076310752,
+     "negShareSD": 0.041482830399742196
+    },
+    {
+     "beliefDist": 1.2791836734693878,
+     "distinctProfiles": 6,
+     "friendsSD": 1.2157134463653307,
+     "negShareSD": 0.04577623484622416
+    },
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 0.4020356365562938,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.3787755102040816,
+     "distinctProfiles": 3,
+     "friendsSD": 1.1919800025716087,
+     "negShareSD": 0.006864750320571156
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.7866228513106405,
+     "negShareSD": 0.042881467266670414
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.1141025490482992,
+     "negShareSD": 0.04838344306499678
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.87970310390518,
+     "negShareSD": 0.042214717988155404
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.8381222939355789,
+     "negShareSD": 0.001120142328360118
+    },
+    {
+     "beliefDist": 3.4089795918367347,
+     "distinctProfiles": 3,
+     "friendsSD": 2.173683040184028,
+     "negShareSD": 0.020628867716227465
+    }
+   ]
+  },
+  "fill: opusblind_r1": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.2564897959183674,
+     "ci": [
+      1.1414285714285712,
+      1.3177551020408163
+     ]
+    },
+    "distinctProfiles": {
+     "value": 5.5,
+     "ci": [
+      4.45,
+      5.1
+     ]
+    },
+    "friendsSD": {
+     "value": 1.6014752023522525,
+     "ci": [
+      1.5220629880527181,
+      1.6424523255057912
+     ]
+    },
+    "negShareSD": {
+     "value": 0.02282748168174132,
+     "ci": [
+      0.02046705443890822,
+      0.02422650422146307
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 86.54,
+     "ci": 1.980857026642761,
+     "sd": 7.146313449490398,
+     "min": 71,
+     "max": 98
+    },
+    "feuds": {
+     "mean": 7.04,
+     "ci": 0.5100613296457592,
+     "sd": 1.8401419643548131,
+     "min": 3,
+     "max": 13
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 19.06,
+     "ci": 0.9242714752711998,
+     "sd": 3.334482795007958,
+     "min": 13,
+     "max": 29
+    },
+    "breaks": {
+     "mean": 2.02,
+     "ci": 0.2989057376498483,
+     "sd": 1.078358540958035,
+     "min": 0,
+     "max": 4
+    },
+    "beliefMoves": {
+     "mean": 86.76,
+     "ci": 1.5301020096712503,
+     "sd": 5.520130137478089,
+     "min": 73,
+     "max": 97
+    },
+    "negShare": {
+     "mean": 0.05924951802498911,
+     "ci": 0.0033691230644676074,
+     "sd": 0.012154743701719628,
+     "min": 0.0381173351010938,
+     "max": 0.09566542499153403
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.19346938775510203,
+     "distinctProfiles": 3,
+     "friendsSD": 0.9538322275784915,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 4.391020408163265,
+     "distinctProfiles": 13,
+     "friendsSD": 1.4603605928757764,
+     "negShareSD": 0.010376225934962022
+    },
+    {
+     "beliefDist": 0.3020408163265306,
+     "distinctProfiles": 4,
+     "friendsSD": 2.0433066438536147,
+     "negShareSD": 0.0022276012539480554
+    },
+    {
+     "beliefDist": 0.689795918367347,
+     "distinctProfiles": 7,
+     "friendsSD": 1.5732457026212805,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.4824489795918367,
+     "distinctProfiles": 5,
+     "friendsSD": 1.473715282778149,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.32,
+     "distinctProfiles": 9,
+     "friendsSD": 1.5497201854080709,
+     "negShareSD": 0.04904219720973019
+    },
+    {
+     "beliefDist": 0.6465306122448979,
+     "distinctProfiles": 3,
+     "friendsSD": 1.5440471601130135,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.9012244897959184,
+     "distinctProfiles": 2,
+     "friendsSD": 1.2403093754941852,
+     "negShareSD": 0.07491051507806822
+    },
+    {
+     "beliefDist": 2.6146938775510202,
+     "distinctProfiles": 10,
+     "friendsSD": 1.7706219361615076,
+     "negShareSD": 0.0045861653263956125
+    },
+    {
+     "beliefDist": 1.1853061224489796,
+     "distinctProfiles": 7,
+     "friendsSD": 1.2215747615103971,
+     "negShareSD": 0.01779873069067024
+    },
+    {
+     "beliefDist": 0.4579591836734694,
+     "distinctProfiles": 2,
+     "friendsSD": 1.4285714285714286,
+     "negShareSD": 0.006902219505917488
+    },
+    {
+     "beliefDist": 0.5142857142857142,
+     "distinctProfiles": 5,
+     "friendsSD": 1.3125765283811626,
+     "negShareSD": 0.06285072613163802
+    },
+    {
+     "beliefDist": 0.6906122448979591,
+     "distinctProfiles": 3,
+     "friendsSD": 1.211509431263668,
+     "negShareSD": 0.024394863106673118
+    },
+    {
+     "beliefDist": 2.8955102040816327,
+     "distinctProfiles": 8,
+     "friendsSD": 2.793943887943992,
+     "negShareSD": 0.0015308014842954866
+    },
+    {
+     "beliefDist": 0.11836734693877551,
+     "distinctProfiles": 3,
+     "friendsSD": 2.0287726258373406,
+     "negShareSD": 0.010434279520998383
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.69945969805292,
+     "negShareSD": 0.03825860130560811
+    },
+    {
+     "beliefDist": 0.3893877551020408,
+     "distinctProfiles": 3,
+     "friendsSD": 1.5433861526936576,
+     "negShareSD": 0.07528611113267673
+    },
+    {
+     "beliefDist": 0.41877551020408166,
+     "distinctProfiles": 3,
+     "friendsSD": 2.0425074625797275,
+     "negShareSD": 0.07191056251304692
+    },
+    {
+     "beliefDist": 0.9551020408163265,
+     "distinctProfiles": 4,
+     "friendsSD": 1.1457107231864816,
+     "negShareSD": 0.00038959051305043947
+    },
+    {
+     "beliefDist": 4.963265306122449,
+     "distinctProfiles": 15,
+     "friendsSD": 1.9923322401401933,
+     "negShareSD": 0.005650442927147401
+    }
+   ]
+  },
+  "fill: opusblind_r2": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.162204081632653,
+     "ci": [
+      1.0790204081632653,
+      1.2173061224489794
+     ]
+    },
+    "distinctProfiles": {
+     "value": 4.15,
+     "ci": [
+      3.4,
+      3.95
+     ]
+    },
+    "friendsSD": {
+     "value": 1.4618458095444997,
+     "ci": [
+      1.3924569041579824,
+      1.4863267041137982
+     ]
+    },
+    "negShareSD": {
+     "value": 0.01937902475817805,
+     "ci": [
+      0.01759613369515632,
+      0.020349670551045522
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 93.24,
+     "ci": 1.2838053435003296,
+     "sd": 4.631568694452082,
+     "min": 85,
+     "max": 103
+    },
+    "feuds": {
+     "mean": 8.88,
+     "ci": 0.43608146028007194,
+     "sd": 1.5732457026212805,
+     "min": 5,
+     "max": 12
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 27.36,
+     "ci": 1.2342379673304495,
+     "sd": 4.452745083149293,
+     "min": 18,
+     "max": 35
+    },
+    "breaks": {
+     "mean": 5.74,
+     "ci": 0.4778411451518171,
+     "sd": 1.7239016023816083,
+     "min": 2,
+     "max": 10
+    },
+    "beliefMoves": {
+     "mean": 115.74,
+     "ci": 1.8689323583265394,
+     "sd": 6.742524204855421,
+     "min": 96,
+     "max": 133
+    },
+    "negShare": {
+     "mean": 0.11046274778399574,
+     "ci": 0.0029230938949409476,
+     "sd": 0.010545609771212968,
+     "min": 0.08750668330065942,
+     "max": 0.1328329551405132
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.7518367346938776,
+     "distinctProfiles": 4,
+     "friendsSD": 1.1358715075362413,
+     "negShareSD": 0.0016983820573274757
+    },
+    {
+     "beliefDist": 5.707755102040816,
+     "distinctProfiles": 7,
+     "friendsSD": 1.6268160966270584,
+     "negShareSD": 0.0016948033752834234
+    },
+    {
+     "beliefDist": 0.2236734693877551,
+     "distinctProfiles": 3,
+     "friendsSD": 1.6615704398341384,
+     "negShareSD": 0.029233664120800598
+    },
+    {
+     "beliefDist": 0.0783673469387755,
+     "distinctProfiles": 2,
+     "friendsSD": 0.746146563268605,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.0326530612244897,
+     "distinctProfiles": 5,
+     "friendsSD": 1.145710723186481,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.006530612244898,
+     "distinctProfiles": 5,
+     "friendsSD": 1.5939938288872426,
+     "negShareSD": 0.04570175593078413
+    },
+    {
+     "beliefDist": 1.643265306122449,
+     "distinctProfiles": 6,
+     "friendsSD": 1.2674898864467905,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.47020408163265304,
+     "distinctProfiles": 2,
+     "friendsSD": 1.1328130058056578,
+     "negShareSD": 0.06559229896959683
+    },
+    {
+     "beliefDist": 1.4791836734693877,
+     "distinctProfiles": 6,
+     "friendsSD": 1.9445370888198354,
+     "negShareSD": 0.006570087098629563
+    },
+    {
+     "beliefDist": 0.29551020408163264,
+     "distinctProfiles": 4,
+     "friendsSD": 1.5857786344729896,
+     "negShareSD": 0.011660739163792863
+    },
+    {
+     "beliefDist": 0.4579591836734694,
+     "distinctProfiles": 2,
+     "friendsSD": 1.626439707597235,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.46530612244897956,
+     "distinctProfiles": 5,
+     "friendsSD": 1.3523977195472991,
+     "negShareSD": 0.07410594424105685
+    },
+    {
+     "beliefDist": 0.72,
+     "distinctProfiles": 5,
+     "friendsSD": 1.4285714285714288,
+     "negShareSD": 0.032541832864508805
+    },
+    {
+     "beliefDist": 0.24571428571428572,
+     "distinctProfiles": 2,
+     "friendsSD": 1.7333464154399043,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0.23673469387755103,
+     "distinctProfiles": 5,
+     "friendsSD": 1.359021256460032,
+     "negShareSD": 0.0013938475726577905
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.4222718245318446,
+     "negShareSD": 0.04207089357991454
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.3874069191061695,
+     "negShareSD": 0.027487176145327304
+    },
+    {
+     "beliefDist": 1.623673469387755,
+     "distinctProfiles": 4,
+     "friendsSD": 1.5681784571500106,
+     "negShareSD": 0.04738712830563916
+    },
+    {
+     "beliefDist": 0.30122448979591837,
+     "distinctProfiles": 2,
+     "friendsSD": 1.7660055238317014,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 5.504489795918367,
+     "distinctProfiles": 12,
+     "friendsSD": 1.7525491637693278,
+     "negShareSD": 0.00044194173824159253
+    }
+   ]
+  },
+  "fill: gemini_r1": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.370081632653061,
+     "ci": [
+      1.2431020408163265,
+      1.4322040816326531
+     ]
+    },
+    "distinctProfiles": {
+     "value": 7.6,
+     "ci": [
+      5.65,
+      6.75
+     ]
+    },
+    "friendsSD": {
+     "value": 1.3384286868048316,
+     "ci": [
+      1.2452516330646777,
+      1.3795437227587288
+     ]
+    },
+    "negShareSD": {
+     "value": 0.051895499610536265,
+     "ci": [
+      0.047533563996315385,
+      0.0540551022141106
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 57.28,
+     "ci": 1.1242479441831323,
+     "sd": 4.055935434014939,
+     "min": 48,
+     "max": 70
+    },
+    "feuds": {
+     "mean": 25.6,
+     "ci": 1.0371345139373194,
+     "sd": 3.7416573867739413,
+     "min": 17,
+     "max": 36
+    },
+    "isolates": {
+     "mean": 0.06,
+     "ci": 0.06649631568741235,
+     "sd": 0.2398979374820953,
+     "min": 0,
+     "max": 1
+    },
+    "flips": {
+     "mean": 37.8,
+     "ci": 1.5377073843875497,
+     "sd": 5.547567953985029,
+     "min": 28,
+     "max": 50
+    },
+    "breaks": {
+     "mean": 23.24,
+     "ci": 0.9379958208862127,
+     "sd": 3.3839959473126697,
+     "min": 16,
+     "max": 30
+    },
+    "beliefMoves": {
+     "mean": 196.18,
+     "ci": 3.678859040517861,
+     "sd": 13.272174360100081,
+     "min": 167,
+     "max": 231
+    },
+    "negShare": {
+     "mean": 0.2380283315410482,
+     "ci": 0.005594678459079896,
+     "sd": 0.020183852433539283,
+     "min": 0.18823529411764706,
+     "max": 0.2732090284592738
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.2742857142857143,
+     "distinctProfiles": 2,
+     "friendsSD": 1.1717769516805643,
+     "negShareSD": 0.026563073259463634
+    },
+    {
+     "beliefDist": 6.291428571428572,
+     "distinctProfiles": 37,
+     "friendsSD": 1.0768434597167287,
+     "negShareSD": 0.05495443445702571
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.265717510476382,
+     "negShareSD": 0.009722927850889976
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.4201178450669336,
+     "negShareSD": 0.00446911032446275
+    },
+    {
+     "beliefDist": 0.7387755102040816,
+     "distinctProfiles": 7,
+     "friendsSD": 1.1385633625812153,
+     "negShareSD": 0.015124227379406106
+    },
+    {
+     "beliefDist": 3.9224489795918367,
+     "distinctProfiles": 23,
+     "friendsSD": 2.080914241777554,
+     "negShareSD": 0.16201493310036186
+    },
+    {
+     "beliefDist": 0.34122448979591835,
+     "distinctProfiles": 3,
+     "friendsSD": 1.2460549992775158,
+     "negShareSD": 0.0051478139329246475
+    },
+    {
+     "beliefDist": 0.3787755102040816,
+     "distinctProfiles": 4,
+     "friendsSD": 1.6399352899130017,
+     "negShareSD": 0.0730550733247977
+    },
+    {
+     "beliefDist": 1.6546938775510205,
+     "distinctProfiles": 8,
+     "friendsSD": 1.2512850537404678,
+     "negShareSD": 0.05949572657748736
+    },
+    {
+     "beliefDist": 0.35020408163265304,
+     "distinctProfiles": 2,
+     "friendsSD": 1.2815806566860461,
+     "negShareSD": 0.06409758742751284
+    },
+    {
+     "beliefDist": 0.2742857142857143,
+     "distinctProfiles": 2,
+     "friendsSD": 1.0583005244258368,
+     "negShareSD": 0.011060834399362245
+    },
+    {
+     "beliefDist": 3.4824489795918367,
+     "distinctProfiles": 19,
+     "friendsSD": 1.5970636320754283,
+     "negShareSD": 0.043886872411303214
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.3254186862563662,
+     "negShareSD": 0.08777133248306526
+    },
+    {
+     "beliefDist": 3.467755102040816,
+     "distinctProfiles": 9,
+     "friendsSD": 1.6762445878711578,
+     "negShareSD": 0.02009942754665859
+    },
+    {
+     "beliefDist": 0.6375510204081632,
+     "distinctProfiles": 6,
+     "friendsSD": 0.9089127840335353,
+     "negShareSD": 0.043826416176541004
+    },
+    {
+     "beliefDist": 0.5469387755102041,
+     "distinctProfiles": 3,
+     "friendsSD": 1.2610329423265092,
+     "negShareSD": 0.05844197481622303
+    },
+    {
+     "beliefDist": 1.6408163265306122,
+     "distinctProfiles": 7,
+     "friendsSD": 1.3915195042155344,
+     "negShareSD": 0.11545004347355398
+    },
+    {
+     "beliefDist": 1.8938775510204082,
+     "distinctProfiles": 6,
+     "friendsSD": 1.8183868159016379,
+     "negShareSD": 0.1326544481496016
+    },
+    {
+     "beliefDist": 0.2857142857142857,
+     "distinctProfiles": 3,
+     "friendsSD": 1.1691615694634356,
+     "negShareSD": 0.008706511272184298
+    },
+    {
+     "beliefDist": 1.220408163265306,
+     "distinctProfiles": 8,
+     "friendsSD": 0.9897433186107872,
+     "negShareSD": 0.04136722384789955
+    }
+   ]
+  },
+  "fill: gemini_r2": {
+   "spread": {
+    "beliefDist": {
+     "value": 2.556979591836734,
+     "ci": [
+      2.4016326530612244,
+      2.611795918367347
+     ]
+    },
+    "distinctProfiles": {
+     "value": 15.35,
+     "ci": [
+      10.9,
+      13.05
+     ]
+    },
+    "friendsSD": {
+     "value": 1.1266510183742366,
+     "ci": [
+      1.054662061918399,
+      1.1619086614954024
+     ]
+    },
+    "negShareSD": {
+     "value": 0.03873435596490019,
+     "ci": [
+      0.03556049979256487,
+      0.04108326273165629
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 57.06,
+     "ci": 1.0347278676057778,
+     "sd": 3.7329749585037844,
+     "min": 50,
+     "max": 68
+    },
+    "feuds": {
+     "mean": 23.24,
+     "ci": 0.6447543408151665,
+     "sd": 2.3260722785197276,
+     "min": 18,
+     "max": 30
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 60.36,
+     "ci": 2.403280957358086,
+     "sd": 8.670287051246943,
+     "min": 42,
+     "max": 94
+    },
+    "breaks": {
+     "mean": 39.12,
+     "ci": 1.1180943788428594,
+     "sd": 4.033735292277279,
+     "min": 29,
+     "max": 46
+    },
+    "beliefMoves": {
+     "mean": 281,
+     "ci": 4.593024276008129,
+     "sd": 16.57019699857031,
+     "min": 245,
+     "max": 314
+    },
+    "negShare": {
+     "mean": 0.24035971878635554,
+     "ci": 0.005330820293901007,
+     "sd": 0.019231934587266665,
+     "min": 0.18853615520282188,
+     "max": 0.28052243043725156
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.6424489795918368,
+     "distinctProfiles": 6,
+     "friendsSD": 1.1322724125962491,
+     "negShareSD": 0.011493828923336336
+    },
+    {
+     "beliefDist": 3.840816326530612,
+     "distinctProfiles": 22,
+     "friendsSD": 0.9764575708934319,
+     "negShareSD": 0.013179154241867741
+    },
+    {
+     "beliefDist": 0.0783673469387755,
+     "distinctProfiles": 2,
+     "friendsSD": 1.0133798771981828,
+     "negShareSD": 0.026834832162042275
+    },
+    {
+     "beliefDist": 3.16734693877551,
+     "distinctProfiles": 16,
+     "friendsSD": 1.0038700623291925,
+     "negShareSD": 0.0060499557474652165
+    },
+    {
+     "beliefDist": 3.6742857142857144,
+     "distinctProfiles": 19,
+     "friendsSD": 1.0879675865519869,
+     "negShareSD": 0.0028979341408337817
+    },
+    {
+     "beliefDist": 2.430204081632653,
+     "distinctProfiles": 20,
+     "friendsSD": 1.4212670403551897,
+     "negShareSD": 0.10654379041215446
+    },
+    {
+     "beliefDist": 2.9518367346938774,
+     "distinctProfiles": 14,
+     "friendsSD": 0.9606545387688248,
+     "negShareSD": 0.003058814467682994
+    },
+    {
+     "beliefDist": 4.667755102040816,
+     "distinctProfiles": 29,
+     "friendsSD": 1.4165206007132045,
+     "negShareSD": 0.04425538459193087
+    },
+    {
+     "beliefDist": 2.7248979591836733,
+     "distinctProfiles": 18,
+     "friendsSD": 1.0350983390135315,
+     "negShareSD": 0.03685881969657118
+    },
+    {
+     "beliefDist": 0.3795918367346939,
+     "distinctProfiles": 3,
+     "friendsSD": 1.2453996981544784,
+     "negShareSD": 0.07729126735291224
+    },
+    {
+     "beliefDist": 0.2742857142857143,
+     "distinctProfiles": 2,
+     "friendsSD": 1.0644534862969808,
+     "negShareSD": 0.006316336241652893
+    },
+    {
+     "beliefDist": 2.1322448979591835,
+     "distinctProfiles": 12,
+     "friendsSD": 0.9899494936611661,
+     "negShareSD": 0.05543592304291366
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.136410388648648,
+     "negShareSD": 0.07057529221455777
+    },
+    {
+     "beliefDist": 3.834285714285714,
+     "distinctProfiles": 21,
+     "friendsSD": 1.1286618408630682,
+     "negShareSD": 0.013999041583918124
+    },
+    {
+     "beliefDist": 0.15020408163265306,
+     "distinctProfiles": 2,
+     "friendsSD": 0.8815570640309435,
+     "negShareSD": 0.024051390610821618
+    },
+    {
+     "beliefDist": 0.15020408163265306,
+     "distinctProfiles": 2,
+     "friendsSD": 0.9833304508201728,
+     "negShareSD": 0.054914399726163576
+    },
+    {
+     "beliefDist": 5.198367346938776,
+     "distinctProfiles": 34,
+     "friendsSD": 1.2674898864467905,
+     "negShareSD": 0.07342265134196635
+    },
+    {
+     "beliefDist": 5.194285714285714,
+     "distinctProfiles": 33,
+     "friendsSD": 1.7956864414252196,
+     "negShareSD": 0.10706033083844128
+    },
+    {
+     "beliefDist": 4.319183673469388,
+     "distinctProfiles": 23,
+     "friendsSD": 1.0834562986204874,
+     "negShareSD": 0.013407619587560388
+    },
+    {
+     "beliefDist": 5.328979591836735,
+     "distinctProfiles": 28,
+     "friendsSD": 0.90913729009699,
+     "negShareSD": 0.027040352373211056
+    }
+   ]
+  },
+  "fill: chatgpt_r1": {
+   "spread": {
+    "beliefDist": {
+     "value": 2.0776326530612246,
+     "ci": [
+      1.916979591836735,
+      2.1440000000000006
+     ]
+    },
+    "distinctProfiles": {
+     "value": 11.6,
+     "ci": [
+      8.4,
+      10.05
+     ]
+    },
+    "friendsSD": {
+     "value": 1.2282862450037868,
+     "ci": [
+      1.152515364528829,
+      1.2716598936126657
+     ]
+    },
+    "negShareSD": {
+     "value": 0.011543383252830466,
+     "ci": [
+      0.00957638474208024,
+      0.013111396357956617
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 33.86,
+     "ci": 1.2294646639899824,
+     "sd": 4.435524495594677,
+     "min": 21,
+     "max": 47
+    },
+    "feuds": {
+     "mean": 1.68,
+     "ci": 0.36909055799356355,
+     "sd": 1.3315634511692627,
+     "min": 0,
+     "max": 6
+    },
+    "isolates": {
+     "mean": 2.42,
+     "ci": 0.24467578547947902,
+     "sd": 0.882713811758595,
+     "min": 0,
+     "max": 4
+    },
+    "flips": {
+     "mean": 48.7,
+     "ci": 1.98009696732256,
+     "sd": 7.1435713928607125,
+     "min": 36,
+     "max": 68
+    },
+    "breaks": {
+     "mean": 21.52,
+     "ci": 0.786476089909922,
+     "sd": 2.8373600837570754,
+     "min": 17,
+     "max": 29
+    },
+    "beliefMoves": {
+     "mean": 169.06,
+     "ci": 3.1794046235105076,
+     "sd": 11.470298823572154,
+     "min": 141,
+     "max": 198
+    },
+    "negShare": {
+     "mean": 0.024666725114101857,
+     "ci": 0.0018664617192782709,
+     "sd": 0.006733610910850855,
+     "min": 0.014243197278911565,
+     "max": 0.04971002485501243
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 1.2318367346938774,
+     "distinctProfiles": 6,
+     "friendsSD": 0.9304376850247876,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 3.7012244897959183,
+     "distinctProfiles": 24,
+     "friendsSD": 1.3797367391599586,
+     "negShareSD": 0.015927075664260642
+    },
+    {
+     "beliefDist": 0.7248979591836735,
+     "distinctProfiles": 3,
+     "friendsSD": 0.5252793231671495,
+     "negShareSD": 0.0031205219114437094
+    },
+    {
+     "beliefDist": 0.5942857142857143,
+     "distinctProfiles": 5,
+     "friendsSD": 1.5790723187223257,
+     "negShareSD": 0.004909196557590786
+    },
+    {
+     "beliefDist": 4.120816326530612,
+     "distinctProfiles": 21,
+     "friendsSD": 2.2274722564066254,
+     "negShareSD": 0.002492272820473542
+    },
+    {
+     "beliefDist": 3.2979591836734694,
+     "distinctProfiles": 25,
+     "friendsSD": 1.265717510476382,
+     "negShareSD": 0.03141855096675152
+    },
+    {
+     "beliefDist": 1.6979591836734693,
+     "distinctProfiles": 8,
+     "friendsSD": 1.4581229197086203,
+     "negShareSD": 0.004390431063990748
+    },
+    {
+     "beliefDist": 2.473469387755102,
+     "distinctProfiles": 12,
+     "friendsSD": 0.8827138117585945,
+     "negShareSD": 0.010031077965228855
+    },
+    {
+     "beliefDist": 1.2228571428571429,
+     "distinctProfiles": 5,
+     "friendsSD": 0.8889342392059453,
+     "negShareSD": 0.004000808291423759
+    },
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 0.7453255691854621,
+     "negShareSD": 0.002079774275775352
+    },
+    {
+     "beliefDist": 0.4897959183673469,
+     "distinctProfiles": 2,
+     "friendsSD": 0.6114552731152199,
+     "negShareSD": 0.0020838811233769394
+    },
+    {
+     "beliefDist": 2.666122448979592,
+     "distinctProfiles": 17,
+     "friendsSD": 1.3656126680664886,
+     "negShareSD": 0.03321099331134722
+    },
+    {
+     "beliefDist": 0.6571428571428571,
+     "distinctProfiles": 3,
+     "friendsSD": 0.6114552731152199,
+     "negShareSD": 0.007247557935435017
+    },
+    {
+     "beliefDist": 2.0114285714285716,
+     "distinctProfiles": 10,
+     "friendsSD": 1.3516429911445562,
+     "negShareSD": 0.011971064411322443
+    },
+    {
+     "beliefDist": 0.3036734693877551,
+     "distinctProfiles": 4,
+     "friendsSD": 1.426999134762262,
+     "negShareSD": 0.006383667167944008
+    },
+    {
+     "beliefDist": 0.7591836734693878,
+     "distinctProfiles": 4,
+     "friendsSD": 1.3588710800678991,
+     "negShareSD": 0.03194779719486109
+    },
+    {
+     "beliefDist": 5.302040816326531,
+     "distinctProfiles": 29,
+     "friendsSD": 1.2055991820481224,
+     "negShareSD": 0.02238697279568053
+    },
+    {
+     "beliefDist": 5.697959183673469,
+     "distinctProfiles": 28,
+     "friendsSD": 1.2715088257175216,
+     "negShareSD": 0.02467244613630793
+    },
+    {
+     "beliefDist": 1.9853061224489796,
+     "distinctProfiles": 12,
+     "friendsSD": 1.697657449642456,
+     "negShareSD": 0.008774261215195398
+    },
+    {
+     "beliefDist": 2.57469387755102,
+     "distinctProfiles": 12,
+     "friendsSD": 1.782110649580137,
+     "negShareSD": 0.0038193142481998217
+    }
+   ]
+  },
+  "fill: chatgpt_r2": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.7231020408163267,
+     "ci": [
+      1.5819999999999999,
+      1.799673469387755
+     ]
+    },
+    "distinctProfiles": {
+     "value": 10.3,
+     "ci": [
+      7.6,
+      9.05
+     ]
+    },
+    "friendsSD": {
+     "value": 1.5912773605577553,
+     "ci": [
+      1.5020070867089472,
+      1.638480980627658
+     ]
+    },
+    "negShareSD": {
+     "value": 0.03327587235362079,
+     "ci": [
+      0.030372717755900742,
+      0.035196429409241316
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 95.1,
+     "ci": 1.8096320067903313,
+     "sd": 6.5285870584370596,
+     "min": 81,
+     "max": 111
+    },
+    "feuds": {
+     "mean": 16.86,
+     "ci": 0.83063310793635,
+     "sd": 2.99666481275434,
+     "min": 12,
+     "max": 23
+    },
+    "isolates": {
+     "mean": 0,
+     "ci": 0,
+     "sd": 0,
+     "min": 0,
+     "max": 0
+    },
+    "flips": {
+     "mean": 51.14,
+     "ci": 1.7512964797543562,
+     "sd": 6.318130697461401,
+     "min": 39,
+     "max": 65
+    },
+    "breaks": {
+     "mean": 32.94,
+     "ci": 0.9088749969055151,
+     "sd": 3.2789371100142457,
+     "min": 27,
+     "max": 41
+    },
+    "beliefMoves": {
+     "mean": 245.24,
+     "ci": 3.357927360739061,
+     "sd": 12.114353099543044,
+     "min": 223,
+     "max": 280
+    },
+    "negShare": {
+     "mean": 0.19271117721364117,
+     "ci": 0.003974272163832114,
+     "sd": 0.014337932639421536,
+     "min": 0.1525871172122492,
+     "max": 0.22230360739791247
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 1.1208163265306121,
+     "distinctProfiles": 6,
+     "friendsSD": 2.6108877214230315,
+     "negShareSD": 0.020034694538878867
+    },
+    {
+     "beliefDist": 3.88734693877551,
+     "distinctProfiles": 21,
+     "friendsSD": 1.32864823126702,
+     "negShareSD": 0.012020083791546591
+    },
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 1.355261854357877,
+     "negShareSD": 0.02860766009154955
+    },
+    {
+     "beliefDist": 0.24571428571428572,
+     "distinctProfiles": 2,
+     "friendsSD": 1.1471348514219855,
+     "negShareSD": 0.004455884332698731
+    },
+    {
+     "beliefDist": 0.7355102040816327,
+     "distinctProfiles": 5,
+     "friendsSD": 2.0957683311757487,
+     "negShareSD": 0.005408763005041903
+    },
+    {
+     "beliefDist": 2.9012244897959185,
+     "distinctProfiles": 20,
+     "friendsSD": 1.641427949769868,
+     "negShareSD": 0.08191295644951094
+    },
+    {
+     "beliefDist": 0.35020408163265304,
+     "distinctProfiles": 2,
+     "friendsSD": 1.259899574877105,
+     "negShareSD": 0.0058105697290472815
+    },
+    {
+     "beliefDist": 3.9093877551020406,
+     "distinctProfiles": 20,
+     "friendsSD": 1.4178166600913722,
+     "negShareSD": 0.05739407274243113
+    },
+    {
+     "beliefDist": 1.1477551020408163,
+     "distinctProfiles": 6,
+     "friendsSD": 1.705214092728774,
+     "negShareSD": 0.025526847084086562
+    },
+    {
+     "beliefDist": 0.8310204081632653,
+     "distinctProfiles": 4,
+     "friendsSD": 1.2842849197518595,
+     "negShareSD": 0.04908527747156717
+    },
+    {
+     "beliefDist": 0.42857142857142855,
+     "distinctProfiles": 2,
+     "friendsSD": 1.332329554133033,
+     "negShareSD": 0.03738301631719826
+    },
+    {
+     "beliefDist": 1.84,
+     "distinctProfiles": 11,
+     "friendsSD": 1.9086270308410556,
+     "negShareSD": 0.05099874948729177
+    },
+    {
+     "beliefDist": 1.1608163265306122,
+     "distinctProfiles": 8,
+     "friendsSD": 1.47648230602334,
+     "negShareSD": 0.0528999016613716
+    },
+    {
+     "beliefDist": 1.7281632653061225,
+     "distinctProfiles": 8,
+     "friendsSD": 1.9520789545758537,
+     "negShareSD": 0.004896064417628873
+    },
+    {
+     "beliefDist": 0.11836734693877551,
+     "distinctProfiles": 3,
+     "friendsSD": 1.0692358514950981,
+     "negShareSD": 0.019986513955841962
+    },
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 1.2013597738073503,
+     "negShareSD": 0.0427581620700216
+    },
+    {
+     "beliefDist": 4.784489795918367,
+     "distinctProfiles": 30,
+     "friendsSD": 2.062690931174862,
+     "negShareSD": 0.06495750174247805
+    },
+    {
+     "beliefDist": 4.444897959183673,
+     "distinctProfiles": 28,
+     "friendsSD": 2.345990935487125,
+     "negShareSD": 0.08511746296385621
+    },
+    {
+     "beliefDist": 0.5697959183673469,
+     "distinctProfiles": 4,
+     "friendsSD": 1.321100345336787,
+     "negShareSD": 0.0066576570485923255
+    },
+    {
+     "beliefDist": 4.17795918367347,
+     "distinctProfiles": 22,
+     "friendsSD": 1.3093073414159548,
+     "negShareSD": 0.009605608171776492
+    }
+   ]
+  },
+  "fill: dev_r1": {
+   "spread": {
+    "beliefDist": {
+     "value": 1.1037142857142854,
+     "ci": [
+      1.0035918367346939,
+      1.1744081632653063
+     ]
+    },
+    "distinctProfiles": {
+     "value": 3.95,
+     "ci": [
+      3,
+      3.65
+     ]
+    },
+    "friendsSD": {
+     "value": 1.464901583251771,
+     "ci": [
+      1.3753559791349625,
+      1.512490111565861
+     ]
+    },
+    "negShareSD": {
+     "value": 0.022369162582150142,
+     "ci": [
+      0.01944945379426625,
+      0.025203351210827396
+     ]
+    }
+   },
+   "village": {
+    "friendships": {
+     "mean": 89.66,
+     "ci": 1.6129652693099132,
+     "sd": 5.819074896670538,
+     "min": 78,
+     "max": 103
+    },
+    "feuds": {
+     "mean": 7.34,
+     "ci": 0.4501299367960322,
+     "sd": 1.6239282179772776,
+     "min": 4,
+     "max": 11
+    },
+    "isolates": {
+     "mean": 0.02,
+     "ci": 0.03919999999999999,
+     "sd": 0.14142135623730948,
+     "min": 0,
+     "max": 1
+    },
+    "flips": {
+     "mean": 28.3,
+     "ci": 1.2169535734776409,
+     "sd": 4.390388388751231,
+     "min": 20,
+     "max": 38
+    },
+    "breaks": {
+     "mean": 2.32,
+     "ci": 0.35611773334109614,
+     "sd": 1.2847615517666926,
+     "min": 0,
+     "max": 5
+    },
+    "beliefMoves": {
+     "mean": 102.36,
+     "ci": 2.180953773008497,
+     "sd": 7.868200011983136,
+     "min": 87,
+     "max": 119
+    },
+    "negShare": {
+     "mean": 0.06790773956421178,
+     "ci": 0.004196877779217677,
+     "sd": 0.015141024170897743,
+     "min": 0.04036036036036036,
+     "max": 0.11665166516651665
+    }
+   },
+   "perVillager": [
+    {
+     "beliefDist": 0.35428571428571426,
+     "distinctProfiles": 4,
+     "friendsSD": 1.6167490686622983,
+     "negShareSD": 0.0010198705483241038
+    },
+    {
+     "beliefDist": 3.5942857142857143,
+     "distinctProfiles": 5,
+     "friendsSD": 1.4119027543549532,
+     "negShareSD": 0.0023475427133357856
+    },
+    {
+     "beliefDist": 0.3942857142857143,
+     "distinctProfiles": 5,
+     "friendsSD": 1.6333263917664516,
+     "negShareSD": 0.0058409911987819816
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 0.9293403409880336,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.171254342443979,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 2.2122448979591836,
+     "distinctProfiles": 10,
+     "friendsSD": 1.8322507626258087,
+     "negShareSD": 0.0705197789689986
+    },
+    {
+     "beliefDist": 1.013877551020408,
+     "distinctProfiles": 2,
+     "friendsSD": 1.2348675877128175,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.179588305905315,
+     "negShareSD": 0.04720442378654871
+    },
+    {
+     "beliefDist": 2.109387755102041,
+     "distinctProfiles": 10,
+     "friendsSD": 1.9209903908225714,
+     "negShareSD": 0.015824753749663887
+    },
+    {
+     "beliefDist": 0.04,
+     "distinctProfiles": 2,
+     "friendsSD": 1.834032025180519,
+     "negShareSD": 0.016715218423916645
+    },
+    {
+     "beliefDist": 0.48081632653061224,
+     "distinctProfiles": 2,
+     "friendsSD": 1.5386185163241444,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 1.6489795918367347,
+     "distinctProfiles": 8,
+     "friendsSD": 2.0995626366712963,
+     "negShareSD": 0.07734666318298715
+    },
+    {
+     "beliefDist": 0.5681632653061225,
+     "distinctProfiles": 3,
+     "friendsSD": 0,
+     "negShareSD": 0.028652760991683353
+    },
+    {
+     "beliefDist": 0.4897959183673469,
+     "distinctProfiles": 2,
+     "friendsSD": 1.2148738071696743,
+     "negShareSD": 0.003051202422655722
+    },
+    {
+     "beliefDist": 0.08,
+     "distinctProfiles": 2,
+     "friendsSD": 1.3311035777481321,
+     "negShareSD": 0.0021500154556234924
+    },
+    {
+     "beliefDist": 0.33387755102040817,
+     "distinctProfiles": 3,
+     "friendsSD": 1.3107094199987535,
+     "negShareSD": 0.051261484525145576
+    },
+    {
+     "beliefDist": 2.8669387755102043,
+     "distinctProfiles": 5,
+     "friendsSD": 1.634949914978987,
+     "negShareSD": 0.020527239046510423
+    },
+    {
+     "beliefDist": 1.7918367346938775,
+     "distinctProfiles": 6,
+     "friendsSD": 2.4585544118278873,
+     "negShareSD": 0.1015621774247288
+    },
+    {
+     "beliefDist": 0,
+     "distinctProfiles": 1,
+     "friendsSD": 1.1876919823329442,
+     "negShareSD": 0
+    },
+    {
+     "beliefDist": 4.0955102040816325,
+     "distinctProfiles": 6,
+     "friendsSD": 1.7576654275208468,
+     "negShareSD": 0.0033591292040986657
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,385 @@
+[
+ {
+  "jid": "J01",
+  "id": "Q01",
+  "type": "room",
+  "options": {
+   "A": {
+    "answer": "square",
+    "sources": [
+     "table",
+     "rules",
+     "gpt6"
+    ]
+   },
+   "B": {
+    "answer": "field",
+    "sources": [
+     "opus55"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J02",
+  "id": "Q02",
+  "type": "room",
+  "options": {
+   "A": {
+    "answer": "square",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "home",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J03",
+  "id": "Q09",
+  "type": "room",
+  "options": {
+   "A": {
+    "answer": "home",
+    "sources": [
+     "table",
+     "opus55",
+     "gpt6"
+    ]
+   },
+   "B": {
+    "answer": "field",
+    "sources": [
+     "rules"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J04",
+  "id": "Q13",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "chat",
+    "sources": [
+     "rules"
+    ]
+   },
+   "B": {
+    "answer": "help",
+    "sources": [
+     "table",
+     "opus55",
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J05",
+  "id": "Q15",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "praise",
+    "sources": [
+     "rules",
+     "gpt6"
+    ]
+   },
+   "B": {
+    "answer": "chat",
+    "sources": [
+     "table",
+     "opus55"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J06",
+  "id": "Q18",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "help",
+    "sources": [
+     "table",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "chat",
+    "sources": [
+     "rules",
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J07",
+  "id": "Q20",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "chat",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "help",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J08",
+  "id": "Q21",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "help",
+    "sources": [
+     "gpt6"
+    ]
+   },
+   "B": {
+    "answer": "argue",
+    "sources": [
+     "rules"
+    ]
+   },
+   "C": {
+    "answer": "take credit",
+    "sources": [
+     "table",
+     "opus55"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J09",
+  "id": "Q22",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "argue",
+    "sources": [
+     "gpt6"
+    ]
+   },
+   "B": {
+    "answer": "chat",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J10",
+  "id": "Q26",
+  "type": "act",
+  "options": {
+   "A": {
+    "answer": "argue",
+    "sources": [
+     "rules"
+    ]
+   },
+   "B": {
+    "answer": "take credit",
+    "sources": [
+     "table",
+     "opus55",
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J11",
+  "id": "Q28",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "nothing much/same",
+    "sources": [
+     "rules"
+    ]
+   },
+   "B": {
+    "answer": "good sign/up",
+    "sources": [
+     "table",
+     "opus55",
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J12",
+  "id": "Q31",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "good sign/up",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "good sign/same",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J13",
+  "id": "Q32",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "slight/down",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "insult/down",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J14",
+  "id": "Q33",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "good sign/up",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "slight/same",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J15",
+  "id": "Q34",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "slight/down",
+    "sources": [
+     "rules"
+    ]
+   },
+   "B": {
+    "answer": "insult/down",
+    "sources": [
+     "table",
+     "opus55",
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J16",
+  "id": "Q36",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "insult/down",
+    "sources": [
+     "table",
+     "rules",
+     "gpt6"
+    ]
+   },
+   "B": {
+    "answer": "slight/down",
+    "sources": [
+     "opus55"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J17",
+  "id": "Q37",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "slight/down",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "insult/down",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ },
+ {
+  "jid": "J18",
+  "id": "Q38",
+  "type": "reaction",
+  "options": {
+   "A": {
+    "answer": "slight/down",
+    "sources": [
+     "table",
+     "rules",
+     "opus55"
+    ]
+   },
+   "B": {
+    "answer": "insult/down",
+    "sources": [
+     "gpt6"
+    ]
+   }
+  }
+ }
+]

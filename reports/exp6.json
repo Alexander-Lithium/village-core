@@ -1,0 +1,103 @@
+{
+ "edit": {
+  "from": "friendly,field,low,help,take credit",
+  "to": "friendly,field,low,help,chat"
+ },
+ "rows": [
+  {
+   "metric": "targeted",
+   "base": 277.96,
+   "edited": 335.42,
+   "diff": 57.46,
+   "ci": 7.554233949249917,
+   "seedNoiseSD": 18.368073455019164,
+   "effectInSeedSD": 3.1282540403984926
+  },
+  {
+   "metric": "creditTaken",
+   "base": 359.52,
+   "edited": 0,
+   "diff": -359.52,
+   "ci": 8.818220264883385,
+   "seedNoiseSD": 31.81338442497793,
+   "effectInSeedSD": -11.300903896214413
+  },
+  {
+   "metric": "friendships",
+   "base": 96.18,
+   "edited": 110.64,
+   "diff": 14.46,
+   "ci": 2.0546811334121893,
+   "seedNoiseSD": 5.947697204869825,
+   "effectInSeedSD": 2.4311930318444115
+  },
+  {
+   "metric": "feuds",
+   "base": 3.8,
+   "edited": 0,
+   "diff": -3.8,
+   "ci": 0.4913980056939588,
+   "seedNoiseSD": 1.7728105208558367,
+   "effectInSeedSD": -2.1434890843075114
+  },
+  {
+   "metric": "unkindShare",
+   "base": 0.07151275845811692,
+   "edited": 0.002672550513383769,
+   "diff": -0.06884020794473315,
+   "ci": 0.002010522577027768,
+   "seedNoiseSD": 0.0070681414289221565,
+   "effectInSeedSD": -9.739506295536989
+  },
+  {
+   "metric": "beliefMoves",
+   "base": 210.48,
+   "edited": 150.94,
+   "diff": -59.54,
+   "ci": 4.214985001159554,
+   "seedNoiseSD": 11.555085460523431,
+   "effectInSeedSD": -5.152709618930236
+  },
+  {
+   "metric": "workDays",
+   "base": 706.66,
+   "edited": 686.84,
+   "diff": -19.82,
+   "ci": 6.8685523831445,
+   "seedNoiseSD": 20.237982072512736,
+   "effectInSeedSD": -0.9793466526941715
+  },
+  {
+   "metric": "workWellShare",
+   "base": 0.5692200952999574,
+   "edited": 0.5701405868773873,
+   "diff": 0.000920491577429805,
+   "ci": 0.003094276908663474,
+   "seedNoiseSD": 0.019599594245850435,
+   "effectInSeedSD": 0.046964828245089234
+  },
+  {
+   "metric": "hungerSignals",
+   "base": 3382.06,
+   "edited": 3410.52,
+   "diff": 28.46,
+   "ci": 7.52428511953129,
+   "seedNoiseSD": 34.227575706957545,
+   "effectInSeedSD": 0.8314933036351403
+  },
+  {
+   "metric": "fieldHours",
+   "base": 6469.4,
+   "edited": 6195.66,
+   "diff": -273.74,
+   "ci": 59.87017618280405,
+   "seedNoiseSD": 170.124564207932,
+   "effectInSeedSD": -1.6090562892812217
+  }
+ ],
+ "traces": [
+  "Hour 7 (day 1), field: n0017 → take credit → n0020 takes it as \"insult\" (belief pressure: strained; liking down)\n  actor  n0017 · needs           fed + tired  →  none\n  target n0020 · needs           fed + tired  →  none\n  actor  n0017 · action          none + mid + low  →  field / home (first choice)\n  target n0020 · action          none + mid + mid  →  field / square (first choice)\n  actor  n0017 · stance          high + neutral + calm  →  friendly\n  actor  n0017 · act             friendly + field + low  →  help / take credit (second choice)\n  target n0020 · appraise_worth  credit taken + i am respected + core + high  →  insult / strained / down\n  target n0020 · mood            good + insult  →  low\n  target n0020 · grudge          mid + insult + none  →  hold grudge",
+  "Hour 17 (day 2), field: n0017 → take credit → n0012 takes it as \"insult\" (belief pressure: weaker; liking down)\n  target n0012 · needs           hungry + rested  →  none\n  actor  n0017 · needs           hungry + rested  →  none\n  target n0012 · action          none + high + low  →  field / field (second choice)\n  actor  n0017 · action          none + mid + low  →  field / home (first choice)\n  actor  n0017 · stance          high + neutral + calm  →  friendly\n  actor  n0017 · act             friendly + field + low  →  help / take credit (second choice)\n  target n0012 · appraise_worth  credit taken + i am respected + faint + mid  →  insult / weaker / down\n  target n0012 · mood            calm + insult  →  low\n  target n0012 · grudge          mid + insult + none  →  hold grudge",
+  "Hour 20 (day 2), field: n0017 → take credit → n0003 takes it as \"insult\" (belief pressure: stronger; liking down)\n  target n0003 · needs           hungry + rested  →  none\n  actor  n0017 · needs           hungry + rested  →  none\n  target n0003 · action          none + low + low  →  home / field (second choice)\n  actor  n0017 · action          none + mid + low  →  field / home (first choice)\n  actor  n0017 · stance          high + neutral + good  →  friendly\n  actor  n0017 · act             friendly + field + low  →  help / take credit (second choice)\n  target n0003 · appraise_worth  credit taken + i am overlooked + held + mid  →  insult / stronger / down\n  target n0003 · mood            calm + insult  →  low\n  target n0003 · grudge          high + insult + none  →  cool off"
+ ]
+}
