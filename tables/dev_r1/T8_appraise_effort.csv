@@ -1,0 +1,13 @@
+event,belief,tier,meaning,pressure
+work went badly,hard work pays off,core,nothing much,same
+work went badly,hard work pays off,faint,slight,weaker
+work went badly,hard work pays off,held,nothing much,same
+work went badly,nothing i do matters,core,nothing much,same
+work went badly,nothing i do matters,faint,slight,stronger
+work went badly,nothing i do matters,held,slight,stronger
+work went well,hard work pays off,core,good sign,same
+work went well,hard work pays off,faint,good sign,stronger
+work went well,hard work pays off,held,good sign,stronger
+work went well,nothing i do matters,core,nothing much,same
+work went well,nothing i do matters,faint,good sign,weaker
+work went well,nothing i do matters,held,nothing much,weaker

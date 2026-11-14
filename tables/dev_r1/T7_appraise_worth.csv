@@ -1,0 +1,55 @@
+event,belief,tier,pride,meaning,pressure,liking_change
+credit taken,i am overlooked,core,high,insult,same,down
+credit taken,i am overlooked,core,low,insult,same,down
+credit taken,i am overlooked,core,mid,insult,same,down
+credit taken,i am overlooked,faint,high,insult,stronger,down
+credit taken,i am overlooked,faint,low,slight,stronger,down
+credit taken,i am overlooked,faint,mid,insult,stronger,down
+credit taken,i am overlooked,held,high,insult,stronger,down
+credit taken,i am overlooked,held,low,slight,stronger,down
+credit taken,i am overlooked,held,mid,insult,stronger,down
+credit taken,i am respected,core,high,insult,strained,down
+credit taken,i am respected,core,low,slight,same,down
+credit taken,i am respected,core,mid,slight,same,down
+credit taken,i am respected,faint,high,insult,weaker,down
+credit taken,i am respected,faint,low,slight,weaker,down
+credit taken,i am respected,faint,mid,slight,weaker,down
+credit taken,i am respected,held,high,insult,weaker,down
+credit taken,i am respected,held,low,slight,same,down
+credit taken,i am respected,held,mid,slight,weaker,down
+ignored,i am overlooked,core,high,insult,same,down
+ignored,i am overlooked,core,low,slight,same,down
+ignored,i am overlooked,core,mid,slight,same,down
+ignored,i am overlooked,faint,high,slight,stronger,down
+ignored,i am overlooked,faint,low,nothing much,stronger,same
+ignored,i am overlooked,faint,mid,slight,stronger,down
+ignored,i am overlooked,held,high,insult,stronger,down
+ignored,i am overlooked,held,low,nothing much,stronger,same
+ignored,i am overlooked,held,mid,slight,stronger,down
+ignored,i am respected,core,high,slight,same,down
+ignored,i am respected,core,low,nothing much,same,same
+ignored,i am respected,core,mid,nothing much,same,same
+ignored,i am respected,faint,high,slight,weaker,down
+ignored,i am respected,faint,low,nothing much,same,same
+ignored,i am respected,faint,mid,nothing much,weaker,same
+ignored,i am respected,held,high,slight,weaker,down
+ignored,i am respected,held,low,nothing much,same,same
+ignored,i am respected,held,mid,nothing much,same,same
+praised,i am overlooked,core,high,nothing much,same,same
+praised,i am overlooked,core,low,nothing much,strained,up
+praised,i am overlooked,core,mid,nothing much,same,same
+praised,i am overlooked,faint,high,good sign,weaker,up
+praised,i am overlooked,faint,low,good sign,weaker,up
+praised,i am overlooked,faint,mid,good sign,weaker,up
+praised,i am overlooked,held,high,nothing much,same,same
+praised,i am overlooked,held,low,good sign,weaker,up
+praised,i am overlooked,held,mid,good sign,weaker,up
+praised,i am respected,core,high,nothing much,same,same
+praised,i am respected,core,low,good sign,same,up
+praised,i am respected,core,mid,good sign,same,up
+praised,i am respected,faint,high,good sign,stronger,up
+praised,i am respected,faint,low,good sign,stronger,up
+praised,i am respected,faint,mid,good sign,stronger,up
+praised,i am respected,held,high,good sign,stronger,up
+praised,i am respected,held,low,good sign,stronger,up
+praised,i am respected,held,mid,good sign,stronger,up

@@ -1,0 +1,37 @@
+balance,tier,flexibility,move
+mixed,core,high,stay
+mixed,core,low,stay
+mixed,core,mid,stay
+mixed,faint,high,stay
+mixed,faint,low,stay
+mixed,faint,mid,stay
+mixed,held,high,stay
+mixed,held,low,stay
+mixed,held,mid,stay
+mostly against,core,high,break
+mostly against,core,low,stay
+mostly against,core,mid,down
+mostly against,faint,high,flip
+mostly against,faint,low,stay
+mostly against,faint,mid,flip
+mostly against,held,high,down
+mostly against,held,low,stay
+mostly against,held,mid,down
+mostly for,core,high,stay
+mostly for,core,low,stay
+mostly for,core,mid,stay
+mostly for,faint,high,up
+mostly for,faint,low,stay
+mostly for,faint,mid,stay
+mostly for,held,high,up
+mostly for,held,low,stay
+mostly for,held,mid,stay
+strongly for,core,high,stay
+strongly for,core,low,stay
+strongly for,core,mid,stay
+strongly for,faint,high,up
+strongly for,faint,low,up
+strongly for,faint,mid,up
+strongly for,held,high,up
+strongly for,held,low,up
+strongly for,held,mid,up

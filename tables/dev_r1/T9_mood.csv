@@ -1,0 +1,13 @@
+mood,meaning,new_mood
+calm,good sign,good
+calm,insult,low
+calm,nothing much,calm
+calm,slight,calm
+good,good sign,good
+good,insult,low
+good,nothing much,good
+good,slight,calm
+low,good sign,calm
+low,insult,low
+low,nothing much,low
+low,slight,low

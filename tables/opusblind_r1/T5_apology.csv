@@ -1,0 +1,10 @@
+honesty,pride,decision
+high,high,don't
+high,low,apologise
+high,mid,apologise
+low,high,don't
+low,low,don't
+low,mid,don't
+mid,high,don't
+mid,low,apologise
+mid,mid,apologise

@@ -1,0 +1,25 @@
+stance,room,honesty,first,second
+cold,field,high,chat,argue
+cold,field,low,take credit,argue
+cold,field,mid,chat,argue
+cold,square,high,ignore,chat
+cold,square,low,ignore,interrupt
+cold,square,mid,ignore,chat
+friendly,field,high,help,help
+friendly,field,low,help,chat
+friendly,field,mid,help,chat
+friendly,square,high,chat,share food
+friendly,square,low,chat,praise
+friendly,square,mid,chat,share food
+hostile,field,high,argue,argue
+hostile,field,low,take credit,argue
+hostile,field,mid,argue,take credit
+hostile,square,high,argue,ignore
+hostile,square,low,interrupt,argue
+hostile,square,mid,argue,ignore
+neutral,field,high,help,chat
+neutral,field,low,chat,take credit
+neutral,field,mid,chat,help
+neutral,square,high,chat,chat
+neutral,square,low,chat,ignore
+neutral,square,mid,chat,ignore
