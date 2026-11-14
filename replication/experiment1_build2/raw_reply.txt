@@ -1,0 +1,1429 @@
+I can’t run code in this chat, so I have no test output and no golden hashes to give you. Below are all the source files, written to the spec. Run the commands at the end to generate the tables, the cast and viewer.html, and to print the hashes.
+
+I added one file the spec doesn’t list: package.json with "type": "module". Without it, Node 18 won’t treat the .js files as ES modules. This is recorded in the README’s builder decisions.
+
+package.json
+json
+{
+  "name": "village-core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Village Core v1.0 — deterministic agent-based village simulation"
+}
+sha256.js
+js
+// sha256.js — pure-JS SHA-256 (no platform crypto), identical output everywhere.
+
+const SHA_K = [
+  0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+  0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+  0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+  0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+  0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+  0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+  0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+  0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2,
+];
+const SHA_H0 = [0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19];
+
+// UTF-8 encoding. TextEncoder is used when present (it is in Node >= 18 and browsers);
+// the manual path produces identical bytes for well-formed strings.
+export function utf8Bytes(str) {
+  if (typeof TextEncoder !== 'undefined') return new TextEncoder().encode(str);
+  const out = [];
+  for (let i = 0; i < str.length; i++) {
+    let c = str.charCodeAt(i);
+    if (c >= 0xd800 && c < 0xdc00 && i + 1 < str.length) {
+      const d = str.charCodeAt(i + 1);
+      if (d >= 0xdc00 && d < 0xe000) { c = 0x10000 + ((c - 0xd800) << 10) + (d - 0xdc00); i++; }
+    }
+    if (c < 0x80) out.push(c);
+    else if (c < 0x800) out.push(0xc0 | (c >> 6), 0x80 | (c & 63));
+    else if (c < 0x10000) out.push(0xe0 | (c >> 12), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+    else out.push(0xf0 | (c >> 18), 0x80 | ((c >> 12) & 63), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+  }
+  return Uint8Array.from(out);
+}
+
+// SHA-256 of a string (UTF-8) or a byte array; returns lowercase hex.
+export function sha256(input) {
+  const bytes = typeof input === 'string' ? utf8Bytes(input) : input;
+  const len = bytes.length;
+  const total = Math.ceil((len + 9) / 64) * 64;
+  const m = new Uint8Array(total);
+  m.set(bytes);
+  m[len] = 0x80;
+  const bitsHi = Math.floor(len / 0x20000000);
+  const bitsLo = (len * 8) >>> 0;
+  for (let i = 0; i < 4; i++) {
+    m[total - 8 + i] = (bitsHi >>> (24 - 8 * i)) & 255;
+    m[total - 4 + i] = (bitsLo >>> (24 - 8 * i)) & 255;
+  }
+  let [h0, h1, h2, h3, h4, h5, h6, h7] = SHA_H0.map((x) => x | 0);
+  const w = new Int32Array(64);
+  for (let off = 0; off < total; off += 64) {
+    for (let i = 0; i < 16; i++) {
+      const j = off + i * 4;
+      w[i] = (m[j] << 24) | (m[j + 1] << 16) | (m[j + 2] << 8) | m[j + 3];
+    }
+    for (let i = 16; i < 64; i++) {
+      const x = w[i - 15], y = w[i - 2];
+      const s0 = ((x >>> 7) | (x << 25)) ^ ((x >>> 18) | (x << 14)) ^ (x >>> 3);
+      const s1 = ((y >>> 17) | (y << 15)) ^ ((y >>> 19) | (y << 13)) ^ (y >>> 10);
+      w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+    }
+    let a = h0, b = h1, c = h2, d = h3, e = h4, f = h5, g = h6, h = h7;
+    for (let i = 0; i < 64; i++) {
+      const S1 = ((e >>> 6) | (e << 26)) ^ ((e >>> 11) | (e << 21)) ^ ((e >>> 25) | (e << 7));
+      const ch = (e & f) ^ (~e & g);
+      const t1 = (h + S1 + ch + SHA_K[i] + w[i]) | 0;
+      const S0 = ((a >>> 2) | (a << 30)) ^ ((a >>> 13) | (a << 19)) ^ ((a >>> 22) | (a << 10));
+      const maj = (a & b) ^ (a & c) ^ (b & c);
+      const t2 = (S0 + maj) | 0;
+      h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = b; b = a; a = (t1 + t2) | 0;
+    }
+    h0 = (h0 + a) | 0; h1 = (h1 + b) | 0; h2 = (h2 + c) | 0; h3 = (h3 + d) | 0;
+    h4 = (h4 + e) | 0; h5 = (h5 + f) | 0; h6 = (h6 + g) | 0; h7 = (h7 + h) | 0;
+  }
+  return [h0, h1, h2, h3, h4, h5, h6, h7].map((x) => (x >>> 0).toString(16).padStart(8, '0')).join('');
+}
+engine.js
+js
+// engine.js — Village Core v1.0
+// Deterministic agent-based village simulation. One ES module, no dependencies.
+// Runs unchanged in Node >= 18 and modern browsers. Tables are data (CSV); none are hard-coded here.
+import { sha256, utf8Bytes } from './sha256.js';
+
+export const VERSION = 'village-core-1.0';
+
+// ---------------------------------------------------------------- A3 vocabulary
+export const LEVELS = ['low', 'mid', 'high'];
+export const TRAITS = ['warmth', 'sociability', 'diligence', 'honesty', 'pride', 'flexibility'];
+export const EFF_TRAITS = ['warmth', 'sociability', 'diligence', 'pride'];
+export const FOOD_TIERS = ['starving', 'very hungry', 'hungry', 'fed'];
+export const ENERGY_TIERS = ['exhausted', 'very tired', 'tired', 'rested'];
+export const MOODS = ['low', 'calm', 'good'];
+export const LIKINGS = ['dislike', 'neutral', 'like', 'close'];
+export const PAIRS = ['trust', 'worth', 'effort'];
+export const POLES = {
+  trust: { pos: 'people mean well', neg: 'people are against me' },
+  worth: { pos: 'i am respected', neg: 'i am overlooked' },
+  effort: { pos: 'hard work pays off', neg: 'nothing i do matters' },
+};
+export const BELIEFS = PAIRS.flatMap((p) => [POLES[p].pos, POLES[p].neg]);
+export const TIERS = ['faint', 'held', 'core'];
+export const ROOMS = ['home', 'field', 'square'];
+export const NEEDS = ['none', 'eat', 'rest', 'eat now', 'rest now'];
+export const STANCES = ['friendly', 'neutral', 'cold', 'hostile'];
+export const ACTS_BY_ROOM = {
+  field: ['help', 'chat', 'take credit', 'argue'],
+  square: ['chat', 'praise', 'share food', 'interrupt', 'ignore', 'argue'],
+};
+export const ALL_ACTS = ['help', 'chat', 'take credit', 'argue', 'praise', 'share food', 'interrupt', 'ignore'];
+export const NEGATIVE_ACTS = ['argue', 'interrupt', 'ignore', 'take credit'];
+// [act, event, pair, valence] in A3 events-table order
+export const EVENT_TABLE = [
+  ['help', 'helped', 'trust', 1],
+  ['chat', 'chatted with', 'trust', 1],
+  ['share food', 'shared food with', 'trust', 1],
+  ['argue', 'argued with', 'trust', -1],
+  ['interrupt', 'interrupted', 'trust', -1],
+  [null, 'apologised to', 'trust', 1],
+  ['praise', 'praised', 'worth', 1],
+  ['ignore', 'ignored', 'worth', -1],
+  ['take credit', 'credit taken', 'worth', -1],
+  [null, 'work went well', 'effort', 1],
+  [null, 'work went badly', 'effort', -1],
+];
+export const EVENT_INFO = {};
+export const ACT_EVENT = {};
+export const EVENTS = { trust: [], worth: [], effort: [] };
+for (const [act, ev, pair, valence] of EVENT_TABLE) {
+  EVENT_INFO[ev] = { pair, valence };
+  EVENTS[pair].push(ev);
+  if (act) ACT_EVENT[act] = ev;
+}
+export const ALL_EVENTS = EVENT_TABLE.map((e) => e[1]);
+export const MEANINGS = ['good sign', 'nothing much', 'slight', 'insult'];
+export const PRESSURES = ['stronger', 'same', 'weaker', 'strained'];
+export const LIKING_CHANGES = ['up', 'same', 'down'];
+export const GRUDGE_RESPONSES = ['let it go', 'cool off', 'hold grudge', 'pay back'];
+export const APOLOGY_DECISIONS = ['apologise', "don't"];
+export const BALANCES = ['mostly against', 'mixed', 'mostly for', 'strongly for'];
+export const MOVES = ['stay', 'up', 'down', 'flip', 'break'];
+export const STEPS = ['-1', '0', '+1'];
+
+// ---------------------------------------------------------------- A5/A6 table schemas
+const col = (name, values) => ({ name, values });
+export const TABLE_SCHEMAS = [
+  { id: 'T1', file: 'T1_needs.csv', type: 'designer',
+    inputs: [col('food', FOOD_TIERS), col('energy', ENERGY_TIERS)],
+    outputs: [col('need', NEEDS)], def: () => ['none'] },
+  { id: 'T2', file: 'T2_action.csv', type: 'teacher',
+    inputs: [col('need', ['none', 'eat', 'rest']), col('diligence', LEVELS), col('sociability', LEVELS)],
+    outputs: [col('first', ROOMS), col('second', ROOMS)], def: () => ['home', 'square'] },
+  { id: 'T3', file: 'T3_stance.csv', type: 'teacher',
+    inputs: [col('warmth', LEVELS), col('liking', LIKINGS), col('mood', MOODS)],
+    outputs: [col('stance', STANCES)], def: () => ['neutral'] },
+  { id: 'T4', file: 'T4_act.csv', type: 'teacher', groupCol: 1,
+    inputs: [col('stance', STANCES), col('room', ['field', 'square']), col('honesty', LEVELS)],
+    outputs: [col('first', ALL_ACTS), col('second', ALL_ACTS)], def: () => ['chat', 'chat'] },
+  { id: 'T5', file: 'T5_apology.csv', type: 'teacher',
+    inputs: [col('honesty', LEVELS), col('pride', LEVELS)],
+    outputs: [col('decision', APOLOGY_DECISIONS)], def: () => ["don't"] },
+  { id: 'T6', file: 'T6_appraise_trust.csv', type: 'teacher', groupCol: 2,
+    inputs: [col('event', EVENTS.trust), col('belief', [POLES.trust.pos, POLES.trust.neg]), col('tier', TIERS)],
+    outputs: [col('meaning', MEANINGS), col('pressure', PRESSURES), col('liking_change', LIKING_CHANGES)],
+    def: () => ['nothing much', 'same', 'same'] },
+  { id: 'T7', file: 'T7_appraise_worth.csv', type: 'teacher', groupCol: 2,
+    inputs: [col('event', EVENTS.worth), col('belief', [POLES.worth.pos, POLES.worth.neg]), col('tier', TIERS), col('pride', LEVELS)],
+    outputs: [col('meaning', MEANINGS), col('pressure', PRESSURES), col('liking_change', LIKING_CHANGES)],
+    def: () => ['nothing much', 'same', 'same'] },
+  { id: 'T8', file: 'T8_appraise_effort.csv', type: 'teacher', groupCol: 2,
+    inputs: [col('event', EVENTS.effort), col('belief', [POLES.effort.pos, POLES.effort.neg]), col('tier', TIERS)],
+    outputs: [col('meaning', MEANINGS), col('pressure', PRESSURES)], def: () => ['nothing much', 'same'] },
+  { id: 'T9', file: 'T9_mood.csv', type: 'teacher',
+    inputs: [col('mood', MOODS), col('meaning', MEANINGS)],
+    outputs: [col('new_mood', MOODS)], def: (inp) => [inp[0]] },
+  { id: 'T10', file: 'T10_grudge.csv', type: 'teacher',
+    inputs: [col('warmth', LEVELS), col('offence', ['slight', 'insult']), col('apology', ['none', 'received'])],
+    outputs: [col('response', GRUDGE_RESPONSES)], def: () => ['cool off'] },
+  { id: 'T11', file: 'T11_integration.csv', type: 'designer',
+    inputs: [col('balance', BALANCES), col('tier', TIERS), col('flexibility', LEVELS)],
+    outputs: [col('move', MOVES)], def: () => ['stay'] },
+  { id: 'T12', file: 'T12_compile.csv', type: 'teacher',
+    inputs: [col('belief', BELIEFS), col('tier', TIERS)],
+    outputs: [col('warmth', STEPS), col('sociability', STEPS), col('diligence', STEPS), col('pride', STEPS)],
+    def: () => ['0', '0', '0', '0'] },
+];
+export const SCHEMA = Object.fromEntries(TABLE_SCHEMAS.map((s) => [s.id, s]));
+
+export function tableHeader(schema) {
+  return [...schema.inputs, ...schema.outputs].map((c) => c.name).join(',');
+}
+
+// Allowed values for output column ci of a row with the given inputs (A6.0 constraints).
+export function allowedValues(schema, ci, inputs) {
+  if (schema.id === 'T4') return ACTS_BY_ROOM[inputs[1]] || [];
+  if (schema.outputs[ci].name === 'pressure') {
+    return inputs[2] === 'core' ? ['same', 'strained'] : ['stronger', 'same', 'weaker'];
+  }
+  return schema.outputs[ci].values;
+}
+
+// Full grid of input combinations, first column outermost, values in A3 order.
+export function grid(schema) {
+  let out = [[]];
+  for (const c of schema.inputs) {
+    const next = [];
+    for (const p of out) for (const v of c.values) next.push([...p, v]);
+    out = next;
+  }
+  return out;
+}
+
+export function splitLines(text) {
+  return text.replace(/^\uFEFF/, '').split('\n')
+    .map((l) => (l.endsWith('\r') ? l.slice(0, -1) : l))
+    .filter((l) => l.length > 0);
+}
+
+// Normalised table text (A6.0): header, rows sorted by key (UTF-16 order), every line + '\n'.
+export function normalisedTableText(schema, rows) {
+  const keys = [...rows.keys()].sort();
+  let s = tableHeader(schema) + '\n';
+  for (const k of keys) s += k.split('|').concat(rows.get(k)).join(',') + '\n';
+  return s;
+}
+
+export function parseTable(schema, text) {
+  const errors = [];
+  const rows = new Map();
+  const lines = splitLines(text);
+  const expected = tableHeader(schema);
+  if (lines.length === 0) return { rows, errors: [`${schema.id}: empty file`] };
+  if (lines[0] !== expected) errors.push(`${schema.id}: header "${lines[0]}" should be "${expected}"`);
+  const ni = schema.inputs.length, no = schema.outputs.length;
+  for (let li = 1; li < lines.length; li++) {
+    const line = lines[li];
+    const v = line.split(',');
+    if (v.length !== ni + no) { errors.push(`${schema.id}: row "${line}" has ${v.length} fields, expected ${ni + no}`); continue; }
+    const inp = v.slice(0, ni), out = v.slice(ni);
+    let ok = true;
+    inp.forEach((x, k) => {
+      if (!schema.inputs[k].values.includes(x)) { errors.push(`${schema.id}: extra row "${line}": ${schema.inputs[k].name} value "${x}" is not a valid input`); ok = false; }
+    });
+    if (!ok) continue;
+    const key = inp.join('|');
+    if (rows.has(key)) { errors.push(`${schema.id}: duplicate row ${key}`); continue; }
+    out.forEach((x, k) => {
+      const allowed = allowedValues(schema, k, inp);
+      if (!allowed.includes(x)) errors.push(`${schema.id}: row "${line}": ${schema.outputs[k].name} value "${x}" not allowed here`);
+    });
+    rows.set(key, out);
+  }
+  for (const combo of grid(schema)) {
+    const key = combo.join('|');
+    if (!rows.has(key)) errors.push(`${schema.id}: missing row ${key}`);
+  }
+  return { rows, errors };
+}
+
+// files: { 'T1_needs.csv': text, ... }. Never throws; returns { tables, errors }.
+export function loadTables(files) {
+  const tables = {};
+  const errors = [];
+  for (const s of TABLE_SCHEMAS) {
+    const text = files[s.file];
+    if (text == null) { errors.push(`${s.id}: file ${s.file} missing`); tables[s.id] = { schema: s, rows: new Map() }; continue; }
+    const r = parseTable(s, text);
+    errors.push(...r.errors);
+    tables[s.id] = { schema: s, rows: r.rows };
+  }
+  for (const s of TABLE_SCHEMAS) tables[s.id].hash = sha256(normalisedTableText(s, tables[s.id].rows));
+  return { tables, errors };
+}
+
+// ---------------------------------------------------------------- A8 randomness
+export function fnv1a32(str) {
+  const bytes = utf8Bytes(str);
+  let h = 0x811c9dc5;
+  for (let i = 0; i < bytes.length; i++) { h ^= bytes[i]; h = Math.imul(h, 0x01000193) >>> 0; }
+  return h >>> 0;
+}
+export function mulberry32(seed) {
+  let a = seed >>> 0;
+  const next = () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return (t ^ (t >>> 14)) >>> 0;
+  };
+  return { next, draw: (n) => next() % n };
+}
+export function makeStream(seedString) { return mulberry32(fnv1a32(seedString)); }
+export function fisherYates(arr, rng) {
+  for (let i = arr.length - 1; i >= 1; i--) {
+    const j = rng.draw(i + 1);
+    const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+// ---------------------------------------------------------------- A9 cast
+export const CAST_HEADER = 'id,warmth,sociability,diligence,honesty,pride,flexibility,trust_pole,trust_tier,worth_pole,worth_tier,effort_pole,effort_tier';
+export function npcId(k, n) { return 'n' + String(k).padStart(Math.max(4, String(n).length), '0'); }
+export function generateCast(castSeed, n) {
+  const rng = makeStream(`cast:${castSeed}`);
+  let s = CAST_HEADER + '\n';
+  for (let k = 1; k <= n; k++) {
+    const v = [npcId(k, n)];
+    for (let t = 0; t < TRAITS.length; t++) v.push(LEVELS[rng.draw(3)]);
+    for (const p of PAIRS) {
+      const pole = rng.draw(2) === 0 ? POLES[p].pos : POLES[p].neg;
+      const r = rng.draw(100);
+      v.push(pole, r < 50 ? 'faint' : r < 85 ? 'held' : 'core');
+    }
+    s += v.join(',') + '\n';
+  }
+  return s;
+}
+export function parseCast(text) {
+  const lines = splitLines(text);
+  if (lines[0] !== CAST_HEADER) throw new Error('cast: bad header');
+  let prev = '';
+  return lines.slice(1).map((line) => {
+    const v = line.split(',');
+    if (v.length !== 13) throw new Error(`cast: bad row "${line}"`);
+    if (v[0] <= prev) throw new Error(`cast: ids not ascending at ${v[0]}`);
+    prev = v[0];
+    const temperament = {};
+    TRAITS.forEach((t, i) => {
+      if (!LEVELS.includes(v[1 + i])) throw new Error(`cast: bad ${t} in "${line}"`);
+      temperament[t] = v[1 + i];
+    });
+    const beliefs = {};
+    PAIRS.forEach((p, i) => {
+      const txt = v[7 + 2 * i], tier = v[8 + 2 * i];
+      const pole = txt === POLES[p].pos ? 'pos' : txt === POLES[p].neg ? 'neg' : null;
+      if (!pole || !TIERS.includes(tier)) throw new Error(`cast: bad ${p} belief in "${line}"`);
+      beliefs[p] = { pole, tier };
+    });
+    return { id: v[0], temperament, beliefs };
+  });
+}
+
+// ---------------------------------------------------------------- A13 tablesMode
+export function applyTablesMode(tables, mode, streams) {
+  if (mode === 'csv') return;
+  const teacher = TABLE_SCHEMAS.filter((s) => s.type === 'teacher');
+  if (mode === 'shuffled') {
+    for (const s of teacher) {
+      const t = tables[s.id];
+      const keys = [...t.rows.keys()].sort();
+      const groups = new Map();
+      for (const k of keys) {
+        const g = s.groupCol == null ? '' : k.split('|')[s.groupCol];
+        if (!groups.has(g)) groups.set(g, []);
+        groups.get(g).push(k);
+      }
+      for (const ks of groups.values()) {
+        const outs = ks.map((k) => t.rows.get(k));
+        fisherYates(outs, streams.shuffle);
+        ks.forEach((k, i) => t.rows.set(k, outs[i]));
+      }
+    }
+  } else if (mode === 'random') {
+    for (const s of teacher) {
+      const t = tables[s.id];
+      for (const k of [...t.rows.keys()].sort()) {
+        const inp = k.split('|');
+        const out = s.outputs.map((c, ci) => {
+          const allowed = allowedValues(s, ci, inp);
+          return allowed[streams.random.draw(allowed.length)];
+        });
+        t.rows.set(k, out);
+      }
+    }
+  } else {
+    throw new Error(`unknown tablesMode "${mode}"`);
+  }
+}
+
+// ---------------------------------------------------------------- helpers
+export const DEFAULT_CONFIG = Object.freeze({
+  runSeed: 1, castSeed: 1, n: 20, days: 30, hamletSize: 20, pSecond: 25,
+  tableDir: 'tables/rules', loopOff: false, traitsOff: false, tablesMode: 'csv',
+  logDecisions: true, skipValidation: false,
+});
+export function makeConfig(c = {}) { return { ...DEFAULT_CONFIG, ...c }; }
+
+const clockMs = () => (globalThis.performance && globalThis.performance.now ? globalThis.performance.now() : Date.now()); // timing only
+const li = (lvl) => LEVELS.indexOf(lvl) - 1;
+const foodTier = (f) => (f <= 15 ? 'starving' : f <= 35 ? 'very hungry' : f <= 60 ? 'hungry' : 'fed');
+const energyTier = (e) => (e <= 15 ? 'exhausted' : e <= 35 ? 'very tired' : e <= 60 ? 'tired' : 'rested');
+const towardCalm = () => 'calm'; // low -> calm and good -> calm are both one step
+const zeroEvents = () => Object.fromEntries(ALL_EVENTS.map((e) => [e, 0]));
+const POS_KEYS = { '-3': 'm3', '-2': 'm2', '-1': 'm1', '1': 'p1', '2': 'p2', '3': 'p3' };
+export const beliefPosition = (b) => (b.pole === 'pos' ? 1 : -1) * (TIERS.indexOf(b.tier) + 1);
+
+// A7 belief moves. Returns true if the belief changed.
+export function applyMove(b, move) {
+  if (move === 'up') {
+    if (b.tier === 'faint') { b.tier = 'held'; return true; }
+    if (b.tier === 'held') { b.tier = 'core'; return true; }
+  } else if (move === 'down') {
+    if (b.tier === 'core') { b.tier = 'held'; return true; }
+    if (b.tier === 'held') { b.tier = 'faint'; return true; }
+  } else if (move === 'flip') {
+    if (b.tier === 'faint') { b.pole = b.pole === 'pos' ? 'neg' : 'pos'; return true; }
+  } else if (move === 'break') {
+    if (b.tier === 'core') { b.pole = b.pole === 'pos' ? 'neg' : 'pos'; b.tier = 'faint'; return true; }
+  }
+  return false;
+}
+
+// ---------------------------------------------------------------- simulation
+export class Sim {
+  constructor(config, tableFiles, castText = null) {
+    const t0 = clockMs();
+    const cfg = (this.config = makeConfig(config));
+    if (!(cfg.hamletSize >= 1)) throw new Error('hamletSize must be >= 1');
+    const { tables, errors } = loadTables(tableFiles);
+    if (errors.length && !cfg.skipValidation) throw new Error('Table validation failed:\n' + errors.join('\n'));
+    this.validationErrors = errors;
+    this.tables = tables;
+    this.streams = {};
+    for (const s of ['meet', 'room', 'act', 'work', 'shuffle', 'random']) this.streams[s] = makeStream(`${cfg.runSeed}:${s}`);
+    applyTablesMode(this.tables, cfg.tablesMode, this.streams);
+    this.tableHashes = {};
+    for (const s of TABLE_SCHEMAS) {
+      const t = this.tables[s.id];
+      t.hash = sha256(normalisedTableText(s, t.rows));
+      this.tableHashes[s.id] = t.hash;
+    }
+
+    // cast
+    let castCsv;
+    if (castText != null) {
+      const lines = splitLines(castText);
+      if (lines.length - 1 < cfg.n) throw new Error(`cast has ${lines.length - 1} rows, need ${cfg.n}`);
+      castCsv = lines.slice(0, cfg.n + 1).map((l) => l + '\n').join('');
+    } else {
+      castCsv = generateCast(cfg.castSeed, cfg.n);
+    }
+    this.castCsv = castCsv;
+    this.castHash = sha256(castCsv);
+    const cast = parseCast(castCsv);
+    this.npcs = cast.map((c, idx) => ({
+      id: c.id, idx, hamlet: Math.floor(idx / cfg.hamletSize),
+      temperament: cfg.traitsOff ? Object.fromEntries(TRAITS.map((t) => [t, 'mid'])) : c.temperament,
+      beliefs: c.beliefs, effective: {},
+      food: 80, energy: 80, mood: 'calm', room: 'home', need: 'none',
+      fieldTicksToday: 0,
+      todayPressure: { trust: [], worth: [], effort: [] },
+      buffer: { trust: [], worth: [], effort: [] },
+      gotEvent: false, rel: new Map(), starveStreak: 0,
+    }));
+    this.hamlets = [];
+    for (const p of this.npcs) (this.hamlets[p.hamlet] ||= []).push(p);
+    for (const h of this.hamlets) {
+      for (const a of h) for (const b of h) {
+        if (a !== b) a.rel.set(b.idx, { liking: 'neutral', counter: 0, grudge: 'none', offence: 'none', owesApology: false, workedBesideToday: false });
+      }
+    }
+
+    // run state
+    this.day = 0; this.hour = 0; this.done = false;
+    this.log = []; this.events = [];
+    this.missingCount = 0; this.missingKeys = []; this.missingSet = new Set();
+    this.metrics = []; this.snapshots = [];
+    this.keepSnapshots = cfg.logDecisions || cfg.n <= 200;
+    this.dayEvents = zeroEvents();
+    this.maxStarvingStreak = 0; this.wakingTicks = 0; this.elapsedMs = 0;
+
+    for (const p of this.npcs) this.compile(p, 'start'); // initial compile (A12)
+    this.initialSnapshot = this.snapshotNpcs(this.npcs.map((p) => p.mood));
+    this.setupMs = clockMs() - t0;
+    if (cfg.days <= 0) this.finish();
+  }
+
+  eff(p, t) { return t === 'honesty' || t === 'flexibility' ? p.temperament[t] : p.effective[t]; }
+
+  // A5 lookup: exact key or default (recorded in missingRows); optional two-option draw; logged.
+  lookup(tid, inputs, npc, label, stream = null) {
+    const t = this.tables[tid];
+    const key = inputs.join('|');
+    let out = t.rows.get(key);
+    if (out === undefined) {
+      out = t.schema.def(inputs);
+      this.missingCount++;
+      const mk = tid + ':' + key;
+      if (!this.missingSet.has(mk)) { this.missingSet.add(mk); this.missingKeys.push(mk); }
+    }
+    let choice = '-', value = out[0];
+    if (stream) {
+      if (stream.draw(100) < this.config.pSecond) { choice = 'second'; value = out[1]; } else choice = 'first';
+    }
+    if (this.config.logDecisions) this.log.push(`${label},${npc.id},${tid},${key},${out.join('|')},${choice}\n`);
+    return { out, choice, value };
+  }
+
+  // A4 effective traits via T12.
+  compile(p, label) {
+    const idx = {};
+    for (const t of EFF_TRAITS) idx[t] = li(p.temperament[t]);
+    for (const pair of PAIRS) {
+      const b = p.beliefs[pair];
+      const out = this.lookup('T12', [POLES[pair][b.pole], b.tier], p, label).out;
+      for (let k = 0; k < 4; k++) idx[EFF_TRAITS[k]] += parseInt(out[k], 10);
+    }
+    for (const t of EFF_TRAITS) p.effective[t] = LEVELS[Math.max(-1, Math.min(1, idx[t])) + 1];
+  }
+
+  // A10: one waking tick (runs the night automatically after hour 15).
+  stepTick() {
+    if (this.done) return false;
+    const t0 = clockMs();
+    const npcs = this.npcs;
+    const L = String(this.day * 16 + this.hour);
+
+    for (const p of npcs) p.gotEvent = false; // 0
+    for (const p of npcs) { // 1 body
+      p.food = Math.max(0, p.food - 5);
+      p.energy = Math.max(0, p.energy - (p.room === 'field' ? 6 : 4));
+    }
+    for (const p of npcs) { // 2 needs
+      const ft = foodTier(p.food);
+      if (ft === 'starving') { p.starveStreak++; if (p.starveStreak > this.maxStarvingStreak) this.maxStarvingStreak = p.starveStreak; } else p.starveStreak = 0;
+      p.need = this.lookup('T1', [ft, energyTier(p.energy)], p, L).out[0];
+    }
+    for (const p of npcs) { // 3 room choice
+      if (p.need === 'eat now' || p.need === 'rest now') p.room = 'home';
+      else p.room = this.lookup('T2', [p.need, p.effective.diligence, p.effective.sociability], p, L, this.streams.room).value;
+    }
+    for (const p of npcs) { // 4 home effects
+      if (p.room !== 'home') continue;
+      if (p.need === 'eat' || p.need === 'eat now') p.food = Math.min(100, p.food + 40);
+      else if (p.need === 'rest' || p.need === 'rest now') p.energy = Math.min(100, p.energy + 15);
+      else if (p.need === 'none') p.energy = Math.min(100, p.energy + 5);
+    }
+    for (const p of npcs) if (p.room === 'field') p.fieldTicksToday++; // 5
+    for (const h of this.hamlets) { // 6 encounters
+      const occ = { field: [], square: [] };
+      for (const p of h) if (p.room === 'field' || p.room === 'square') occ[p.room].push(p);
+      for (const room of ['field', 'square']) {
+        const list = fisherYates(occ[room], this.streams.meet);
+        for (let k = 0; k + 1 < list.length; k += 2) {
+          const firstInit = this.streams.meet.draw(2) === 0;
+          const I = firstInit ? list[k] : list[k + 1];
+          const R = firstInit ? list[k + 1] : list[k];
+          this.encounter(I, R, room, L);
+        }
+      }
+    }
+    for (const p of npcs) if (!p.gotEvent) p.mood = towardCalm(p.mood); // 8
+
+    this.wakingTicks++;
+    this.hour++;
+    let finished = false;
+    if (this.hour === 16) {
+      this.night();
+      this.hour = 0;
+      this.day++;
+      if (this.day >= this.config.days) finished = true;
+    }
+    this.elapsedMs += clockMs() - t0;
+    if (finished) this.finish();
+    return true;
+  }
+
+  encounter(I, R, room, L) {
+    const relIR = I.rel.get(R.idx);
+    if (room === 'field') { relIR.workedBesideToday = true; R.rel.get(I.idx).workedBesideToday = true; }
+    if (relIR.owesApology) {
+      const d = this.lookup('T5', [this.eff(I, 'honesty'), this.eff(I, 'pride')], I, L).out[0];
+      if (d === 'apologise') {
+        relIR.owesApology = false;
+        this.receive(R, I, 'apologised to', room, L, 'apology');
+        return;
+      }
+    }
+    let stance;
+    if (relIR.grudge === 'pay back') { stance = 'hostile'; relIR.grudge = 'hold grudge'; }
+    else stance = this.lookup('T3', [this.eff(I, 'warmth'), relIR.liking, I.mood], I, L).out[0];
+    const act = this.lookup('T4', [stance, room, this.eff(I, 'honesty')], I, L, this.streams.act).value;
+    if (NEGATIVE_ACTS.includes(act)) relIR.owesApology = true;
+    this.receive(R, I, ACT_EVENT[act], room, L, act);
+  }
+
+  // A10.6 appraisal by R (I is null for night work outcomes).
+  receive(R, I, event, room, L, act) {
+    const pair = EVENT_INFO[event].pair;
+    const b = R.beliefs[pair];
+    const belief = POLES[pair][b.pole];
+    const tid = pair === 'trust' ? 'T6' : pair === 'worth' ? 'T7' : 'T8';
+    const inputs = tid === 'T7' ? [event, belief, b.tier, this.eff(R, 'pride')] : [event, belief, b.tier];
+    const out = this.lookup(tid, inputs, R, L).out;
+    const meaning = out[0], pressure = out[1], lc = tid === 'T8' ? null : out[2];
+    R.gotEvent = true;
+    R.todayPressure[pair].push(pressure);
+    R.mood = this.lookup('T9', [R.mood, meaning], R, L).out[0];
+    if (I) {
+      const rel = R.rel.get(I.idx);
+      const g = rel.grudge;
+      let d;
+      if (lc === 'down') d = -1;
+      else if (g === 'cool off') d = -1;
+      else if (lc === 'up') d = g === 'hold grudge' || g === 'pay back' ? 0 : 1;
+      else d = 0;
+      if (d !== 0) { // A10.7 counter rule
+        rel.counter += d;
+        if (rel.counter >= 3) { rel.liking = LIKINGS[Math.min(3, LIKINGS.indexOf(rel.liking) + 1)]; rel.counter = 0; }
+        else if (rel.counter <= -3) { rel.liking = LIKINGS[Math.max(0, LIKINGS.indexOf(rel.liking) - 1)]; rel.counter = 0; }
+      }
+      if (meaning === 'slight' || meaning === 'insult') {
+        rel.offence = meaning;
+        const resp = this.lookup('T10', [this.eff(R, 'warmth'), meaning, 'none'], R, L).out[0];
+        rel.grudge = resp === 'let it go' ? 'none' : resp;
+      }
+      if (event === 'apologised to' && rel.offence !== 'none') {
+        const resp = this.lookup('T10', [this.eff(R, 'warmth'), rel.offence, 'received'], R, L).out[0];
+        rel.grudge = resp === 'let it go' ? 'none' : resp;
+        rel.offence = 'none';
+      }
+    }
+    this.dayEvents[event]++;
+    if (this.config.logDecisions) {
+      this.events.push(`${L},${room},${I ? I.id : '-'},${R.id},${act},${event},${meaning},${pressure},${lc ?? '-'}\n`);
+    }
+  }
+
+  // A11 night.
+  night() {
+    const cfg = this.config, L = 'night' + this.day, npcs = this.npcs;
+    const moodEnd = npcs.map((p) => p.mood);
+    const moodCounts = { low: 0, calm: 0, good: 0 };
+    for (const m of moodEnd) moodCounts[m]++;
+
+    for (const p of npcs) { // 1 work outcome
+      if (p.fieldTicksToday < 4) continue;
+      const chance = { low: 35, mid: 50, high: 65 }[p.effective.diligence];
+      const ev = this.streams.work.draw(100) < chance ? 'work went well' : 'work went badly';
+      this.receive(p, null, ev, '-', L, '-');
+    }
+    const moves = [];
+    const moveCounts = { up: 0, down: 0, flip: 0, break: 0 };
+    if (!cfg.loopOff) { // 2 integration
+      for (const p of npcs) for (const pair of PAIRS) {
+        let net = 0;
+        for (const x of p.todayPressure[pair]) {
+          if (x === 'stronger') net++;
+          else if (x === 'weaker' || x === 'strained') net--;
+        }
+        const buf = p.buffer[pair];
+        buf.push(Math.sign(net));
+        if (buf.length > 7) buf.shift();
+        let bal = 0;
+        for (const x of buf) bal += x;
+        const balance = bal <= -2 ? 'mostly against' : bal <= 1 ? 'mixed' : bal <= 4 ? 'mostly for' : 'strongly for';
+        const b = p.beliefs[pair];
+        const move = this.lookup('T11', [balance, b.tier, p.temperament.flexibility], p, L).out[0];
+        const from = beliefPosition(b);
+        if (applyMove(b, move)) {
+          buf.length = 0;
+          moveCounts[move]++;
+          moves.push({ npc: p.id, pair, move, from, to: beliefPosition(b) });
+        }
+      }
+      for (const p of npcs) this.compile(p, L); // 3 recompile
+    }
+    for (const p of npcs) for (const r of p.rel.values()) if (r.grudge === 'cool off') r.grudge = 'none'; // 4
+    for (const p of npcs) p.mood = towardCalm(p.mood); // 5
+    for (const p of npcs) { // 6
+      p.energy = Math.min(100, p.energy + 60);
+      p.food = Math.max(0, p.food - 10);
+      p.room = 'home';
+    }
+    for (const p of npcs) { // 7
+      p.fieldTicksToday = 0;
+      p.todayPressure = { trust: [], worth: [], effort: [] };
+      for (const r of p.rel.values()) r.workedBesideToday = false;
+    }
+    // 8 snapshot + daily metrics
+    const positions = {};
+    for (const pair of PAIRS) positions[pair] = { m3: 0, m2: 0, m1: 0, p1: 0, p2: 0, p3: 0 };
+    for (const p of npcs) for (const pair of PAIRS) positions[pair][POS_KEYS[beliefPosition(p.beliefs[pair])]]++;
+    let friendships = 0, feuds = 0, isolates = 0;
+    const warm = (l) => l === 'like' || l === 'close';
+    for (const p of npcs) {
+      let any = false;
+      for (const [j, r] of p.rel) {
+        const back = npcs[j].rel.get(p.idx);
+        if (warm(r.liking) || warm(back.liking)) any = true;
+        if (p.idx < j) {
+          if (warm(r.liking) && warm(back.liking)) friendships++;
+          if (r.liking === 'dislike' && back.liking === 'dislike') feuds++;
+        }
+      }
+      if (!any) isolates++;
+    }
+    this.metrics.push({ day: this.day, events: this.dayEvents, moods: moodCounts, positions, moves: moveCounts, friendships, feuds, isolates });
+    this.dayEvents = zeroEvents();
+    if (this.keepSnapshots) this.snapshots.push({ day: this.day, npcs: this.snapshotNpcs(moodEnd), moves });
+  }
+
+  snapshotNpcs(moods) {
+    return this.npcs.map((p, k) => ({
+      id: p.id,
+      trust: beliefPosition(p.beliefs.trust),
+      worth: beliefPosition(p.beliefs.worth),
+      effort: beliefPosition(p.beliefs.effort),
+      eff: EFF_TRAITS.map((t) => p.effective[t]).join(','),
+      mood: moods[k],
+    }));
+  }
+
+  canonicalState() {
+    return this.npcs.map((p) => {
+      const bel = PAIRS.map((pair) => `${pair}=${POLES[pair][p.beliefs[pair].pole]}/${p.beliefs[pair].tier}`).join('|');
+      const eff = EFF_TRAITS.map((t) => p.effective[t]).join(',');
+      const buf = PAIRS.map((pair) => p.buffer[pair].join(',')).join(';');
+      const rel = [];
+      for (const [j, r] of p.rel) rel.push(`${this.npcs[j].id}:${r.liking}:${r.counter}:${r.grudge}:${r.offence}:${r.owesApology ? 1 : 0}`);
+      return `${p.id}|food=${p.food}|energy=${p.energy}|mood=${p.mood}|room=${p.room}|${bel}|eff=${eff}|buf=${buf}|rel=${rel.join(';')}`;
+    }).join('\n');
+  }
+
+  decisionLogText() { return 'tick,npc,table,key,output,choice\n' + this.log.join(''); }
+  eventLogText() { return 'tick,room,initiator,receiver,act,event,meaning,pressure,likingChange\n' + this.events.join(''); }
+
+  finish() {
+    this.done = true;
+    this.stateHash = sha256(this.canonicalState());
+    this.logHash = this.config.logDecisions ? sha256(this.decisionLogText()) : '-';
+  }
+
+  summary() {
+    const stateHash = this.done ? this.stateHash : sha256(this.canonicalState());
+    const logHash = this.done ? this.logHash : this.config.logDecisions ? sha256(this.decisionLogText()) : '-';
+    const r3 = (x) => Math.round(x * 1000) / 1000;
+    return {
+      engine: VERSION,
+      config: this.config,
+      castHash: this.castHash,
+      tableHashes: this.tableHashes,
+      missingRows: { count: this.missingCount, keys: this.missingKeys },
+      stateHash, logHash,
+      complete: this.done,
+      maxStarvingStreak: this.maxStarvingStreak,
+      days: this.metrics,
+      timing: {
+        setupMs: r3(this.setupMs), totalMs: r3(this.elapsedMs), wakingTicks: this.wakingTicks,
+        msPerTick: this.wakingTicks ? r3(this.elapsedMs / this.wakingTicks) : 0,
+      },
+    };
+  }
+}
+
+export function runSim(config, tableFiles, castText = null) {
+  const sim = new Sim(config, tableFiles, castText);
+  while (!sim.done) sim.stepTick();
+  return sim;
+}
+gen_rule_tables.js
+js
+// gen_rule_tables.js — writes the A6.1 rule tables to tables/rules/*.csv (normalised form).
+import fs from 'node:fs';
+import path from 'node:path';
+import { TABLE_SCHEMAS, LEVELS, LIKINGS, MOODS, EVENT_INFO, POLES, grid, normalisedTableText, loadTables } from './engine.js';
+
+const i = (lvl) => LEVELS.indexOf(lvl) - 1;
+const likingIdx = (l) => LIKINGS.indexOf(l) - 1; // dislike -1, neutral 0, like +1, close +2
+const moodIdx = (m) => MOODS.indexOf(m) - 1;
+
+function appraise(ev, belief, tier, pride, withLiking) {
+  const { pair, valence: v } = EVENT_INFO[ev];
+  const p = belief === POLES[pair].pos ? 1 : -1;
+  let meaning, pressure;
+  if (ev === 'chatted with') {
+    meaning = 'nothing much'; pressure = 'same';
+  } else {
+    if (v === p) { // confirming
+      pressure = tier === 'core' ? 'same' : 'stronger';
+      meaning = v > 0 ? 'good sign' : tier === 'faint' ? 'slight' : 'insult';
+    } else { // contradicting
+      pressure = tier === 'core' ? 'strained' : 'weaker';
+      meaning = v > 0 ? (tier === 'faint' ? 'good sign' : 'nothing much') : 'slight';
+    }
+    if (pride && v < 0) {
+      const order = ['nothing much', 'slight', 'insult'];
+      let k = order.indexOf(meaning);
+      if (pride === 'high') k = Math.min(2, k + 1);
+      if (pride === 'low') k = Math.max(0, k - 1);
+      meaning = order[k];
+    }
+  }
+  const lc = meaning === 'good sign' ? 'up' : meaning === 'nothing much' ? 'same' : 'down';
+  return withLiking ? [meaning, pressure, lc] : [meaning, pressure];
+}
+
+const T12_STEPS = {
+  'people mean well': { held: { warmth: 1 }, core: { warmth: 1, sociability: 1 } },
+  'people are against me': { held: { warmth: -1 }, core: { warmth: -1, sociability: -1 } },
+  'i am respected': { core: { pride: 1 } },
+  'i am overlooked': { held: { sociability: -1 }, core: { sociability: -1, pride: 1 } },
+  'hard work pays off': { held: { diligence: 1 }, core: { diligence: 1 } },
+  'nothing i do matters': { held: { diligence: -1 }, core: { diligence: -1, sociability: -1 } },
+};
+
+const RULES = {
+  T1: ([food, energy]) => {
+    if (food === 'starving') return ['eat now'];
+    if (energy === 'exhausted') return ['rest now'];
+    if (food === 'very hungry') return ['eat'];
+    if (energy === 'very tired') return ['rest'];
+    if (food === 'hungry' && energy === 'tired') return ['eat'];
+    return ['none'];
+  },
+  T2: ([need, dil, soc]) => {
+    if (need !== 'none') return ['home', dil === 'high' ? 'field' : 'square'];
+    const fs = i(dil), ss = i(soc);
+    const first = ss > fs ? 'square' : 'field';
+    let second = first === 'field' ? 'square' : 'field';
+    if (fs === -1 && ss === -1) second = 'home';
+    return [first, second];
+  },
+  T3: ([w, l, m]) => {
+    const s = i(w) + likingIdx(l) + moodIdx(m);
+    return [s >= 2 ? 'friendly' : s >= 0 ? 'neutral' : s === -1 ? 'cold' : 'hostile'];
+  },
+  T4: ([stance, room, hon]) => {
+    const low = hon === 'low';
+    if (room === 'field') {
+      if (stance === 'friendly') return ['help', 'chat'];
+      if (stance === 'neutral') return ['chat', 'help'];
+      if (stance === 'cold') return low ? ['chat', 'take credit'] : ['chat', 'chat'];
+      return low ? ['argue', 'take credit'] : ['argue', 'chat'];
+    }
+    if (stance === 'friendly') return ['praise', 'share food'];
+    if (stance === 'neutral') return low ? ['chat', 'ignore'] : ['chat', 'chat'];
+    if (stance === 'cold') return ['ignore', 'interrupt'];
+    return ['argue', 'interrupt'];
+  },
+  T5: ([hon, pride]) => [i(hon) - i(pride) >= 0 ? 'apologise' : "don't"],
+  T6: ([ev, belief, tier]) => appraise(ev, belief, tier, null, true),
+  T7: ([ev, belief, tier, pride]) => appraise(ev, belief, tier, pride, true),
+  T8: ([ev, belief, tier]) => appraise(ev, belief, tier, null, false),
+  T9: ([mood, meaning]) => {
+    const k = MOODS.indexOf(mood);
+    if (meaning === 'good sign') return [MOODS[Math.min(2, k + 1)]];
+    if (meaning === 'nothing much') return [mood];
+    if (meaning === 'slight') return [MOODS[Math.max(0, k - 1)]];
+    return ['low'];
+  },
+  T10: ([w, off, ap]) => {
+    const g = i(w) + (ap === 'received' ? 1 : 0) - (off === 'insult' ? 1 : 0);
+    return [g >= 1 ? 'let it go' : g === 0 ? 'cool off' : g === -1 ? 'hold grudge' : 'pay back'];
+  },
+  T11: ([bal, tier, flex]) => {
+    if (bal === 'strongly for') return [tier === 'core' ? 'stay' : 'up'];
+    if (bal === 'mostly for') return [flex === 'high' && tier !== 'core' ? 'up' : 'stay'];
+    if (bal === 'mixed') return ['stay'];
+    if (tier === 'faint') return [flex === 'low' ? 'stay' : 'flip'];
+    if (tier === 'held') return [flex === 'low' ? 'stay' : 'down'];
+    return [flex === 'high' ? 'break' : flex === 'mid' ? 'down' : 'stay'];
+  },
+  T12: ([belief, tier]) => ['warmth', 'sociability', 'diligence', 'pride'].map((t) => {
+    const v = (T12_STEPS[belief][tier] || {})[t] || 0;
+    return v > 0 ? '+1' : v < 0 ? '-1' : '0';
+  }),
+};
+
+const dir = path.join('tables', 'rules');
+fs.mkdirSync(dir, { recursive: true });
+const files = {};
+for (const s of TABLE_SCHEMAS) {
+  const rows = new Map();
+  for (const combo of grid(s)) rows.set(combo.join('|'), RULES[s.id](combo));
+  files[s.file] = normalisedTableText(s, rows);
+  fs.writeFileSync(path.join(dir, s.file), files[s.file]);
+}
+const { tables, errors } = loadTables(files);
+if (errors.length) { console.error('Generated tables failed validation:\n' + errors.join('\n')); process.exit(1); }
+for (const s of TABLE_SCHEMAS) console.log(`${s.file.padEnd(24)} ${String(tables[s.id].rows.size).padStart(3)} rows  ${tables[s.id].hash}`);
+console.log(`wrote ${TABLE_SCHEMAS.length} tables to ${dir}`);
+gen_cast.js
+js
+// gen_cast.js — writes cast/cast_s1_n20.csv (A9).
+import fs from 'node:fs';
+import { generateCast } from './engine.js';
+import { sha256 } from './sha256.js';
+
+const text = generateCast(1, 20);
+fs.mkdirSync('cast', { recursive: true });
+fs.writeFileSync('cast/cast_s1_n20.csv', text);
+console.log(`wrote cast/cast_s1_n20.csv  sha256 ${sha256(text)}`);
+run.js
+js
+#!/usr/bin/env node
+// run.js — command-line batch runner (A13).
+import fs from 'node:fs';
+import path from 'node:path';
+import { Sim, TABLE_SCHEMAS, PAIRS, makeConfig } from './engine.js';
+
+const INT = ['runSeed', 'castSeed', 'n', 'days', 'hamletSize', 'pSecond'];
+const BOOL = ['loopOff', 'traitsOff', 'logDecisions', 'skipValidation'];
+
+function parseArgs(argv) {
+  const o = {};
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (!a.startsWith('--')) throw new Error(`unexpected argument "${a}"`);
+    const k = a.slice(2), nx = argv[i + 1];
+    if (BOOL.includes(k)) {
+      if (nx === 'true' || nx === 'false') { o[k] = nx === 'true'; i++; } else o[k] = true;
+    } else if (k === 'noLog') {
+      o.logDecisions = false;
+    } else {
+      if (nx === undefined) throw new Error(`--${k} needs a value`);
+      o[k] = INT.includes(k) ? parseInt(nx, 10) : nx;
+      i++;
+    }
+  }
+  return o;
+}
+
+const args = parseArgs(process.argv.slice(2));
+const outDir = args.out ?? 'results/run'; delete args.out;
+const seeds = args.seeds; delete args.seeds;
+const cfg = makeConfig(args);
+
+const tableFiles = Object.fromEntries(TABLE_SCHEMAS.map((s) => [s.file, fs.readFileSync(path.join(cfg.tableDir, s.file), 'utf8')]));
+const CAST_PATH = 'cast/cast_s1_n20.csv';
+const castText = cfg.castSeed === 1 && cfg.n <= 20 && fs.existsSync(CAST_PATH) ? fs.readFileSync(CAST_PATH, 'utf8') : null;
+
+function runOne(c, dir) {
+  const sim = new Sim(c, tableFiles, castText);
+  while (!sim.done) sim.stepTick();
+  fs.mkdirSync(dir, { recursive: true });
+  const summary = sim.summary();
+  fs.writeFileSync(path.join(dir, 'summary.json'), JSON.stringify(summary, null, 2) + '\n');
+  if (c.logDecisions) {
+    fs.writeFileSync(path.join(dir, 'decision_log.csv'), sim.decisionLogText());
+    fs.writeFileSync(path.join(dir, 'event_log.csv'), sim.eventLogText());
+  }
+  if (sim.keepSnapshots) {
+    fs.writeFileSync(path.join(dir, 'snapshots.json'), JSON.stringify({ initial: sim.initialSnapshot, days: sim.snapshots }) + '\n');
+  }
+  console.log(`seed ${c.runSeed}: state ${summary.stateHash}  log ${summary.logHash}  missingRows ${summary.missingRows.count}  ${summary.timing.msPerTick} ms/tick  -> ${dir}`);
+  return summary;
+}
+
+const POS = ['m3', 'm2', 'm1', 'p1', 'p2', 'p3'];
+const HEADER = ['runSeed', 'stateHash', 'logHash', 'missingRows', 'friendships', 'feuds', 'isolates', 'mood_low', 'mood_calm', 'mood_good',
+  ...PAIRS.flatMap((p) => POS.map((k) => `${p}_${k}`)), 'moves_up', 'moves_down', 'moves_flip', 'moves_break'];
+
+function finalRow(s) {
+  const last = s.days[s.days.length - 1];
+  const tot = { up: 0, down: 0, flip: 0, break: 0 };
+  for (const d of s.days) for (const k in tot) tot[k] += d.moves[k];
+  if (!last) return [s.config.runSeed, s.stateHash, s.logHash, s.missingRows.count].join(',');
+  return [s.config.runSeed, s.stateHash, s.logHash, s.missingRows.count, last.friendships, last.feuds, last.isolates,
+    last.moods.low, last.moods.calm, last.moods.good,
+    ...PAIRS.flatMap((p) => POS.map((k) => last.positions[p][k])), tot.up, tot.down, tot.flip, tot.break].join(',');
+}
+
+if (seeds) {
+  const [a, b] = String(seeds).split('-').map((x) => parseInt(x, 10));
+  const hi = Number.isNaN(b) || b === undefined ? a : b;
+  const rows = [HEADER.join(',')];
+  for (let s = a; s <= hi; s++) rows.push(finalRow(runOne({ ...cfg, runSeed: s }, path.join(outDir, `seed_${s}`))));
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'final_metrics.csv'), rows.join('\n') + '\n');
+  console.log(`wrote ${path.join(outDir, 'final_metrics.csv')}`);
+} else {
+  runOne(cfg, outDir);
+}
+test.js
+js
+// test.js — acceptance tests (A15). Prints PASS/FAIL per test and the golden hashes.
+import fs from 'node:fs';
+import { sha256 } from './sha256.js';
+import { Sim, loadTables, generateCast, TABLE_SCHEMAS } from './engine.js';
+
+const readDir = (dir) => Object.fromEntries(TABLE_SCHEMAS.map((s) => [s.file, fs.readFileSync(`${dir}/${s.file}`, 'utf8')]));
+const rules = readDir('tables/rules');
+const castFile = fs.readFileSync('cast/cast_s1_n20.csv', 'utf8');
+const castFor = (cfg) => ((cfg.castSeed ?? 1) === 1 && cfg.n <= 20 ? castFile : null);
+function run(cfg, files = rules) {
+  const sim = new Sim(cfg, files, castFor(cfg));
+  while (!sim.done) sim.stepTick();
+  return sim;
+}
+function editRows(text, fn) {
+  const lines = text.split('\n');
+  const out = [lines[0]];
+  for (const l of lines.slice(1)) { if (!l) continue; const r = fn(l); if (r !== null) out.push(r); }
+  return out.join('\n') + '\n';
+}
+function assert(c, msg) { if (!c) throw new Error(msg); }
+
+let passed = 0, failed = 0;
+function test(name, fn) {
+  try { const note = fn(); console.log(`PASS  ${name}${note ? '  — ' + note : ''}`); passed++; }
+  catch (e) { console.log(`FAIL  ${name}  — ${e.message}`); failed++; }
+}
+
+let golden20 = null, golden5 = null;
+
+test('0. SHA-256 known vectors', () => {
+  assert(sha256('') === 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'empty string');
+  assert(sha256('abc') === 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad', '"abc"');
+  assert(sha256('abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq') === '248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1', '448-bit vector');
+});
+
+test('1. Validation', () => {
+  const ok = loadTables(rules);
+  assert(ok.errors.length === 0, 'rule tables invalid: ' + ok.errors.join('; '));
+  const rowsTotal = TABLE_SCHEMAS.reduce((a, s) => a + ok.tables[s.id].rows.size, 0);
+  const del = { ...rules, 'T3_stance.csv': editRows(rules['T3_stance.csv'], (l) => (l.startsWith('mid,neutral,calm,') ? null : l)) };
+  assert(loadTables(del).errors.some((e) => e.includes('missing row')), 'deleted row not detected');
+  const bad = { ...rules, 'T3_stance.csv': editRows(rules['T3_stance.csv'], (l) => (l.startsWith('high,close,good,') ? 'high,close,good,angry' : l)) };
+  assert(loadTables(bad).errors.some((e) => e.includes('"angry"')), 'illegal output not detected');
+  const badAct = { ...rules, 'T4_act.csv': editRows(rules['T4_act.csv'], (l) => (l.startsWith('friendly,field,mid,') ? 'friendly,field,mid,praise,chat' : l)) };
+  assert(loadTables(badAct).errors.some((e) => e.includes('"praise"')), 'act not allowed in room not detected');
+  const badP = { ...rules, 'T6_appraise_trust.csv': editRows(rules['T6_appraise_trust.csv'], (l) => (l.startsWith('helped,people mean well,core,') ? 'helped,people mean well,core,good sign,stronger,up' : l)) };
+  assert(loadTables(badP).errors.some((e) => e.includes('"stronger"')), 'pressure constraint not detected');
+  return `${rowsTotal} rows valid; deleted row, illegal output, wrong-room act, core "stronger" all detected`;
+});
+
+test('2. Determinism', () => {
+  golden20 = run({ runSeed: 1, n: 20, days: 30 });
+  const b = run({ runSeed: 1, n: 20, days: 30 });
+  assert(golden20.stateHash === b.stateHash, 'state hash differs');
+  assert(golden20.logHash === b.logHash, 'log hash differs');
+  return `state ${golden20.stateHash.slice(0, 16)}…`;
+});
+
+test('3. Seed sensitivity', () => {
+  const c = run({ runSeed: 2, n: 20, days: 30 });
+  assert(c.stateHash !== golden20.stateHash, 'runSeed 2 gave the same state hash');
+});
+
+test('4. Stream isolation', () => {
+  const mod = { ...rules, 'T4_act.csv': editRows(rules['T4_act.csv'], (l) => (l.startsWith('neutral,square,mid,') ? 'neutral,square,mid,argue,interrupt' : l)) };
+  const base = run({ runSeed: 1, n: 20, days: 1 });
+  const alt = run({ runSeed: 1, n: 20, days: 1 }, mod);
+  const meets = (s) => s.events.filter((l) => !l.startsWith('night')).map((l) => l.split(',').slice(0, 4).join(','));
+  assert(JSON.stringify(meets(base)) === JSON.stringify(meets(alt)), 'meeting sequence changed');
+  const acts = (s) => s.events.map((l) => l.split(',')[4]).join();
+  return `${meets(base).length} meetings identical; acts ${acts(base) === acts(alt) ? 'unchanged (row not hit)' : 'changed'}`;
+});
+
+test('5. Loop off', () => {
+  const s = run({ runSeed: 1, n: 20, days: 30, loopOff: true });
+  const pos = (arr) => arr.map((x) => `${x.trust},${x.worth},${x.effort}`).join(';');
+  assert(pos(s.initialSnapshot) === pos(s.snapshots[s.snapshots.length - 1].npcs), 'belief positions changed');
+});
+
+test('6. Traits off', () => {
+  const s = run({ runSeed: 1, n: 20, days: 3, traitsOff: true });
+  assert(s.npcs.every((p) => Object.values(p.temperament).every((v) => v === 'mid')), 'a temperament trait is not mid');
+});
+
+test('7. Fallback', () => {
+  const del = { ...rules, 'T3_stance.csv': editRows(rules['T3_stance.csv'], (l) => (l.startsWith('mid,neutral,calm,') ? null : l)) };
+  const s = run({ runSeed: 1, n: 20, days: 30, skipValidation: true }, del);
+  assert(s.done, 'run did not complete');
+  assert(s.missingCount > 0, 'missingRows is 0');
+  assert(s.missingKeys.includes('T3:mid|neutral|calm'), 'deleted key not recorded');
+  assert(s.log.some((l) => l.includes(',T3,mid|neutral|calm,neutral,-')), 'default output not logged');
+  return `missingRows ${s.missingCount}`;
+});
+
+test('8. Body sanity', () => {
+  assert(golden20.maxStarvingStreak <= 16, `max starving streak ${golden20.maxStarvingStreak}`);
+  return `max consecutive starving ticks ${golden20.maxStarvingStreak}`;
+});
+
+test('9. Cast', () => {
+  const h = sha256(generateCast(1, 20));
+  assert(h === sha256(castFile), 'regenerated cast differs from shipped file');
+  return h;
+});
+
+test('10. Scale', () => {
+  const s = run({ runSeed: 1, n: 10000, days: 1, logDecisions: false });
+  assert(s.done, 'did not complete');
+  return `n 10000: ${(s.elapsedMs / s.wakingTicks).toFixed(2)} ms per tick (setup ${s.setupMs.toFixed(0)} ms)`;
+});
+
+test('11. Golden hashes', () => {
+  golden5 = run({ runSeed: 1, n: 5, days: 3 });
+});
+
+console.log(`\n${passed} passed, ${failed} failed\n`);
+console.log('Golden hashes (rule tables, castSeed 1):');
+if (golden20) console.log(`  runSeed 1, n 20, days 30   state ${golden20.stateHash}\n                             log   ${golden20.logHash}`);
+if (golden5) console.log(`  runSeed 1, n 5,  days 3    state ${golden5.stateHash}\n                             log   ${golden5.logHash}`);
+process.exitCode = failed ? 1 : 0;
+build_viewer.js
+js
+// build_viewer.js — inlines engine.js, sha256.js and all CSVs in tables/ and cast/ into viewer.html.
+import fs from 'node:fs';
+import path from 'node:path';
+
+const strip = (src) => src
+  .replace(/^import[^\n]*\n/gm, '')
+  .replace(/^export\s+(?=(function|const|let|class)\b)/gm, '');
+
+function collect(dir, out) {
+  if (!fs.existsSync(dir)) return;
+  const entries = fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  for (const e of entries) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) collect(p, out);
+    else if (e.name.endsWith('.csv')) out[p.split(path.sep).join('/')] = fs.readFileSync(p, 'utf8');
+  }
+}
+
+// ---- viewer UI (serialised with toString; runs in the browser) ----
+function viewerMain(FILES) {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const sets = [...new Set(Object.keys(FILES).filter((k) => k.startsWith('tables/')).map((k) => k.split('/').slice(1, -1).join('/')))].sort();
+  for (const s of sets) { const o = document.createElement('option'); o.textContent = s; if (s === 'rules') o.selected = true; $('tset').appendChild(o); }
+  let sim = null, timer = null, selected = 0;
+
+  const tableFiles = (set) => {
+    const o = {};
+    for (const s of TABLE_SCHEMAS) { const k = `tables/${set}/${s.file}`; if (k in FILES) o[s.file] = FILES[k]; }
+    return o;
+  };
+  function readCfg() {
+    const n = parseInt($('n').value, 10);
+    return { runSeed: parseInt($('seed').value, 10), castSeed: 1, n, days: parseInt($('days').value, 10),
+      tableDir: 'tables/' + $('tset').value, loopOff: $('loopOff').checked, traitsOff: $('traitsOff').checked,
+      tablesMode: $('mode').value, logDecisions: n <= 200 };
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } $('bPlay').textContent = 'Play'; }
+  function fresh() {
+    stop();
+    const cfg = readCfg();
+    try {
+      const cast = cfg.castSeed === 1 && cfg.n <= 20 ? FILES['cast/cast_s1_n20.csv'] ?? null : null;
+      sim = new Sim(cfg, tableFiles($('tset').value), cast);
+      selected = 0; $('err').textContent = '';
+    } catch (e) { sim = null; $('err').textContent = e.message; }
+  }
+  function download(name, text, type = 'text/plain') {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type }));
+    a.download = name; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+
+  $('bRun').onclick = () => { fresh(); if (!sim) return; while (!sim.done) sim.stepTick(); render(); };
+  $('bStep').onclick = () => { stop(); if (!sim || sim.done) fresh(); if (!sim) return; sim.stepTick(); render(); };
+  $('bPlay').onclick = () => {
+    if (timer) { stop(); return; }
+    if (!sim || sim.done) fresh();
+    if (!sim) return;
+    $('bPlay').textContent = 'Pause';
+    timer = setInterval(() => { if (!sim || sim.done) { stop(); return; } sim.stepTick(); render(); }, 120);
+  };
+  $('dLog').onclick = () => sim && download('decision_log.csv', sim.config.logDecisions ? sim.decisionLogText() : 'decision log is off for this run\n');
+  $('dEv').onclick = () => sim && download('event_log.csv', sim.eventLogText());
+  $('dSum').onclick = () => sim && download('summary.json', JSON.stringify(sim.summary(), null, 2) + '\n', 'application/json');
+  for (const id of ['seed', 'n', 'days', 'tset', 'mode', 'loopOff', 'traitsOff']) {
+    $(id).onchange = () => { stop(); sim = null; $('clock').textContent = 'Settings changed: press Run or Step.'; };
+  }
+
+  function render() {
+    if (!sim) return;
+    const big = sim.config.n > 200;
+    $('clock').textContent = sim.done ? `Complete: ${sim.config.days} days` : `Day ${sim.day}, hour ${sim.hour} (next tick ${sim.day * 16 + sim.hour})`;
+    const rooms = $('rooms');
+    rooms.innerHTML = '';
+    if (!big) {
+      sim.hamlets.forEach((h, hi) => {
+        const row = document.createElement('div'); row.className = 'hamlet';
+        row.innerHTML = `<div class="hl">Hamlet ${hi + 1}</div>`;
+        for (const room of ROOMS) {
+          const panel = document.createElement('div'); panel.className = 'room';
+          panel.innerHTML = `<div class="rt">${room}</div>`;
+          for (const p of h) if (p.room === room) {
+            const d = document.createElement('button');
+            d.className = `dot mood-${p.mood}${p.idx === selected ? ' sel' : ''}`;
+            d.textContent = p.id;
+            d.title = `${p.id}: mood ${p.mood}, food ${p.food}, energy ${p.energy}`;
+            d.onclick = () => { selected = p.idx; render(); };
+            panel.appendChild(d);
+          }
+          row.appendChild(panel);
+        }
+        rooms.appendChild(row);
+      });
+    } else {
+      rooms.innerHTML = `<p>${sim.config.n} NPCs (dots hidden). ${(sim.elapsedMs / Math.max(1, sim.wakingTicks)).toFixed(2)} ms per tick.</p>`;
+    }
+    side(); charts(); hashes();
+  }
+
+  function side() {
+    const el = $('side');
+    if (sim.config.n > 200) {
+      const m = sim.metrics[sim.metrics.length - 1];
+      el.innerHTML = m ? `<h3>Day ${m.day} metrics</h3><pre class="trace">${esc(JSON.stringify(m, null, 1))}</pre>` : '<p>No completed day yet.</p>';
+      return;
+    }
+    const p = sim.npcs[selected];
+    if (!p) { el.innerHTML = ''; return; }
+    const pos = (b) => { const v = beliefPosition(b); return (v > 0 ? '+' : '') + v; };
+    let html = `<h3>${esc(p.id)}</h3>`;
+    html += `<p><b>Temperament</b><br>${TRAITS.map((t) => `${t} ${p.temperament[t]}`).join(', ')}</p>`;
+    html += `<p><b>Effective</b><br>${EFF_TRAITS.map((t) => `${t} ${p.effective[t]}`).join(', ')}</p>`;
+    html += `<p><b>Beliefs</b><br>${PAIRS.map((pair) => { const b = p.beliefs[pair]; return `${pair}: ${esc(POLES[pair][b.pole])} (${b.tier}, ${pos(b)})`; }).join('<br>')}</p>`;
+    html += `<p><b>Mood</b> ${p.mood} · <b>food</b> ${p.food} · <b>energy</b> ${p.energy} · <b>room</b> ${p.room} · <b>need</b> ${esc(p.need)}</p>`;
+    html += '<table><tr><td><b>toward</b></td><td>liking</td><td>ctr</td><td>grudge</td><td>offence</td><td>owes</td></tr>';
+    for (const [j, r] of p.rel) html += `<tr><td>${sim.npcs[j].id}</td><td>${r.liking}</td><td>${r.counter}</td><td>${esc(r.grudge)}</td><td>${r.offence}</td><td>${r.owesApology ? 'yes' : ''}</td></tr>`;
+    html += '</table>';
+    const lines = [];
+    for (let i = sim.log.length - 1; i >= 0 && lines.length < 10; i--) {
+      const parts = sim.log[i].trimEnd().split(',');
+      if (parts[1] === p.id) lines.push(parts);
+    }
+    lines.reverse();
+    html += '<p><b>Last 10 decisions</b></p><div class="trace">' + lines.map(([tick, , table, key, out, choice]) =>
+      esc(`[${tick}] ${key.split('|').join(', ')} → ${table} → ${out.split('|').join(' / ')}${choice !== '-' ? ` (${choice})` : ''}`)).join('\n') + '</div>';
+    el.innerHTML = html;
+  }
+
+  function charts() {
+    const box = $('charts');
+    const POSV = { m3: -3, m2: -2, m1: -1, p1: 1, p2: 2, p3: 3 };
+    for (const pair of PAIRS) {
+      let c = $('chart-' + pair);
+      if (!c) {
+        const wrap = document.createElement('div');
+        wrap.innerHTML = `<div><b>${pair}</b>: belief position by day</div>`;
+        c = document.createElement('canvas'); c.id = 'chart-' + pair; c.width = 320; c.height = 170;
+        wrap.appendChild(c); box.appendChild(wrap);
+      }
+      const g = c.getContext('2d'), W = c.width, H = c.height;
+      g.clearRect(0, 0, W, H);
+      const days = Math.max(1, sim.config.days);
+      const X = (d) => 28 + (d * (W - 36)) / days;
+      const Y = (v) => 8 + ((3 - v) * (H - 26)) / 6;
+      g.font = '10px sans-serif'; g.fillStyle = '#666'; g.strokeStyle = '#e2e2e2'; g.lineWidth = 1;
+      for (let v = -3; v <= 3; v++) { g.beginPath(); g.moveTo(X(0), Y(v)); g.lineTo(X(days), Y(v)); g.stroke(); g.fillText((v > 0 ? '+' : '') + v, 4, Y(v) + 3); }
+      g.fillText('day 0', X(0), H - 4); g.fillText('day ' + days, X(days) - 34, H - 4);
+      if (sim.keepSnapshots && sim.config.n <= 50) {
+        const series = [sim.initialSnapshot, ...sim.snapshots.map((s) => s.npcs)];
+        g.strokeStyle = 'rgba(90,110,160,0.25)';
+        for (let k = 0; k < sim.npcs.length; k++) {
+          g.beginPath();
+          series.forEach((snap, d) => (d ? g.lineTo(X(d), Y(snap[k][pair])) : g.moveTo(X(d), Y(snap[k][pair]))));
+          g.stroke();
+        }
+      }
+      const n = sim.npcs.length;
+      const means = [sim.initialSnapshot.reduce((a, x) => a + x[pair], 0) / n,
+        ...sim.metrics.map((m) => Object.entries(m.positions[pair]).reduce((a, [k, cnt]) => a + POSV[k] * cnt, 0) / n)];
+      g.strokeStyle = '#c0392b'; g.lineWidth = 2.5; g.beginPath();
+      means.forEach((v, d) => (d ? g.lineTo(X(d), Y(v)) : g.moveTo(X(d), Y(v))));
+      g.stroke();
+    }
+  }
+
+  function hashes() {
+    const lines = [`cast hash    ${sim.castHash}`];
+    for (const [k, v] of Object.entries(sim.tableHashes)) lines.push(`${k.padEnd(4)} hash    ${v}`);
+    lines.push(`missingRows  ${sim.missingCount}`);
+    if (sim.done) lines.push(`state hash   ${sim.stateHash}`, `log hash     ${sim.logHash}`, `ms per tick  ${(sim.elapsedMs / Math.max(1, sim.wakingTicks)).toFixed(3)}`);
+    else lines.push('state and log hashes appear when the run is complete');
+    $('hashes').textContent = lines.join('\n');
+  }
+}
+
+const TEMPLATE = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Village Core v1.0 viewer</title>
+<style>
+body{font:13px/1.4 system-ui,sans-serif;margin:12px;color:#222}
+#controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+#controls label{display:flex;gap:4px;align-items:center}
+input[type=number]{width:70px}
+#main{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:12px}
+.hamlet{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
+.hl{grid-column:1/-1;font-weight:600}
+.room{border:1px solid #ccc;border-radius:6px;padding:6px;min-height:80px}
+.rt{font-weight:600;margin-bottom:4px;text-transform:capitalize}
+.dot{border:0;border-radius:12px;padding:2px 7px;margin:2px;color:#fff;cursor:pointer;font:11px monospace}
+.mood-low{background:#b54848}.mood-calm{background:#777}.mood-good{background:#3f8f48}
+.sel{outline:3px solid #f2b600}
+#side{border:1px solid #ccc;border-radius:6px;padding:8px;overflow:auto;max-height:640px}
+#side table{border-collapse:collapse;font-size:12px}#side td{padding:1px 6px;border-bottom:1px solid #eee}
+.trace{font:11px monospace;white-space:pre-wrap}
+#charts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+#hashes{font:11px monospace;white-space:pre-wrap;background:#f6f6f6;padding:8px;border-radius:6px;margin-top:8px}
+#err{color:#b00;white-space:pre-wrap}
+</style></head><body>
+<h2>Village Core v1.0</h2>
+<div id="controls">
+<label>run seed <input id="seed" type="number" value="1"></label>
+<label>n <select id="n"><option>5</option><option selected>20</option><option>1000</option><option>10000</option></select></label>
+<label>days <input id="days" type="number" value="30" min="1"></label>
+<label>table set <select id="tset"></select></label>
+<label>tablesMode <select id="mode"><option>csv</option><option>shuffled</option><option>random</option></select></label>
+<label><input id="loopOff" type="checkbox"> loopOff</label>
+<label><input id="traitsOff" type="checkbox"> traitsOff</label>
+<button id="bRun">Run</button><button id="bStep">Step</button><button id="bPlay">Play</button>
+<span>Download: <button id="dLog">decision log</button><button id="dEv">event log</button><button id="dSum">summary</button></span>
+</div>
+<div id="clock">Press Run or Step.</div><div id="err"></div>
+<div id="main"><div><div id="rooms"></div><div id="charts"></div></div><div id="side"></div></div>
+<div id="hashes"></div>
+<script>
+/*__ENGINE__*/
+</script>
+<script>
+const FILES = /*__FILES__*/;
+/*__MAIN__*/
+</script>
+</body></html>
+`;
+
+const files = {};
+collect('tables', files);
+collect('cast', files);
+const engineSrc = strip(fs.readFileSync('sha256.js', 'utf8')) + '\n' + strip(fs.readFileSync('engine.js', 'utf8'));
+const filesJson = JSON.stringify(files).replace(/</g, '\\u003c');
+const html = TEMPLATE
+  .replace('/*__ENGINE__*/', () => engineSrc)
+  .replace('/*__FILES__*/', () => filesJson)
+  .replace('/*__MAIN__*/', () => `(${viewerMain.toString()})(FILES);`);
+fs.writeFileSync('viewer.html', html);
+console.log(`wrote viewer.html (${Object.keys(files).length} CSV files inlined, ${(html.length / 1024).toFixed(0)} KB)`);
+README.md
+markdown
+# Village Core v1.0
+
+A small, deterministic, agent-based village simulation built to the v1.0 build specification. It has no dependencies and runs in Node ≥ 18 and in modern browsers.
+
+## How to run
+
+```
+node gen_cast.js          # cast/cast_s1_n20.csv
+node gen_rule_tables.js   # tables/rules/T1..T12 (normalised form) + hashes
+node test.js              # acceptance tests + golden hashes
+node build_viewer.js      # viewer.html (self-contained, open in a browser)
+
+node run.js --runSeed 1 --n 20 --days 30 --tableDir tables/rules --out results/base
+node run.js --n 20 --days 30 --loopOff --out results/loopoff
+node run.js --n 20 --days 30 --tablesMode shuffled --seeds 1-100 --out results/shuffled
+```
+
+`run.js` flags are `--runSeed --castSeed --n --days --hamletSize --pSecond --tableDir --tablesMode --loopOff --traitsOff --noLog --seeds a-b --out`.
+
+A teacher table set is a new directory under `tables/` that contains all twelve files, with the designer tables T1 and T11 copied in. `build_viewer.js` picks up every directory under `tables/` as a table set.
+
+## File formats
+
+- **Tables** (`tables/<set>/Tn_*.csv`): the headers are exactly as in A6.0b. The input columns come first, then the output columns. There is no quoting. The hash is taken over the normalised text: the header, then the rows sorted by key, each line ending in `\n`.
+- **Cast** (`cast/*.csv`): `id,warmth,sociability,diligence,honesty,pride,flexibility,trust_pole,trust_tier,worth_pole,worth_tier,effort_pole,effort_tier`.
+- **decision_log.csv**: `tick,npc,table,key,output,choice`. One line per lookup, in the order the lookups happen. The tick column is a number, `night<day>` or `start`.
+- **event_log.csv**: `tick,room,initiator,receiver,act,event,meaning,pressure,likingChange`.
+- **summary.json**:
+  - the config, the cast hash and the table hashes;
+  - `missingRows` {count, keys};
+  - `stateHash`, `logHash` and `maxStarvingStreak`;
+  - `days`, one metrics object per day: event counts, moods at the end of hour 15, belief-position counts (`m3…p3`), moves, friendships, feuds and isolates;
+  - `timing`.
+- **snapshots.json**: `{initial, days:[{day, npcs:[{id,trust,worth,effort,eff,mood}], moves:[...]}]}`.
+- **final_metrics.csv** (with `--seeds`): one row per seed, holding the last day's metrics and the total moves.
+
+## Builder decisions
+
+1. I added `package.json` with `"type":"module"` so that Node 18 loads the `.js` files as ES modules.
+2. NPC ids are zero-padded to `max(4, digits of n)`. Ids are `n0001…` for n ≤ 9999 and `n00001…n10000` for n = 10000, so string order always equals numeric order.
+3. Each numbered step of A10 is a full pass over all NPCs, in id order, before the next step starts. For example, every T1 lookup happens before any T2 lookup. This fixes the order of the decision log.
+4. The two-option draw (T2 from `room`, T4 from `act`) is always consumed, even when `first` equals `second`.
+5. In A10.6 the bullets run in the order listed: pressure, then mood (T9), then the liking change, then offence and grudge. The liking change uses R's grudge as it stood *before* this event updated it.
+6. Night work outcomes have no initiator. In the event log their room, initiator, act and likingChange are `-`.
+7. An apology encounter is logged in the event log with act `apology`.
+8. The event log's `likingChange` column holds the table output (`up`/`same`/`down`), not the delta after grudge adjustments.
+9. Moves count toward "moves by type" and the snapshot move list only if they changed the belief. A `stay` move, or a move that doesn't apply, is not counted.
+10. With castSeed 1 and n ≤ 20, the cast is the first n rows of `cast/cast_s1_n20.csv`. Otherwise the engine generates it. The two give identical rows. The cast hash is taken over the header plus the rows actually used.
+11. `missingRows` = {count of fallback lookups, distinct `Tn:key` strings in the order first seen}.
+12. The table hashes in the summary are computed after the `tablesMode` transform, so they describe the tables actually used. In `csv` mode they equal the hashes of the loaded tables.
+13. The `shuffle` and `random` streams are seeded from the run seed and consumed before tick 0.
+14. Validation also checks the header. A row whose input value is not in the vocabulary is reported as an extra row.
+15. The CSV reader strips a BOM and `\r` and ignores blank lines.
+16. The starving streak is measured at step 2, after the body update. It carries across nights, which have no waking ticks.
+17. Per-NPC snapshots are kept when `logDecisions` is on or n ≤ 200. Daily metrics are always kept.
+18. `msPerTick` = time spent stepping (night steps included) ÷ waking ticks, measured with `performance.now()`. Setup time is reported separately.
+19. Daily event counts include `apologised to` and the work outcomes.
+20. An isolate is an NPC with no `like`/`close` relationship in either direction.
+21. In the viewer, the decision log is on for n ≤ 200 and off above that. The n options are 5, 20, 1000 and 10000. The dots are hidden for n > 200. Step runs one waking tick, and the night runs automatically after hour 15. Changing a setting discards the current run.
+22. Test 7 deletes the T3 row `mid,neutral,calm`. Its default (`neutral`) happens to equal the rule output, so the test checks the fallback through `missingRows` and through a log line for that key with the default output.
+23. Test 4 changes the T4 row `neutral,square,mid` to `argue/interrupt` and compares the (tick, room, initiator, receiver) tuples for day 1.
+24. Test 0, a SHA-256 known-vector check, is added in front of the specified tests.
+
+## Golden hashes
+
+Not yet recorded. This build was written without running code. Run `node test.js` and paste its "Golden hashes" block here:
+
+```
+runSeed 1, n 20, days 30   state <paste>   log <paste>
+runSeed 1, n 5,  days 3    state <paste>   log <paste>
+```
+Run it
+node gen_cast.js && node gen_rule_tables.js && node test.js && node build_viewer.js
+
+None of this has been executed, so the code may contain bugs I couldn’t catch.
+
+Run first: test 0 (the SHA-256 vectors) and test 1 (validation). Everything after them depends on those two.
+Possible test failure: test 7 assumes some NPC with mid effective warmth meets a neutral partner while calm during 30 days. That is very likely with this cast but not guaranteed. If it fails, delete a different T3 row in the test.
+Golden hashes: paste the printed pairs into the README.

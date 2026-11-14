@@ -1,0 +1,259 @@
+row_id,need,diligence,sociability,first,second
+T2-01,none,low,low,home,field
+T2-02,none,low,mid,square,home
+T2-03,none,low,high,square,square
+T2-04,none,mid,low,field,home
+T2-05,none,mid,mid,field,square
+T2-06,none,mid,high,square,field
+T2-07,none,high,low,field,field
+T2-08,none,high,mid,field,square
+T2-09,none,high,high,field,square
+T2-10,eat,low,low,home,home
+T2-11,eat,low,mid,home,square
+T2-12,eat,low,high,home,square
+T2-13,eat,mid,low,home,field
+T2-14,eat,mid,mid,home,field
+T2-15,eat,mid,high,home,square
+T2-16,eat,high,low,home,field
+T2-17,eat,high,mid,home,field
+T2-18,eat,high,high,home,field
+T2-19,rest,low,low,home,home
+T2-20,rest,low,mid,home,home
+T2-21,rest,low,high,home,square
+T2-22,rest,mid,low,home,home
+T2-23,rest,mid,mid,home,home
+T2-24,rest,mid,high,home,square
+T2-25,rest,high,low,home,field
+T2-26,rest,high,mid,home,home
+T2-27,rest,high,high,home,home
+
+row_id,warmth,liking,mood,stance
+T3-01,low,dislike,low,hostile
+T3-02,low,dislike,calm,cold
+T3-03,low,dislike,good,cold
+T3-04,low,neutral,low,cold
+T3-05,low,neutral,calm,neutral
+T3-06,low,neutral,good,neutral
+T3-07,low,like,low,neutral
+T3-08,low,like,calm,neutral
+T3-09,low,like,good,friendly
+T3-10,low,close,low,neutral
+T3-11,low,close,calm,friendly
+T3-12,low,close,good,friendly
+T3-13,mid,dislike,low,cold
+T3-14,mid,dislike,calm,cold
+T3-15,mid,dislike,good,neutral
+T3-16,mid,neutral,low,neutral
+T3-17,mid,neutral,calm,neutral
+T3-18,mid,neutral,good,friendly
+T3-19,mid,like,low,neutral
+T3-20,mid,like,calm,friendly
+T3-21,mid,like,good,friendly
+T3-22,mid,close,low,friendly
+T3-23,mid,close,calm,friendly
+T3-24,mid,close,good,friendly
+T3-25,high,dislike,low,cold
+T3-26,high,dislike,calm,neutral
+T3-27,high,dislike,good,neutral
+T3-28,high,neutral,low,neutral
+T3-29,high,neutral,calm,friendly
+T3-30,high,neutral,good,friendly
+T3-31,high,like,low,friendly
+T3-32,high,like,calm,friendly
+T3-33,high,like,good,friendly
+T3-34,high,close,low,friendly
+T3-35,high,close,calm,friendly
+T3-36,high,close,good,friendly
+
+row_id,stance,room,honesty,first,second
+T4-01,friendly,field,low,help,take credit
+T4-02,friendly,field,mid,help,chat
+T4-03,friendly,field,high,help,help
+T4-04,friendly,square,low,chat,praise
+T4-05,friendly,square,mid,chat,share food
+T4-06,friendly,square,high,chat,praise
+T4-07,neutral,field,low,chat,take credit
+T4-08,neutral,field,mid,chat,help
+T4-09,neutral,field,high,help,chat
+T4-10,neutral,square,low,chat,ignore
+T4-11,neutral,square,mid,chat,ignore
+T4-12,neutral,square,high,chat,chat
+T4-13,cold,field,low,take credit,argue
+T4-14,cold,field,mid,chat,argue
+T4-15,cold,field,high,chat,help
+T4-16,cold,square,low,ignore,interrupt
+T4-17,cold,square,mid,ignore,chat
+T4-18,cold,square,high,ignore,chat
+T4-19,hostile,field,low,take credit,argue
+T4-20,hostile,field,mid,argue,take credit
+T4-21,hostile,field,high,argue,argue
+T4-22,hostile,square,low,argue,interrupt
+T4-23,hostile,square,mid,argue,ignore
+T4-24,hostile,square,high,argue,ignore
+
+row_id,honesty,pride,decision
+T5-01,low,low,apologise
+T5-02,low,mid,don't
+T5-03,low,high,don't
+T5-04,mid,low,apologise
+T5-05,mid,mid,apologise
+T5-06,mid,high,don't
+T5-07,high,low,apologise
+T5-08,high,mid,apologise
+T5-09,high,high,apologise
+
+row_id,event,belief,tier,meaning,pressure,liking_change
+T6-01,helped,people mean well,faint,good sign,stronger,up
+T6-02,helped,people mean well,held,good sign,stronger,up
+T6-03,helped,people mean well,core,good sign,same,up
+T6-04,helped,people are against me,faint,good sign,weaker,up
+T6-05,helped,people are against me,held,good sign,weaker,up
+T6-06,helped,people are against me,core,nothing much,same,same
+T6-07,chatted with,people mean well,faint,good sign,stronger,up
+T6-08,chatted with,people mean well,held,nothing much,same,up
+T6-09,chatted with,people mean well,core,nothing much,same,same
+T6-10,chatted with,people are against me,faint,nothing much,weaker,same
+T6-11,chatted with,people are against me,held,nothing much,same,same
+T6-12,chatted with,people are against me,core,nothing much,same,same
+T6-13,shared food with,people mean well,faint,good sign,stronger,up
+T6-14,shared food with,people mean well,held,good sign,stronger,up
+T6-15,shared food with,people mean well,core,good sign,same,up
+T6-16,shared food with,people are against me,faint,good sign,weaker,up
+T6-17,shared food with,people are against me,held,good sign,weaker,up
+T6-18,shared food with,people are against me,core,good sign,strained,up
+T6-19,argued with,people mean well,faint,insult,weaker,down
+T6-20,argued with,people mean well,held,slight,weaker,down
+T6-21,argued with,people mean well,core,slight,same,down
+T6-22,argued with,people are against me,faint,insult,stronger,down
+T6-23,argued with,people are against me,held,insult,stronger,down
+T6-24,argued with,people are against me,core,insult,same,down
+T6-25,interrupted,people mean well,faint,slight,weaker,down
+T6-26,interrupted,people mean well,held,slight,same,same
+T6-27,interrupted,people mean well,core,nothing much,same,same
+T6-28,interrupted,people are against me,faint,slight,stronger,down
+T6-29,interrupted,people are against me,held,slight,stronger,down
+T6-30,interrupted,people are against me,core,insult,same,down
+T6-31,apologised to,people mean well,faint,good sign,stronger,up
+T6-32,apologised to,people mean well,held,good sign,stronger,up
+T6-33,apologised to,people mean well,core,good sign,same,up
+T6-34,apologised to,people are against me,faint,good sign,weaker,up
+T6-35,apologised to,people are against me,held,good sign,weaker,up
+T6-36,apologised to,people are against me,core,nothing much,same,same
+
+row_id,event,belief,tier,pride,meaning,pressure,liking_change
+T7-01,praised,i am respected,faint,low,good sign,stronger,up
+T7-02,praised,i am respected,faint,mid,good sign,stronger,up
+T7-03,praised,i am respected,faint,high,good sign,stronger,up
+T7-04,praised,i am respected,held,low,good sign,stronger,up
+T7-05,praised,i am respected,held,mid,good sign,stronger,up
+T7-06,praised,i am respected,held,high,good sign,stronger,up
+T7-07,praised,i am respected,core,low,good sign,same,up
+T7-08,praised,i am respected,core,mid,good sign,same,up
+T7-09,praised,i am respected,core,high,nothing much,same,up
+T7-10,praised,i am overlooked,faint,low,good sign,weaker,up
+T7-11,praised,i am overlooked,faint,mid,good sign,weaker,up
+T7-12,praised,i am overlooked,faint,high,good sign,weaker,up
+T7-13,praised,i am overlooked,held,low,good sign,weaker,up
+T7-14,praised,i am overlooked,held,mid,good sign,weaker,up
+T7-15,praised,i am overlooked,held,high,good sign,weaker,up
+T7-16,praised,i am overlooked,core,low,nothing much,same,same
+T7-17,praised,i am overlooked,core,mid,good sign,strained,up
+T7-18,praised,i am overlooked,core,high,good sign,strained,up
+T7-19,ignored,i am respected,faint,low,nothing much,same,same
+T7-20,ignored,i am respected,faint,mid,slight,weaker,down
+T7-21,ignored,i am respected,faint,high,slight,weaker,down
+T7-22,ignored,i am respected,held,low,nothing much,same,same
+T7-23,ignored,i am respected,held,mid,nothing much,same,same
+T7-24,ignored,i am respected,held,high,slight,same,down
+T7-25,ignored,i am respected,core,low,nothing much,same,same
+T7-26,ignored,i am respected,core,mid,nothing much,same,same
+T7-27,ignored,i am respected,core,high,insult,same,down
+T7-28,ignored,i am overlooked,faint,low,slight,stronger,same
+T7-29,ignored,i am overlooked,faint,mid,slight,stronger,down
+T7-30,ignored,i am overlooked,faint,high,insult,stronger,down
+T7-31,ignored,i am overlooked,held,low,slight,stronger,same
+T7-32,ignored,i am overlooked,held,mid,slight,stronger,down
+T7-33,ignored,i am overlooked,held,high,insult,stronger,down
+T7-34,ignored,i am overlooked,core,low,slight,same,same
+T7-35,ignored,i am overlooked,core,mid,slight,same,down
+T7-36,ignored,i am overlooked,core,high,insult,same,down
+T7-37,credit taken,i am respected,faint,low,slight,weaker,down
+T7-38,credit taken,i am respected,faint,mid,insult,weaker,down
+T7-39,credit taken,i am respected,faint,high,insult,weaker,down
+T7-40,credit taken,i am respected,held,low,slight,same,down
+T7-41,credit taken,i am respected,held,mid,insult,same,down
+T7-42,credit taken,i am respected,held,high,insult,same,down
+T7-43,credit taken,i am respected,core,low,slight,same,down
+T7-44,credit taken,i am respected,core,mid,insult,same,down
+T7-45,credit taken,i am respected,core,high,insult,strained,down
+T7-46,credit taken,i am overlooked,faint,low,slight,stronger,down
+T7-47,credit taken,i am overlooked,faint,mid,insult,stronger,down
+T7-48,credit taken,i am overlooked,faint,high,insult,stronger,down
+T7-49,credit taken,i am overlooked,held,low,slight,stronger,down
+T7-50,credit taken,i am overlooked,held,mid,insult,stronger,down
+T7-51,credit taken,i am overlooked,held,high,insult,stronger,down
+T7-52,credit taken,i am overlooked,core,low,slight,same,down
+T7-53,credit taken,i am overlooked,core,mid,insult,same,down
+T7-54,credit taken,i am overlooked,core,high,insult,same,down
+
+row_id,event,belief,tier,meaning,pressure
+T8-01,work went well,hard work pays off,faint,good sign,stronger
+T8-02,work went well,hard work pays off,held,good sign,stronger
+T8-03,work went well,hard work pays off,core,good sign,same
+T8-04,work went well,nothing i do matters,faint,good sign,weaker
+T8-05,work went well,nothing i do matters,held,good sign,weaker
+T8-06,work went well,nothing i do matters,core,nothing much,same
+T8-07,work went badly,hard work pays off,faint,slight,weaker
+T8-08,work went badly,hard work pays off,held,slight,same
+T8-09,work went badly,hard work pays off,core,slight,same
+T8-10,work went badly,nothing i do matters,faint,slight,stronger
+T8-11,work went badly,nothing i do matters,held,slight,stronger
+T8-12,work went badly,nothing i do matters,core,nothing much,same
+
+row_id,mood,meaning,new_mood
+T9-01,low,good sign,calm
+T9-02,low,nothing much,low
+T9-03,low,slight,low
+T9-04,low,insult,low
+T9-05,calm,good sign,good
+T9-06,calm,nothing much,calm
+T9-07,calm,slight,low
+T9-08,calm,insult,low
+T9-09,good,good sign,good
+T9-10,good,nothing much,good
+T9-11,good,slight,calm
+T9-12,good,insult,low
+
+row_id,warmth,offence,apology,response
+T10-01,low,slight,none,hold grudge
+T10-02,low,slight,received,cool off
+T10-03,low,insult,none,pay back
+T10-04,low,insult,received,cool off
+T10-05,mid,slight,none,cool off
+T10-06,mid,slight,received,let it go
+T10-07,mid,insult,none,hold grudge
+T10-08,mid,insult,received,cool off
+T10-09,high,slight,none,let it go
+T10-10,high,slight,received,let it go
+T10-11,high,insult,none,cool off
+T10-12,high,insult,received,let it go
+
+row_id,belief,tier,warmth,sociability,diligence,pride
+T12-01,people mean well,faint,0,0,0,0
+T12-02,people mean well,held,+1,0,0,0
+T12-03,people mean well,core,+1,+1,0,0
+T12-04,people are against me,faint,0,0,0,0
+T12-05,people are against me,held,-1,-1,0,0
+T12-06,people are against me,core,-1,-1,0,+1
+T12-07,i am respected,faint,0,0,0,0
+T12-08,i am respected,held,0,+1,0,+1
+T12-09,i am respected,core,0,+1,0,+1
+T12-10,i am overlooked,faint,0,0,0,0
+T12-11,i am overlooked,held,0,-1,0,0
+T12-12,i am overlooked,core,-1,-1,0,-1
+T12-13,hard work pays off,faint,0,0,0,0
+T12-14,hard work pays off,held,0,0,+1,0
+T12-15,hard work pays off,core,0,0,+1,+1
+T12-16,nothing i do matters,faint,0,0,0,0
+T12-17,nothing i do matters,held,0,0,-1,0
+T12-18,nothing i do matters,core,0,-1,-1,-1

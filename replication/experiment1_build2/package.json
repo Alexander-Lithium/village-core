@@ -1,0 +1,7 @@
+{
+  "name": "village-core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Village Core v1.0 — deterministic agent-based village simulation"
+}

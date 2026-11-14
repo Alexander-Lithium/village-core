@@ -1,0 +1,13 @@
+warmth,offence,apology,response
+high,insult,none,hold grudge
+high,insult,received,let it go
+high,slight,none,let it go
+high,slight,received,let it go
+low,insult,none,pay back
+low,insult,received,cool off
+low,slight,none,cool off
+low,slight,received,cool off
+mid,insult,none,hold grudge
+mid,insult,received,cool off
+mid,slight,none,let it go
+mid,slight,received,let it go

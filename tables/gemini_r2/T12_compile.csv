@@ -1,0 +1,19 @@
+belief,tier,warmth,sociability,diligence,pride
+hard work pays off,core,0,0,+1,+1
+hard work pays off,faint,0,0,+1,0
+hard work pays off,held,0,0,+1,0
+i am overlooked,core,-1,-1,-1,-1
+i am overlooked,faint,0,0,0,0
+i am overlooked,held,0,-1,0,-1
+i am respected,core,+1,+1,0,+1
+i am respected,faint,0,0,0,0
+i am respected,held,0,+1,0,+1
+nothing i do matters,core,-1,-1,-1,-1
+nothing i do matters,faint,0,0,-1,0
+nothing i do matters,held,0,-1,-1,0
+people are against me,core,-1,-1,-1,0
+people are against me,faint,0,-1,0,0
+people are against me,held,-1,-1,0,0
+people mean well,core,+1,+1,0,0
+people mean well,faint,0,0,0,0
+people mean well,held,+1,+1,0,0

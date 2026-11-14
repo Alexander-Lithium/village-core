@@ -1,0 +1,17 @@
+food,energy,need
+fed,exhausted,rest now
+fed,rested,none
+fed,tired,none
+fed,very tired,rest
+hungry,exhausted,rest now
+hungry,rested,none
+hungry,tired,eat
+hungry,very tired,rest
+starving,exhausted,eat now
+starving,rested,eat now
+starving,tired,eat now
+starving,very tired,eat now
+very hungry,exhausted,rest now
+very hungry,rested,eat
+very hungry,tired,eat
+very hungry,very tired,eat

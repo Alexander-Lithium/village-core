@@ -1,0 +1,37 @@
+event,belief,tier,meaning,pressure,liking_change
+apologised to,people are against me,core,nothing much,same,same
+apologised to,people are against me,faint,good sign,weaker,up
+apologised to,people are against me,held,nothing much,weaker,same
+apologised to,people mean well,core,good sign,same,up
+apologised to,people mean well,faint,good sign,stronger,up
+apologised to,people mean well,held,good sign,stronger,up
+argued with,people are against me,core,insult,same,down
+argued with,people are against me,faint,insult,stronger,down
+argued with,people are against me,held,insult,stronger,down
+argued with,people mean well,core,insult,strained,down
+argued with,people mean well,faint,insult,weaker,down
+argued with,people mean well,held,insult,weaker,down
+chatted with,people are against me,core,nothing much,same,same
+chatted with,people are against me,faint,nothing much,weaker,same
+chatted with,people are against me,held,nothing much,same,same
+chatted with,people mean well,core,nothing much,same,same
+chatted with,people mean well,faint,good sign,stronger,up
+chatted with,people mean well,held,nothing much,same,same
+helped,people are against me,core,nothing much,same,same
+helped,people are against me,faint,good sign,weaker,up
+helped,people are against me,held,nothing much,weaker,same
+helped,people mean well,core,good sign,same,up
+helped,people mean well,faint,good sign,stronger,up
+helped,people mean well,held,good sign,stronger,up
+interrupted,people are against me,core,insult,same,down
+interrupted,people are against me,faint,slight,stronger,down
+interrupted,people are against me,held,slight,stronger,down
+interrupted,people mean well,core,slight,same,down
+interrupted,people mean well,faint,nothing much,same,same
+interrupted,people mean well,held,slight,weaker,down
+shared food with,people are against me,core,nothing much,strained,same
+shared food with,people are against me,faint,good sign,weaker,up
+shared food with,people are against me,held,good sign,weaker,up
+shared food with,people mean well,core,good sign,same,up
+shared food with,people mean well,faint,good sign,stronger,up
+shared food with,people mean well,held,good sign,stronger,up
